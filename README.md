@@ -1,24 +1,57 @@
-# README
+# アプリ名：my_confidence
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## アプリ概要
 
-Things you may want to cover:
+自分自身の日々の活動記録を記述することができるサイトです。
+自分自身の活動記録を記述することで、「自分はこれだけ頑張った！」ということを実感してもらい
+自分自身に裏付けのある自信を持ってもらうためのサイトです。
+日々の活動記録をつけたくなるような機能の搭載を目指しています。
 
-* Ruby version
+## バージョン
 
-* System dependencies
+* ruby 2.6.3
+* rails 5.2.3
 
-* Configuration
+## カタログ設計
 
-* Database creation
+<https://docs.google.com/spreadsheets/d/1PWTXyaOHQNR8c3mVfnO9akgOYq46YU_Pztu1CDlhiRU/edit#gid=204658318>
 
-* Database initialization
+## テーブル設計
 
-* How to run the test suite
+<https://docs.google.com/spreadsheets/d/1PWTXyaOHQNR8c3mVfnO9akgOYq46YU_Pztu1CDlhiRU/edit#gid=478804872>
+## ER図
 
-* Services (job queues, cache servers, search engines, etc.)
+![ER図](app/assets/images/ER図.png)
+<https://cacoo.com/diagrams/gUPkC2Yf8GAEMVl8/2B4F4?reload_rt=1567599855582_0>
+## 画面遷移図
 
-* Deployment instructions
+<https://cacoo.com/diagrams/gUPkC2Yf8GAEMVl8/25FBB?reload_rt=1567599855582_0>
+## ワイヤーフレームワーク
 
-* ...
+<https://cacoo.com/diagrams/gUPkC2Yf8GAEMVl8/51CCE?reload_rt=1567599855582_0>
+## 使用予定のGem
+
+
+* devise
+
+* carrierwave
+
+* mini_magick
+
+* kaminari
+
+* simple_calendar
+
+* rspec-rails
+
+* faker
+
+* fog-aws
+
+* dotenv-rails
+
+* bootstrap
+
+* jquery-rails
+
+* ransack
