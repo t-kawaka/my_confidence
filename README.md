@@ -21,7 +21,7 @@
 <https://docs.google.com/spreadsheets/d/1PWTXyaOHQNR8c3mVfnO9akgOYq46YU_Pztu1CDlhiRU/edit#gid=478804872>
 ## ER図
 
-![ER図](app/assets/images/ER図.png)
+![ER図](app/assets/images/ER図_2.png)
 <https://cacoo.com/diagrams/gUPkC2Yf8GAEMVl8/2B4F4?reload_rt=1567599855582_0>
 ## 画面遷移図
 
