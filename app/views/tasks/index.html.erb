@@ -16,7 +16,7 @@
       <tr>
         <td><%= task.title %></td>
         <td><%= task.start_time.strftime("%Y-%m-%d %H:%M") %></td>
-        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Show', task, class: "btn btn-primary" %></td>
         <td><%= link_to 'Edit', edit_task_path(task.id) %></td>
         <td><%= link_to 'Destroy',task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -26,7 +26,7 @@
 
 <br>
 
-<%= link_to '日記をかく', new_task_path %>
+<%= link_to "本日のアクション", new_task_path %>
 
 <%= month_calendar events: @tasks do |date, tasks| %>
   <%= date.day %>

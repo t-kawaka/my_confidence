@@ -1,6 +1,7 @@
+<h1>本日のアクション</h1>
 <%= form_with(model: @task, local: true) do |form| %>
 
-  <div class="title">
+  <div class="form-group">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
