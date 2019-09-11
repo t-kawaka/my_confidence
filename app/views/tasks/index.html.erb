@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>タイトル</th>
-      <th>時間</th>
+      <th>アクション日</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,9 +16,9 @@
       <tr>
         <td><%= task.title %></td>
         <td><%= l task.start_time, format: :short %></td>
-        <td><%= link_to 'Show', task, class: "btn btn-primary" %></td>
-        <td><%= link_to 'Edit', edit_task_path(task.id) %></td>
-        <td><%= link_to 'Destroy',task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', task, class: "btn btn-primary ml-2" %></td>
+        <td><%= link_to 'Edit', edit_task_path(task.id), class: "btn btn-success ml-2" %></td>
+        <td><%= link_to 'Destroy',task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger ml-2" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,7 +26,7 @@
 
 <br>
 
-<%= link_to "本日のアクション", new_task_path %>
+<%= link_to "本日のアクション", new_task_path, class:"btn btn-primary" %>
 
 <%= month_calendar events: @tasks do |date, tasks| %>
   <%= date.day %>
