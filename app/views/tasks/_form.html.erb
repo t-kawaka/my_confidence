@@ -22,7 +22,19 @@
     <%= form.label :description %>
     <%= form.text_area :description, class:"form-control", rows:5 %>
   </div>
+  <div class="form-group">
+    <%= form.label :notice %>
+    <%= form.text_area :notice, class:"form-control", rows:2 %>
+  </div>
+  <div class="form-group">
+    <%= form.label :require_time %>
+    <%= form.number_field :require_time, class:"form-control" %>分
+  </div>
+  <div class="form-group">
+    <%= form.label :progress %>
+    <%= form.select :progress, [["開始","開始"],["途中","途中"],["完了","完了"]] %>
+  </div>
   <div class="submit">
-    <%= form.submit '保存', class:"btn btn-primary" %>
+    <%= form.submit "保存", class:"btn btn-primary" %>
   </div>
 <% end %>

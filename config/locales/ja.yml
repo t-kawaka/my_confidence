@@ -2,6 +2,9 @@ ja:
   view:
     title: アクション内容
     description: アクション詳細情報
+    notice: 本日学んだこと
+    require_time: 取り組み時間
+    progress: 進捗状況
     created_at: タスク作成日時
     updated_at: タスク更新日時
   activerecord:
@@ -12,6 +15,9 @@ ja:
         title: アクション内容
         description: アクション詳細情報
         start_time: 作成日時
+        notice: 本日学んだこと（空欄でもOKです。）
+        require_time: 取り組み時間（単位：分）
+        progress: 進捗状況
   date:
     abbr_day_names:
     - 日曜日

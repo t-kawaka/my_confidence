@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 2019_09_10_163905) do
     t.string "title", limit: 30, null: false
     t.text "description", null: false
     t.datetime "start_time", default: -> { "now()" }, null: false
+    t.text "notice"
+    t.integer "require_time", null: false
+    t.string "progress", default: "開始", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
