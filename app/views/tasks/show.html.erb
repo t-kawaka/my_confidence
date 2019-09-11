@@ -1,16 +1,23 @@
+<div class="container col-8 offset-2">
+  <div class="card-header">
+    <h2><%= l @task.start_time, format: :short %>の成果</h2>
+    <% if flash[:notice] %>
+      <div class="alert alert-primary"><%= flash[:notice] %></div>
+    <% end %>
 
-<div class="card-header">
-  <h2><%= l @task.start_time, format: :short %>の成果</h2>
-  <% if flash[:notice] %>
-    <div class="alert alert-danger"><%= flash[:notice] %></div>
-  <% end %>
+    <div class="card-body">
+      <h5 class="card-title"><%= t('view.title') %>:</h5>
+      <h5><%= @task.title %></h5>
+      <h5 class="card-text"><%= t('view.description') %>：</h5>
+      <h5><%= simple_format(@task.description) %></h5>
+      <h5 class="card-text"><%= t('view.notice') %>：</h5>
+      <h5><%= simple_format(@task.notice) %></h5>
+      <h5 class="card-text"><%= t('view.require_time') %>：</h5>
+      <h5><%= @task.require_time %>分</h5>
+      <h5 class="card-text"><%= t('view.progress') %>：</h5>
+      <h5><%= @task.progress %></h5>
+    </div>
 
-  <div class="card-body">
-    <h5 class="card-title"><%= t('view.title') %>:</h5>
-    <h5><%= @task.title %></h5>
-    <h5 class="card-text"><%= t('view.description') %>：</h5>
-    <h5><%= simple_format(@task.description) %></h5>
-  </div>
-
-  <%= link_to '編集', edit_task_path(@task), class:"btn btn-success ml-3" %>
-  <%= link_to '戻る', tasks_path, class:"btn btn-info ml-3" %>
+    <%= link_to '編集', edit_task_path(@task), class:"btn btn-success ml-3" %>
+    <%= link_to '戻る', tasks_path, class:"btn btn-info ml-3" %>
+</div>
