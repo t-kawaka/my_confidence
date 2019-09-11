@@ -1,19 +1,16 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>タイトル</strong>
-  <%= @task.title %>
-</p>
+<div class="card-header">
+  <h2><%= l @task.start_time, format: :short %>の成果</h2>
+  <% if flash[:notice] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+  <% end %>
 
-<p>
-  <strong>アクション日</strong>
-  <%= l @task.start_time, format: :short %>
-</p>
+  <div class="card-body">
+    <h4 class="card-title"><%= t('view.title') %>:</h4>
+    <h4><%= @task.title %></h4>
+    <h4 class="card-text"><%= t('view.description') %>：</h4>
+    <h4><%= @task.description %></h4>
+  </div>
 
-<p>
-  <strong>内容</strong>
-  <%= @task.description %>
-</p>
-
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+  <%= link_to '編集', edit_task_path(@task), class:"btn btn-success ml-3" %>
+  <%= link_to '戻る', tasks_path, class:"btn btn-info ml-3" %>
