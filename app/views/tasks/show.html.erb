@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>時間</strong>
-  <%= @task.start_time.strftime("%Y-%m-%d %H:%M") %>
+  <strong>アクション日</strong>
+  <%= l @task.start_time, format: :short %>
 </p>
 
 <p>

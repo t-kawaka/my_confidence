@@ -1,24 +1,2 @@
-<h1>本日のアクション</h1>
-<%= form_with(model: @task, local: true) do |form| %>
-
-  <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="time">
-    <%= form.label :start_time %>
-    <%= form.datetime_field :start_time %>
-  </div>
-
-  <div class="content">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-
-  <div class="submit">
-    <%= form.submit %>
-  </div>
-
-<% end %>
+<h1>本日のアクション作成</h1>
+<%= render partial: 'form', locals: { task: @task } %>
