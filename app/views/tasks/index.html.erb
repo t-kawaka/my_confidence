@@ -1,0 +1,44 @@
+<h1>自分のアクション</h1>
+<% if flash[:notice] %>
+  <div class="alert alert-danger"><%= flash[:notice] %></div>
+<% end %>
+<h3>直近のアクション</h3>
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>アクション日</th>
+      <th>詳細</th>
+      <th>編集</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.last(5).each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= l task.start_time, format: :short %></td>
+        <td><%= link_to 'Show', task, class: "btn btn-primary ml-2 mb-2" %></td>
+        <td><%= link_to 'Edit', edit_task_path(task.id), class: "btn btn-success ml-2 mb-2" %></td>
+        <td><%= link_to 'Destroy',task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger ml-2 mb-2" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to "本日のアクション", new_task_path, class:"btn btn-primary" %>
+
+<div class="space">
+<%= month_calendar events: @tasks do |date, tasks| %>
+  <%= date.day %>
+
+  <% tasks.each do |task| %>
+    <div>
+      <%= link_to task.title, task %>
+    </div>
+  <% end %>
+<% end %>
+</div>
