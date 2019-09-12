@@ -2,7 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// index //
+// task //
+.bg-dark{
+  background-color: #1a252f;
+}
+
 h1, h2{
   margin-top: 60px;
 }
@@ -16,9 +20,18 @@ h3{
   margin: 10px 0;
 }
 
-
-
 table tr td, th{
   padding-left: 10px;
   text-align: center;
+}
+
+.copyright{
+  background-color: #1a252f;
+}
+
+.container small{
+  font-size: 18px;
+}
+.space{
+  margin-bottom: 70px;
 }

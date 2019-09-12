@@ -2,7 +2,7 @@
 <% if flash[:notice] %>
   <div class="alert alert-danger"><%= flash[:notice] %></div>
 <% end %>
-<h3>直近のアクション入力</h3>
+<h3>直近のアクション</h3>
 <table>
   <thead>
     <tr>
@@ -31,6 +31,7 @@
 
 <%= link_to "本日のアクション", new_task_path, class:"btn btn-primary" %>
 
+<div class="space">
 <%= month_calendar events: @tasks do |date, tasks| %>
   <%= date.day %>
 
@@ -40,3 +41,4 @@
     </div>
   <% end %>
 <% end %>
+</div>

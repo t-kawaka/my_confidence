@@ -34,8 +34,10 @@
     <%= form.label :progress %>
     <%= form.select :progress, [["開始","開始"],["途中","途中"],["完了","完了"]] %>
   </div>
-  <div class="submit">
-    <%= form.submit "保存", class:"btn btn-primary" %>
-    <%= link_to "戻る", root_path, class:"btn btn-info ml-2" %>
+  <div class="space">
+    <div class="submit">
+      <%= form.submit "保存", class:"btn btn-primary" %>
+      <%= link_to "戻る", root_path, class:"btn btn-info ml-2" %>
+    </div>
   </div>
 <% end %>
