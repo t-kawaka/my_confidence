@@ -2,23 +2,26 @@
 <% if flash[:notice] %>
   <div class="alert alert-danger"><%= flash[:notice] %></div>
 <% end %>
+<h3>直近のアクション</h3>
 <table>
   <thead>
     <tr>
       <th>タイトル</th>
       <th>アクション日</th>
-      <th colspan="3"></th>
+      <th>詳細</th>
+      <th>編集</th>
+      <th>削除</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @tasks.each do |task| %>
+    <% @tasks.last(5).each do |task| %>
       <tr>
         <td><%= task.title %></td>
         <td><%= l task.start_time, format: :short %></td>
-        <td><%= link_to 'Show', task, class: "btn btn-primary ml-2" %></td>
-        <td><%= link_to 'Edit', edit_task_path(task.id), class: "btn btn-success ml-2" %></td>
-        <td><%= link_to 'Destroy',task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger ml-2" %></td>
+        <td><%= link_to 'Show', task, class: "btn btn-primary ml-2 mb-2" %></td>
+        <td><%= link_to 'Edit', edit_task_path(task.id), class: "btn btn-success ml-2 mb-2" %></td>
+        <td><%= link_to 'Destroy',task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger ml-2 mb-2" %></td>
       </tr>
     <% end %>
   </tbody>
