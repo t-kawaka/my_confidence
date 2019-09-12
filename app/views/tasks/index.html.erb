@@ -1,7 +1,21 @@
 <h1>自分のアクション</h1>
 <% if flash[:notice] %>
-  <div class="alert alert-danger"><%= flash[:notice] %></div>
+  <div class="alert alert-info"><%= flash[:notice] %></div>
 <% end %>
+
+<h3><現在、重点的に取り組んでいること></h3>
+<% if @points.present? %>
+<ul>
+  <% @points.each do |point| %>
+    <%= point.title %>
+    <%= link_to "修正", edit_task_point(point.id) %>
+  <% end %>
+  <% else %>
+    特にない
+<% end %>
+</ul>
+
+
 <h3>直近のアクション</h3>
 <table>
   <thead>
