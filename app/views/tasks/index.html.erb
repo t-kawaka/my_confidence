@@ -3,22 +3,27 @@
   <div class="alert alert-info"><%= flash[:notice] %></div>
 <% end %>
 
-<h3><現在、重点的に取り組んでいること></h3>
-<% if @points.present? %>
-<ul>
-  <% @points.each do |point| %>
-    <%= point.title %>
-    <%= link_to "修正", edit_task_point(point.id) %>
+<div class="table_space">
+<h4><現在、重点的に取り組んでいること></h4>
+  <% if @points.present? %>
+    <table>
+      <tr>
+      <% @points.each do |point| %>
+        <td><h4><%= point.name %></h4></td>
+        <td><%= link_to "修正", edit_point_path(point.id), class: "btn btn-success mb-1" %><td>
+        <td><%= link_to "削除", point_path(point.id),method: :delete, data: {confirm: '重点的に取り組んでいること削除する？'}, class: "btn btn-danger mb-1" %></td>
+      </tr>
+      <% end %>
+      <% else %>
+        <h4>特にない</h4>
+        <%= link_to '重点的に取り組んでいることがあればこちらに入力', new_point_path, class:"btn btn-primary" %>
+    </table>
   <% end %>
-  <% else %>
-    特にない
-<% end %>
-</ul>
+</div>
 
-
-<h3>直近のアクション</h3>
 <table>
   <thead>
+    <h4>直近のアクション</h4>
     <tr>
       <th>タイトル</th>
       <th>アクション日</th>
@@ -33,17 +38,16 @@
       <tr>
         <td><%= task.title %></td>
         <td><%= l task.start_time, format: :short %></td>
-        <td><%= link_to 'Show', task, class: "btn btn-primary ml-2 mb-2" %></td>
-        <td><%= link_to 'Edit', edit_task_path(task.id), class: "btn btn-success ml-2 mb-2" %></td>
-        <td><%= link_to 'Destroy',task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger ml-2 mb-2" %></td>
+        <td><%= link_to '詳細', task, class: "btn btn-primary ml-2 mb-2" %></td>
+        <td><%= link_to '編集', edit_task_path(task.id), class: "btn btn-success ml-2 mb-2" %></td>
+        <td><%= link_to '削除',task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger ml-2 mb-2" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
 <%= link_to "本日のアクション", new_task_path, class:"btn btn-primary" %>
+
 
 <div class="space">
 <%= month_calendar events: @tasks do |date, tasks| %>

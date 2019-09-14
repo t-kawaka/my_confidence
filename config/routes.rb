@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: "tasks#index"
-  resources :tasks do
-    resources :points
-  end
+  resources :tasks 
+  resources :points
 end

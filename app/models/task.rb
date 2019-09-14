@@ -6,6 +6,7 @@ class Task < ApplicationRecord
   validates :require_time, numericality: { only_integer: true, greater_than: 0, less_than: 1440}
   enum progress: { 開始: "開始", 途中: "途中", 完了: "完了" }
   has_many :points
+  accepts_nested_attributes_for :points
 
   def start_cannnot_be_in_the_future
     if start_time.present? && start_time > Date.today

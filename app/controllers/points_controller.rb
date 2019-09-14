@@ -6,8 +6,7 @@ class PointsController < ApplicationController
   end
 
   def create
-    @task = Task.find(params[:task_id])
-    @point = @task.points.build(point_params)
+    @point = Point.new(point_params)
     if @point.save
       flash[:notice] = "重点的に取り組んでいること「#{@point.name}」を作成しました"
       redirect_to root_path
@@ -20,7 +19,7 @@ class PointsController < ApplicationController
   end
 
   def update
-    if @point.update(task_params)
+    if @point.update(point_params)
       flash[:notice] = "重点的に取り組んでいること「#{@point.name}」を編集しました"
       redirect_to root_path
     else
@@ -35,9 +34,8 @@ class PointsController < ApplicationController
   end
 
   private
-
   def point_params
-    params.require(:comment).permit(:task_id, :name)
+    params.require(:point).permit(:task_id, :name)
   end
 
   def set_point

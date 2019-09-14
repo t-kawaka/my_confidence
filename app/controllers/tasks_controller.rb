@@ -3,6 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.all.order(start_time: 'desc')
+    @points = Point.all
   end
 
   def new
@@ -43,7 +44,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :start_time, :notice, :require_time, :progress)
+    params.require(:task).permit(:title, :description, :start_time, :notice, :require_time, :progress, points_attributes: [:name])
   end
 
   def set_task
