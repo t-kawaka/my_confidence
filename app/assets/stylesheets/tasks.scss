@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// task //
+// task index//
 .bg-dark{
   background-color: #1a252f;
 }
@@ -32,6 +32,15 @@ table tr td, th{
 .container small{
   font-size: 18px;
 }
+
 .space{
   margin-bottom: 70px;
+}
+
+table tbody h4{
+  margin-top: 5px;
+}
+
+h4{
+  margin-top: 20px;
 }
