@@ -2,6 +2,7 @@ ja:
   view:
     title: アクション内容
     description: アクション詳細情報
+    start_time: アクション日
     notice: 本日学んだこと
     require_time: 取り組み時間
     progress: 進捗状況

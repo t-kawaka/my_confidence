@@ -1,10 +1,11 @@
 <div class="container col-8 offset-2">
-  <div class="card-header">
-    <h2><%= l @task.start_time, format: :short %>の成果</h2>
-    <% if flash[:notice] %>
-      <div class="alert alert-primary"><%= flash[:notice] %></div>
-    <% end %>
-
+  <div class="card">
+    <div class="card-header">
+      <h2><%= l @task.start_time, format: :short %>の成果</h2>
+      <% if flash[:notice] %>
+        <div class="alert alert-primary"><%= flash[:notice] %></div>
+      <% end %>
+    </div>
     <div class="card-body">
       <h5 class="card-title"><%= t('view.title') %>:</h5>
       <h5><%= @task.title %></h5>
@@ -16,9 +17,17 @@
       <h5><%= @task.require_time %>分</h5>
       <h5 class="card-text"><%= t('view.progress') %>：</h5>
       <h5><%= @task.progress %></h5>
+      <%= link_to '編集', edit_task_path(@task), class:"btn btn-success ml-2" %>
+      <%= link_to '戻る', tasks_path, class:"btn btn-info ml-2" %>
     </div>
-
-    <%= link_to '編集', edit_task_path(@task), class:"btn btn-success ml-2" %>
-    <%= link_to '戻る', tasks_path, class:"btn btn-info ml-2" %>
   </div>
+
+  <p>コメント一覧</p>
+  <div class="comments_area_form">
+    <%= render partial: 'comments/index', locals: { comments: @comments, task: @task } %>
+  </div>
+
+  <p>コメント投稿</p>
+    <%= render partial: 'comments/form', locals: { comment: @comment, task: @task } %>
+
 </div>

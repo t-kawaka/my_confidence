@@ -8,6 +8,7 @@ class Task < ApplicationRecord
   has_many :points
   accepts_nested_attributes_for :points
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
 
   def start_cannnot_be_in_the_future
