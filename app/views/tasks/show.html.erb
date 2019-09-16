@@ -22,6 +22,7 @@
     </div>
   </div>
 
+  <div class="space">
   <p>コメント一覧</p>
   <div class="comments_area_form">
     <%= render partial: 'comments/index', locals: { comments: @comments, task: @task } %>
@@ -29,5 +30,5 @@
 
   <p>コメント投稿</p>
     <%= render partial: 'comments/form', locals: { comment: @comment, task: @task } %>
-
+  </div>
 </div>
