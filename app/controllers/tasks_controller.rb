@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = current_user.tasks.all.order(start_time: 'desc')
+    @tasks = current_user.tasks.includes(:user).order(start_time: 'desc')
     @points = Point.all
   end
 
