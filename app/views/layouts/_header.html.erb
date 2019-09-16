@@ -4,18 +4,29 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
+      <% if user_signed_in? %>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <%= link_to "あなたのプロフィール", edit_user_registration_path, class: "nav-link js-scroll-trigger" %>
+            </li>
+            <li class="nav-link js-scroll-trigger">ようこそ<%= current_user.name %>さん</li>
+            <li class="nav-item">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link js-scroll-trigger" %>
+            </li>
+          </ul>
+        </div>
+      <% else %>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <%= link_to "ログイン", new_user_session_path, class: "nav-link js-scroll-trigger" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "サインアップ", new_user_registration_path, class: "nav-link js-scroll-trigger" %>
+            </li>
+          </ul>
+        </div>
+    <% end %>
     </div>
   </nav>

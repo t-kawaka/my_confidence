@@ -10,6 +10,7 @@ ja:
   activerecord:
     models:
       task: アクション
+      user: ユーザー
     attributes:
       task:
         title: アクション内容
@@ -18,6 +19,15 @@ ja:
         notice: 本日学んだこと（空欄でもOKです。）
         require_time: 取り組み時間（半角入力、単位：分）
         progress: 進捗状況
+      user:
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        admin: 管理者権限
+        icon: アイコン画像
+        current_password: "現在のパスワード"
+        password_confirmation: "確認用パスワード"
+        remember_me: "ログインを記憶"
   date:
     abbr_day_names:
     - 日曜日
