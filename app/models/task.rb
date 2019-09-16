@@ -7,6 +7,8 @@ class Task < ApplicationRecord
   enum progress: { 開始: "開始", 途中: "途中", 完了: "完了" }
   has_many :points
   accepts_nested_attributes_for :points
+  belongs_to :user
+
 
   def start_cannnot_be_in_the_future
     if start_time.present? && start_time > Date.today
