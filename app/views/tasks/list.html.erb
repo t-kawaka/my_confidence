@@ -15,7 +15,7 @@
       </thead>
 
       <tbody>
-        <% @tasks.last(5).each do |task| %>
+        <% @tasks.each do |task| %>
           <tr>
             <td><%= task.title %></td>
             <td><%= l task.start_time, format: :short %></td>
