@@ -7,7 +7,7 @@ class PointsController < ApplicationController
   end
 
   def create
-    @point = Point.new(point_params)
+    @point = task.points.build(point_params)
     if @point.save
       flash[:notice] = "重点的に取り組んでいること「#{@point.name}」を作成しました"
       redirect_to root_path
