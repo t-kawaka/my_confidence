@@ -18,8 +18,11 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    @task = @comment.task
-    redirect_to task_path(@task) if @comment.update(comment_params)
+    if @task = @comment.task
+      redirect_to task_path(@task) if @comment.update(comment_params)
+    else
+      redirect_to :back
+    end
   end
 
   def destroy

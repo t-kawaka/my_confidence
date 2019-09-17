@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, :only => [:index, :show]
+  
   root to: "tasks#index"
   resources :tasks, shallow: true do
     resources :comments

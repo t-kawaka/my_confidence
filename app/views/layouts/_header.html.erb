@@ -7,10 +7,13 @@
       <% if user_signed_in? %>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+            <li class="nav-link js-scroll-trigger">ようこそ<%= current_user.name %>さん</li>
             <li class="nav-item">
               <%= link_to "あなたのプロフィール", edit_user_registration_path, class: "nav-link js-scroll-trigger" %>
             </li>
-            <li class="nav-link js-scroll-trigger">ようこそ<%= current_user.name %>さん</li>
+            <li class="nav-item">
+              <%= link_to "他の登録ユーザーさん", users_path, class: "nav-link js-scroll-trigger" %>
+            </li>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link js-scroll-trigger" %>
             </li>

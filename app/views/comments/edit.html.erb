@@ -12,6 +12,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "更新する", class:"btn btn-primary mt-2" %>
+    <%= link_to 'トップページに戻る', tasks_path, class:"btn btn-info mt-2 ml-2" %>
   </div>
 <% end %>
