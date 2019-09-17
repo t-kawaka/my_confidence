@@ -23,7 +23,7 @@
               <% if task.user_id == current_user.id %>
                 <td><%= link_to '詳細', task, class: "btn btn-primary ml-2 mb-2" %></td>
                 <td><%= link_to '編集', edit_task_path(task.id), class: "btn btn-success ml-2 mb-2" %></td>
-                <td><%= link_to '削除',task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger ml-2 mb-2" %></td>
+                <td><%= link_to '削除',task_path(task.id), method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger ml-2 mb-2" %></td>
               <% end %>
             </tr>
           <% end %>

@@ -2,12 +2,12 @@
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
       <li>
-        <p><%= comment.content %></p>
         <% if comment.user.try(:name) %>
-          投稿者：<%= comment.user.name %><br>
+          <li class:"mr-2">投稿者：<%= comment.user.name %> &ensp;投稿日時：<%= l comment.updated_at, format: :default %></li>
         <% else %>
           Not User Data<br>
         <% end %>
+        <p><%= comment.content %></p>
 
         <% if comment.user == current_user %>
           <p>

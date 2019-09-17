@@ -62,7 +62,7 @@ ja:
     - 12月
   time:
     formats:
-      default: "%Y/%m/%d %H:%M:%S"
+      default: "%Y年%m月%d日 %H時%M分%S秒"
       short: "%Y年%m月%d日"
   errors:
     format: "%{attribute}%{message}"
