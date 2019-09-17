@@ -48,6 +48,10 @@ class TasksController < ApplicationController
     end
   end
 
+  def list
+    @tasks = current_user.tasks.includes(:user).order(start_time: 'desc')
+  end
+
   private
 
   def task_params
