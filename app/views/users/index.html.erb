@@ -1,19 +1,25 @@
-<h2>登録されたユーザーさん</h2>
-
-<table class="table table-striped table-bordered table-hover ">
-  <thead>
-    <tr>
-      <th><%= t('view.name') %></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
-    <tr>
-      <% if current_user.id == user.id %>
-        <td class="warning"><%= link_to user.name, user_path(user) %>さん（ユーザー自身）</td>
-      <% else %>
-        <td><%= link_to user.name, user_path(user) %>さん</td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+<div class="col-md-6 offset-3 mt-5">
+  <div class="text-center">
+    <h2>登録されたユーザーさん</h2>
+  </div>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th><%= t('view.name') %></th>
+        <th>詳細情報</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <% if current_user.id == user.id %>
+          <td><h5><%= user.name %>さん（ユーザー自身）</h5></td>
+          <td></td>
+        <% else %>
+          <td><h5><%= user.name%>さん</h5></td>
+          <td><%= link_to '詳細情報', user_path(user), class: "btn btn-primary" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

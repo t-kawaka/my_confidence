@@ -1,20 +1,23 @@
-<h2>ユーザー情報</h2>
+<div class="col-md-6 offset-3 mt-5">
+  <div class="text-center">
+    <h2>ユーザー情報</h2>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t('view.icon') %></th>
-      <th><%= t('view.name') %></th>
-      <th><%= t('view.email') %></th>
-    <tr>
-  </thead>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th><%= t('view.icon') %></th>
+        <th><%= t('view.name') %></th>
+        <th><%= t('view.email') %></th>
+      </tr>
+    </thead>
 
-  <tbody>
-    <tr>
-      <td><%= @user.icon %></td>
-      <td><%= @user.name %></td>
-      <td><%= @user.email %></td>
-
-    </tr>
-   </tbody>
-</table>
+    <tbody>
+      <tr>
+        <td><%= image_tag 'ER図_6.png', :width => '100px' %></td>
+        <td><%= @user.name %></td>
+        <td><%= @user.email %></td>
+      </tr>
+     </tbody>
+  </table>
+</div>
