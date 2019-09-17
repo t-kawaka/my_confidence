@@ -1,5 +1,5 @@
 <%= form_with(model: [@task, @comment]) do |form| %>
-  <% if comment.errors.any? %>
+  <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h4><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h4>
       <ul>

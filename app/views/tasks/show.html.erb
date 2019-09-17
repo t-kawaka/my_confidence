@@ -5,6 +5,9 @@
       <% if @task.user_id != current_user.id %>
        <h4 class="text-danger">他の登録ユーザーさんの画面です。</h4>
       <% end %>
+      <% if flash[:notice] %>
+        <div class="alert alert-primary"><%= flash[:notice] %></div>
+      <% end %>
     </div>
     <div class="card-body">
       <h5 class="card-title"><%= t('view.title') %>:</h5>
@@ -18,7 +21,7 @@
       <h5 class="card-text"><%= t('view.progress') %>：</h5>
       <h5><%= @task.progress %></h5>
       <% if @task.user_id == current_user.id %>
-        <%= link_to '編集', edit_task_path(@task), class:"btn btn-success ml-2" %>
+        <%= link_to '編集', edit_task_path(@task), class: "btn btn-success ml-2" %>
         <%= link_to '削除',task_path(@task), method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger ml-2" %>
       <% end %>
       <%= link_to '戻る', tasks_path, class:"btn btn-info ml-1" %>

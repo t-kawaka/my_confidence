@@ -14,7 +14,11 @@
 
     <tbody>
       <tr>
-        <td><%= image_tag 'ER図_6.png', :width => '100px' %></td>
+        <% if @user.icon.present? %>
+          <td><%= image_tag(@user.icon_url, :width => "100px") if @user.icon %></td>
+        <% else %>
+          <td><%= image_tag 'default.jpg', :width => '100px' %></td>
+        <% end %>
         <td><%= @user.name %></td>
         <td><%= @user.email %></td>
       </tr>
