@@ -2,15 +2,22 @@ ja:
   view:
     title: アクション内容
     description: アクション詳細情報
+    start_time: アクション日
     notice: 本日学んだこと
     require_time: 取り組み時間
     progress: 進捗状況
     created_at: タスク作成日時
     updated_at: タスク更新日時
+    name: ユーザー名
+    email: メールアドレス
+    password: パスワード
+    icon: アイコン画像
+    list: あなたの過去の取り組み
   activerecord:
     models:
       task: アクション
       user: ユーザー
+      comment: コメント
     attributes:
       task:
         title: アクション内容
@@ -28,6 +35,8 @@ ja:
         current_password: "現在のパスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+      comment:
+        content: コメント入力画面
   date:
     abbr_day_names:
     - 日曜日
@@ -53,7 +62,7 @@ ja:
     - 12月
   time:
     formats:
-      default: "%Y/%m/%d %H:%M:%S"
+      default: "%Y年%m月%d日 %H時%M分%S秒"
       short: "%Y年%m月%d日"
   errors:
     format: "%{attribute}%{message}"

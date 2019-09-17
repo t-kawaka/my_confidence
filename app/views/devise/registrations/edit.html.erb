@@ -7,13 +7,13 @@
     <div class="field">
       <% if @user.icon? %>
         <div class="personal_picture">
-          <%= image_tag(@user.icon_url, :width => "100px", class:"mb-4") if @user.icon %>
+          <%= image_tag(@user.icon_url, :width => "100px") if @user.icon %>
         </div>
         <label>
           <span><%= f.check_box :remove_icon %>画像を削除</span>
         </label>
       <% else %>
-      　<%= image_tag 'ER図_6.png', :width => '100px' %>
+      　<%= image_tag 'default.jpg', :width => '100px' %>
         <%= f.file_field :icon, class:"form-control" %>
         <%= f.hidden_field :icon_cache, class:"form-control" %>
       <% end %>
@@ -62,6 +62,6 @@
 
   <p><%= button_to "退会ボタン", registration_path(resource_name), data: { confirm: "本当に退会しますか?" }, method: :delete, class:"btn btn-danger" %></p>
   <div class="space">
-    <%= link_to "戻る", :back, class:"btn btn-success" %>
-  </div>]
+    <%= link_to "戻る", tasks_path, class:"btn btn-success" %>
+  </div>
 </div>

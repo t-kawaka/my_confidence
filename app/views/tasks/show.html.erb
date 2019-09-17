@@ -1,10 +1,14 @@
 <div class="container col-8 offset-2">
-  <div class="card-header">
-    <h2><%= l @task.start_time, format: :short %>の成果</h2>
-    <% if flash[:notice] %>
-      <div class="alert alert-primary"><%= flash[:notice] %></div>
-    <% end %>
-
+  <div class="card">
+    <div class="card-header">
+      <h2><%= l @task.start_time, format: :short %>の成果</h2>
+      <% if @task.user_id != current_user.id %>
+       <h4 class="text-danger">他の登録ユーザーさんの画面です。</h4>
+      <% end %>
+      <% if flash[:notice] %>
+        <div class="alert alert-primary"><%= flash[:notice] %></div>
+      <% end %>
+    </div>
     <div class="card-body">
       <h5 class="card-title"><%= t('view.title') %>:</h5>
       <h5><%= @task.title %></h5>
@@ -16,9 +20,21 @@
       <h5><%= @task.require_time %>分</h5>
       <h5 class="card-text"><%= t('view.progress') %>：</h5>
       <h5><%= @task.progress %></h5>
+      <% if @task.user_id == current_user.id %>
+        <%= link_to '編集', edit_task_path(@task), class: "btn btn-success ml-2" %>
+        <%= link_to '削除',task_path(@task), method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger ml-2" %>
+      <% end %>
+      <%= link_to '戻る', tasks_path, class:"btn btn-info ml-1" %>
+    </div>
+  </div>
+
+  <div class="space">
+    <h5 class="mt-3">コメント一覧</h5>
+    <div id= "comments_area" class="comments_area_form">
+      <%= render partial: 'comments/index', locals: { comments: @comments, task: @task } %>
     </div>
 
-    <%= link_to '編集', edit_task_path(@task), class:"btn btn-success ml-2" %>
-    <%= link_to '戻る', tasks_path, class:"btn btn-info ml-2" %>
+    <p>コメント投稿</p>
+      <%= render partial: 'comments/form', locals: { comment: @comment, task: @task } %>
   </div>
 </div>

@@ -12,6 +12,8 @@ class TasksController < ApplicationController
   end
 
   def show
+    @comments = @task.comments
+    @comment = @task.comments.build
   end
 
   def create
@@ -23,7 +25,6 @@ class TasksController < ApplicationController
       render 'new'
     end
   end
-
 
   def edit
   end
@@ -45,6 +46,10 @@ class TasksController < ApplicationController
       flash[:notice] = "アクション「#{@task.title}」を削除しました"
       redirect_to tasks_path
     end
+  end
+
+  def list
+    @tasks = current_user.tasks.includes(:user).order(start_time: 'desc')
   end
 
   private
