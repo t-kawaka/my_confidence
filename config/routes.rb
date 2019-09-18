@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
-
+  resources :tags
   resources :points
 
   if Rails.env.development?

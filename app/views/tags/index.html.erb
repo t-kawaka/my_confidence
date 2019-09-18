@@ -1,0 +1,34 @@
+<div class="container col-6 offset-3">
+  <div class="container-fluid">
+    <div class="text-center">
+      <h2 class="top_heading">アクションタグ一覧 </h2>
+    </div>
+    <% if flash[:notice] %>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% end %>
+    <table class="table">
+      <div>
+        <tr>
+          <th><%= t('view.tag') %></th>
+          <th>編集</th>
+          <th>削除</th>
+        </tr>
+      </div>
+      <% @tags.each do |tag| %>
+      <div>
+        <tr>
+          <td><%= tag.name %></td>
+          <td><%= link_to '編集', edit_tag_path(tag), class: "btn btn-success" %></td>
+          <td><%= link_to '削除', tag_path(tag), method: :delete, data: { confirm: 'アクションタグを削除しますか?' }, class: "btn btn-danger" %></td>
+        </tr>
+      </div>
+      <% end %>
+    </table>
+    <div class="submit_row">
+      <div class="text-center">
+        <%= link_to '新しいラベル', new_tag_path, class: "btn btn-primary" %>
+        <%= link_to 'アクション作成画面に移動', new_task_path, class: "btn btn-info ml-3" %>
+      </div>
+    </div>
+  </div>
+</div>

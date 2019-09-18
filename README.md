@@ -37,7 +37,7 @@
 ## ER図
 
 ![ER図](app/assets/images/ER図_6.png)
-<https://cacoo.com/diagrams/gUPkC2Yf8GAEMVl8/2B4F4?reload_rt=1567599855582_0>
+<https://docs.google.com/spreadsheets/d/1PWTXyaOHQNR8c3mVfnO9akgOYq46YU_Pztu1CDlhiRU/edit#gid=1406161042>
 ## 画面遷移図
 
 <https://cacoo.com/diagrams/gUPkC2Yf8GAEMVl8/25FBB?reload_rt=1567599855582_0>

@@ -13,6 +13,7 @@ ja:
     password: パスワード
     icon: アイコン画像
     list: あなたの過去の取り組み
+    tag: アクションタグ
   activerecord:
     models:
       task: アクション
@@ -37,6 +38,10 @@ ja:
         remember_me: "ログインを記憶"
       comment:
         content: コメント入力画面
+      point:
+        name: 最近重点的に取り組んでいる内容
+      tag:
+        name: アクションタグ
   date:
     abbr_day_names:
     - 日曜日

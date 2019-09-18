@@ -14,7 +14,7 @@
         <td><%= link_to "削除", point_path(point.id),method: :delete, data: {confirm: '重点的に取り組んでいること削除する？'}, class: "btn btn-danger mb-1" %></td>
       </tr>
       <% end %>
-      <% else %>
+    <% else %>
         <h4>特にありません</h4>
         <%= link_to '重点的に取り組んでいることがあればこちらに入力', new_point_path, class:"btn btn-primary" %>
     </table>
@@ -42,7 +42,7 @@
         <td><%= task.progress %></td>
         <td><%= link_to '詳細', task, class: "btn btn-primary" %></td>
         <td><%= link_to '編集', edit_task_path(task.id), class: "btn btn-success" %></td>
-        <td><%= link_to '削除',task_path(task.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <td><%= link_to '削除',task_path(task.id), method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -57,6 +57,11 @@
 
   <% tasks.each do |task| %>
     <div>
+      <% if task.tags.present? %>
+        <% task.tags.each do |tag| %>
+          <label class='badge badge-primary'><%=tag.name %></label><br>
+        <% end %>
+      <% end %>
       <%= link_to task.title, task %>
     </div>
   <% end %>
