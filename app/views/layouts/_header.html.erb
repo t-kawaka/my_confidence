@@ -9,16 +9,16 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-link js-scroll-trigger">ようこそ<%= current_user.name %>さん</li>
             <li class="nav-item">
-              <%= link_to "あなたのプロフィール", edit_user_registration_path, class: "nav-link js-scroll-trigger" %>
+              <%= link_to "あなたのプロフィール", edit_user_registration_path, class: "nav-link js-scroll-trigger fas fa-user mt-1" %>
             </li>
             <li class="nav-item">
-              <%= link_to "あなたの過去の取り組み", list_tasks_path, class: "nav-link js-scroll-trigger" %>
+              <%= link_to "あなたの過去の取り組み", list_tasks_path, class: "nav-link js-scroll-trigger fas fa-book-reader mt-1" %>
             </li>
             <li class="nav-item">
-              <%= link_to "他の登録ユーザーさん", users_path, class: "nav-link js-scroll-trigger" %>
+              <%= link_to "他の登録ユーザーさん", users_path, class: "nav-link js-scroll-trigger fas fa-user-friends mt-1" %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link js-scroll-trigger" %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link js-scroll-trigger fas fa-sign-out-alt mt-1" %>
             </li>
           </ul>
         </div>
