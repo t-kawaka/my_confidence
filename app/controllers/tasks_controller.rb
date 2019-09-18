@@ -18,7 +18,7 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.new(task_params)
-    if @task.save!
+    if @task.save
       flash[:notice] = "アクション「#{@task.title}」を作成しました"
       redirect_to @task
     else

@@ -11,7 +11,7 @@
 <% end %>
 
   <div class="form-group">
-    <%= form.label :title %>
+    <%= form.label :title %>(＊必ずしも入力しなくても大丈夫です。)<br>
     <% Tag.all.each do |tag| %>
        <%= form.check_box :tag_ids, { multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false }, tag[:id] %>
 
