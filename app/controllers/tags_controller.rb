@@ -3,7 +3,7 @@ class TagsController < ApplicationController
   before_action :set_tag, only: %i[show edit update destroy]
 
   def index
-    @tags = current_user.tags.all
+    @tags = Tag.all
   end
 
   def show
@@ -14,7 +14,7 @@ class TagsController < ApplicationController
   end
 
   def create
-    @tag = current_user.tags.build(tag_params)
+    @tag = Tag.new(tag_params)
     if @tag.save
       redirect_to tags_path, notice: "アクションタグを保存しました"
     else

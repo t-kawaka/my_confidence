@@ -10,6 +10,10 @@
       <% end %>
     </div>
     <div class="card-body">
+      <h5 class="card-title"><%= t('view.tag') %>：</h5>
+      <% @task.tags.each do |tag| %>
+        <label class='badge badge-primary'><%= tag.name %></label>
+      <% end %>
       <h5 class="card-title"><%= t('view.title') %>:</h5>
       <h5><%= @task.title %></h5>
       <h5 class="card-text"><%= t('view.description') %>：</h5>

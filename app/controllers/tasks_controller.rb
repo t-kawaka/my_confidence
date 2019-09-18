@@ -18,7 +18,7 @@ class TasksController < ApplicationController
 
   def create
     @task = current_user.tasks.new(task_params)
-    if @task.save
+    if @task.save!
       flash[:notice] = "アクション「#{@task.title}」を作成しました"
       redirect_to @task
     else
@@ -55,7 +55,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :start_time, :notice, :require_time, :progress, points_attributes: [:name])
+    params.require(:task).permit(:title, :description, :start_time, :notice, :require_time, :progress, points_attributes: [:name],tag_ids: []).merge(user_id: current_user.id)
   end
 
   def set_task
