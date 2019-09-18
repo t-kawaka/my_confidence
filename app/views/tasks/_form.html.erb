@@ -14,6 +14,7 @@
     <%= form.label :title %>
     <% Tag.all.each do |tag| %>
        <%= form.check_box :tag_ids, { multiple: true, checked: tag[:checked], disabled: tag[:disabled], include_hidden: false }, tag[:id] %>
+
        <label class='badge badge-primary'><%= tag.name %></label>
     <% end %>
   </div>
