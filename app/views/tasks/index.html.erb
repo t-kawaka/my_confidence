@@ -59,7 +59,7 @@
     <div>
       <% if task.tags.present? %>
         <% task.tags.each do |tag| %>
-          <label class='badge badge-primary'><%= tag.name %></label><br>
+          <label class='badge badge-primary'><%=tag.name %></label><br>
         <% end %>
       <% end %>
       <%= link_to task.title, task %>
