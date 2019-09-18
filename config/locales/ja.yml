@@ -13,6 +13,7 @@ ja:
     password: パスワード
     icon: アイコン画像
     list: あなたの過去の取り組み
+    tag: タグ情報
   activerecord:
     models:
       task: アクション
