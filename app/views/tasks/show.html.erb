@@ -17,7 +17,7 @@
       <% @task.tags.each do |tag| %>
         <label class='badge badge-primary'><%= tag.name %></label>
       <% end %>
-        
+
       <% end %>
       <h5 class="card-title"><%= t('view.title') %>:</h5>
       <h5><%= @task.title %></h5>
@@ -36,6 +36,15 @@
       <%= link_to '戻る', tasks_path, class:"btn btn-info ml-1" %>
     </div>
   </div>
+
+  <% unless @task.user_id == current_user.id %>
+    <% if @task_favorite.present? %>
+      <%= link_to "いいね解除", task_favorite_path(id: @task_favorite.id), method: :delete, class: 'btn btn-danger mt-2 mb-3' %>
+    <% else %>
+      <%= link_to "いいね！", task_favorites_path(task_id: @task.id), method: :post, class: 'btn btn-primary mt-2 mb-3' %>
+    <% end %>
+  <% end %>
+  いいね件数：<%= current_user.task_favorites.count %>
 
   <div class="space">
     <h5 class="mt-3">コメント一覧</h5>
