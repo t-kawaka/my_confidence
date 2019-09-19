@@ -8,6 +8,7 @@ class Task < ApplicationRecord
   has_many :points
   accepts_nested_attributes_for :points
   belongs_to :user
+  has_many :points, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :task_tags, dependent: :destroy
   has_many :tags, through: :task_tags

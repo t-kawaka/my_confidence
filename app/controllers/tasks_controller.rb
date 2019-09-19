@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = current_user.tasks.includes(:user).order(start_time: 'desc')
-    @points = Point.all
+    @points = current_user.points.includes(:user)
   end
 
   def new

@@ -3,11 +3,11 @@ class PointsController < ApplicationController
   before_action :set_point, only: %i[edit update destroy]
 
   def new
-    @point = Point.new
+    @point = current_user.points.new
   end
 
   def create
-    @point = Point.new(point_params)
+    @point = current_user.points.build(point_params)
     if @point.save
       flash[:notice] = "重点的に取り組んでいること「#{@point.name}」を作成しました"
       redirect_to root_path
@@ -36,7 +36,7 @@ class PointsController < ApplicationController
 
   private
   def point_params
-    params.require(:point).permit(:task_id, :name)
+    params.require(:point).permit(:name)
   end
 
   def set_point
