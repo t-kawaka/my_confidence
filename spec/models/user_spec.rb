@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature User, type: :model do
+RSpec.describe User, type: :model do
   it "ユーザー登録" do
     user = User.new(name:"test1", email: "test1@gmail.com", password:"password")
     expect(user).to be_valid
