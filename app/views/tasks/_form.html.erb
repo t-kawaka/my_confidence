@@ -12,14 +12,14 @@
 
   <div class="form-group">
     <%= form.label :title %><br>
-    <% Tag.all.each do |tag| %>
-      <% if @task.task_tags.pluck(:tag_id).include?(tag.id) %>
-        <%= form.check_box :tag_ids, { multiple: true, checked: true, disabled: tag[:desabeld], include_hidden: false }, tag[:id] %>
-      <% else %>
-        <%= form.check_box :tag_ids, { multiple: true, checked: false, disabled: tag[:desabeld], include_hidden: false },tag[:id] %>
+      <% current_user.tags.each do |tag| %>
+        <% if @task.task_tags.pluck(:tag_id).include?(tag.id) %>
+          <%= form.check_box :tag_ids, { multiple: true, checked: true, disabled: tag[:desabeld], include_hidden: false }, tag[:id] %>
+        <% else %>
+          <%= form.check_box :tag_ids, { multiple: true, checked: false, disabled: tag[:desabeld], include_hidden: false },tag[:id] %>
         <% end %>
-      <label class='badge badge-primary'><%= tag.name %></label>
-    <% end %>
+        <label class='badge badge-primary'><%= tag.name %></label>
+      <% end %>
     <%= link_to "アクションタグの内容変更はこちら", tags_path, class: "btn btn-sm btn-success ml-3" %>
   </div>
 

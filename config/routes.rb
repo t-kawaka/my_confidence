@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :tags
   resources :points
+  resources :task_favorites, only: [:create, :destroy]
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

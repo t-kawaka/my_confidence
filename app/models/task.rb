@@ -12,6 +12,8 @@ class Task < ApplicationRecord
   has_many :task_tags, dependent: :destroy
   has_many :tags, through: :task_tags
   accepts_nested_attributes_for :task_tags, allow_destroy: true
+  has_many :task_favorites, dependent: :destroy
+  has_many :favorite_users, through: :task_favorites, source: :user
 
 
   def start_cannnot_be_in_the_future

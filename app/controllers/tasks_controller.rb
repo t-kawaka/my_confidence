@@ -14,6 +14,7 @@ class TasksController < ApplicationController
   def show
     @comments = @task.comments
     @comment = @task.comments.build
+    @task_favorite = current_user.task_favorites.find_by(task_id: @task.id)
   end
 
   def create
