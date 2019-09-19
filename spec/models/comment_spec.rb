@@ -12,4 +12,11 @@ RSpec.describe Comment, type: :model do
     comment = Comment.new(content:"成果物作成", user_id: @user.id, task_id: @task.id)
     expect(comment).to be_valid
   end
+
+  it "commentのcontentが未入力であった場合" do
+    user = @user
+    task = @task
+    comment = Comment.new(content:nil, user_id: @user.id, task_id: @task.id)
+    expect(comment).to be_invalid
+  end
 end
