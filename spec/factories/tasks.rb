@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :task do
-    user
     title { "MyConfidence" }
     description { "文章作成" }
     notice {nil}
