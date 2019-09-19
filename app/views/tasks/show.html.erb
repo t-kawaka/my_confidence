@@ -36,14 +36,16 @@
       <% end %>
       <%= link_to '戻る', tasks_path, class:"btn btn-info mr-2" %>
 
-      <% unless @task.user_id == current_user.id %>
-        <% if @task_favorite.present? %>
-          <%= link_to "いいね解除", task_favorite_path(id: @task_favorite.id), method: :delete, class: 'far fa-thumbs-up strong' %>
-        <% else %>
-          <%= link_to "いいね！", task_favorites_path(task_id: @task.id), method: :post, class: 'far fa-thumbs-up strong' %>
+      <div id="likes_buttons_<%= @task.id %>">
+        <% unless @task.user_id == current_user.id %>
+          <% if @task_favorite.present? %>
+            <%= link_to "いいね解除", task_favorite_path(id: @task_favorite.id), method: :delete, class: 'far fa-thumbs-up strong' %>
+          <% else %>
+            <%= link_to "いいね！", task_favorites_path(task_id: @task.id), method: :post, class: 'far fa-thumbs-up strong' %>
+          <% end %>
         <% end %>
-      <% end %>
-      いいね件数：<%= @task.task_favorites.count %>
+        いいね件数：<%= @task.task_favorites.count %>
+      </div>
     </div>
   </div>
 
