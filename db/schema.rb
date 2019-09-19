@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_142117) do
+ActiveRecord::Schema.define(version: 2019_09_19_055555) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,9 @@ ActiveRecord::Schema.define(version: 2019_09_18_142117) do
     t.bigint "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["task_id"], name: "index_points_on_task_id"
+    t.index ["user_id"], name: "index_points_on_user_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -86,6 +88,7 @@ ActiveRecord::Schema.define(version: 2019_09_18_142117) do
   add_foreign_key "comments", "tasks"
   add_foreign_key "comments", "users"
   add_foreign_key "points", "tasks"
+  add_foreign_key "points", "users"
   add_foreign_key "tags", "users"
   add_foreign_key "tasks", "users"
 end
