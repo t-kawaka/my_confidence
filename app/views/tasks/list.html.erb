@@ -2,6 +2,14 @@
   <div class="col-md-10 offset-1">
     <div class="text-center">
       <h2>あなたの過去の取り組み</h2>
+      <%= search_form_for @q, :url => list_tasks_path do |f| %>
+        <%= f.label :title_cont, "アクション名" %>
+        <%= f.search_field :title_cont %>
+        <div class="actions">
+          <%= f.submit "検索する", class:"btn btn-success mb-3" %>
+        </div>
+      <% end %>
+
       <table class="table table-striped table-bordered table-hover">
         <thead>
           <tr>
