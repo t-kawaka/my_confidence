@@ -3,7 +3,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = current_user.tasks.includes(:user).order(start_time: 'desc')
+    @tasks = current_user.tasks.includes(:user).recent
     @points = current_user.points.includes(:user)
   end
 
@@ -50,7 +50,17 @@ class TasksController < ApplicationController
   end
 
   def list
-    @tasks = current_user.tasks.includes(:user).order(start_time: 'desc')
+    @progress = { 開始: "開始", 途中: "途中", 完了: "完了" }
+    @q = current_user.tasks.ransack(params[:q])
+    @tasks = @q.result.recent.includes(:user)
+
+    if params[:start_time]
+      @tasks = current_user.tasks.start_time.includes(:user)
+    end
+
+    if params[:progress]
+      @tasks = current_user.tasks.progress.includes(:user)
+    end
   end
 
   private

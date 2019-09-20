@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :task_favorites, dependent: :destroy
   validates :name, presence: true, uniqueness: true
   mount_uploader :icon, IconUploader
+  scope :recent, -> {order(start_time: :desc)}
 end

@@ -20,6 +20,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'rails-i18n'
 gem 'font-awesome-sass'
+gem 'ransack'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -30,6 +31,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem 'launchy'
+  gem 'bullet'
 end
 
 group :development do
