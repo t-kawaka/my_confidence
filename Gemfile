@@ -24,6 +24,12 @@ gem 'font-awesome-sass'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'dotenv-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+  gem 'launchy'
 end
 
 group :development do
@@ -35,7 +41,6 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
