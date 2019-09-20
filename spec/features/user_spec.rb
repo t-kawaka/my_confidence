@@ -81,5 +81,14 @@ require 'rails_helper'
         click_button 'ログイン'
         expect(page).to have_content 'ログイン'
       end
+
+      it "ログアウト成功" do
+        visit new_user_session_path
+        fill_in "メールアドレス", with: "test1@gmail.com"
+        fill_in "パスワード", with: "password"
+        click_button 'ログイン'
+        click_on 'ログアウト'
+        expect(page).to have_content 'ログイン'
+      end
     end
   end
