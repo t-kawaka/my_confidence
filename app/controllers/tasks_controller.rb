@@ -50,8 +50,17 @@ class TasksController < ApplicationController
   end
 
   def list
+    @progress = { 開始: "開始", 途中: "途中", 完了: "完了" }
     @q = current_user.tasks.ransack(params[:q])
     @tasks = @q.result.recent.includes(:user)
+
+    if params[:start_time]
+      @tasks = current_user.tasks.start_time.includes(:user)
+    end
+
+    if params[:progress]
+      @tasks = current_user.tasks.progress.includes(:user)
+    end
   end
 
   private
