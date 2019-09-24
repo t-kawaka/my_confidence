@@ -23,6 +23,9 @@
     <% end %>
   </table>
   <div class="space">
-    <%= link_to "戻る", tasks_path, class:"btn btn-success" %>
+    <div class="col-md-10">
+      <%= paginate @users %>
+    </div>
+    <%= link_to "戻る", tasks_path, class:"btn btn-success ml-3" %>
   </div>
 </div>

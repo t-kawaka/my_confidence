@@ -14,12 +14,15 @@
 
     Task.seed(
     :id,
-    { id: 1, user_id: 1, title: 'BasicTeam', description: 'BasicTeam', start_time: DateTime.now - 1, require_time: 60, progress: "開始"},
-    { id: 2, user_id: 3, title: 'BasicTeam', description: 'BasicTeam', start_time: DateTime.now - 1, require_time: 60, progress: "開始" },
-    { id: 3, user_id: 1, title: 'BasicTeam', description: 'BasicTeam', start_time: DateTime.now - 1,require_time: 60, progress: "開始" },
-    { id: 4, user_id: 2, title: 'BasicTeam', description: 'BasicTeam', start_time: DateTime.now - 1,require_time: 60, progress: "開始" },
-    { id: 5, user_id: 7, title: 'BasicTeam', description: 'BasicTeam', start_time: DateTime.now - 1, require_time: 60, progress: "開始" },
-    { id: 6, user_id: 8, title: 'BasicTeam', description: 'BasicTeam', start_time: DateTime.now - 1, require_time: 60, progress: "開始" },
-    { id: 7, user_id: 10, title: 'BasicTeam', description: 'BasicTeam', start_time: DateTime.now - 1, require_time: 60, progress: "開始" },
-    id: 8, user_id: 2, title: 'BasicTeam', description: 'BasicTeam', start_time: DateTime.now - 1, require_time: 60, progress: "開始"
+    { id: 1, user_id: 1, title: 'BasicTitle', description: 'BasicContent', start_time: DateTime.now - 1, require_time: 60, progress: "開始"},
+    { id: 2, user_id: 3, title: 'BasicTitle2', description: 'BasicContent2', start_time: DateTime.now - 2, require_time: 60, progress: "開始" },
+    { id: 3, user_id: 1, title: 'BasicTitle3', description: 'BasicContent3', start_time: DateTime.now - 3,require_time: 60, progress: "開始" },
+    { id: 4, user_id: 2, title: 'BasicTitle4', description: 'BasicContent4', start_time: DateTime.now - 4,require_time: 60, progress: "開始" },
+    { id: 5, user_id: 7, title: 'BasicTitle5', description: 'BasicContent5', start_time: DateTime.now - 5, require_time: 60, progress: "開始" },
+    { id: 6, user_id: 8, title: 'BasicTitle6', description: 'BasicContent6', start_time: DateTime.now - 6, require_time: 60, progress: "開始" },
+    { id: 7, user_id: 10, title: 'BasicTitle7', description: 'BasicContent7', start_time: DateTime.now - 7, require_time: 60, progress: "開始" },
+    { id: 8, user_id: 1, title: 'BasicTitle8', description: 'BasicContent8', start_time: DateTime.now - 7, require_time: 60, progress: "開始" },
+    { id: 9, user_id: 1, title: 'BasicTitle9', description: 'BasicContent9', start_time: DateTime.now - 7, require_time: 60, progress: "開始" },
+    { id: 10, user_id: 1, title: 'BasicTitle10', description: 'BasicContent10', start_time: DateTime.now - 7, require_time: 60, progress: "開始" },
+    id: 11, user_id: 1, title: 'BasicTitle11', description: 'BasicContent11', start_time: DateTime.now - 2, require_time: 60, progress: "開始"
   )

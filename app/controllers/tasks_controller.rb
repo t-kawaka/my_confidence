@@ -52,7 +52,7 @@ class TasksController < ApplicationController
   def list
     @progress = { 開始: "開始", 途中: "途中", 完了: "完了" }
     @q = current_user.tasks.ransack(params[:q])
-    @tasks = @q.result.recent.includes(:user)
+    @tasks = @q.result.recent.includes(:user).page(params[:page])
 
     if params[:start_time]
       @tasks = current_user.tasks.start_time.includes(:user)
