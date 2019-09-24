@@ -26,3 +26,15 @@
     { id: 10, user_id: 1, title: 'BasicTitle10', description: 'BasicContent10', start_time: DateTime.now - 7, require_time: 60, progress: "開始" },
     id: 11, user_id: 1, title: 'BasicTitle11', description: 'BasicContent11', start_time: DateTime.now - 2, require_time: 60, progress: "開始"
   )
+
+    Point.seed(
+    :id,
+    { id: 1, user_id: 1, name: "成果物作成に取り組む"},
+    { id: 2, user_id: 2, name: "Rails勉強中"}
+    )
+
+    Comment.seed(
+    :id,
+    { id: 1, user_id: 1, task_id: 1, content: "ただいまコメント中"},
+    { id: 2, user_id: 2, task_id: 3, content: "コメントその2"}
+    )
