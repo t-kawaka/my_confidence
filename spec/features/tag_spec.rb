@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Task', type: :system do
+describe 'Tag', type: :system do
   before do
     user = User.new(name: "user1", email: 'test1@gmail.com', password: 'password', password_confirmation: 'password')
     user2 = User.new(name: "user2", email: 'test2@gmail.com', password: 'password', password_confirmation: 'password')
