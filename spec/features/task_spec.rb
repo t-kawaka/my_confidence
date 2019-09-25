@@ -5,8 +5,8 @@ describe 'Task', type: :system do
     user = User.new(name: "user1", email: 'test1@gmail.com', password: 'password', password_confirmation: 'password')
     user2 = User.new(name: "user2", email: 'test2@gmail.com', password: 'password', password_confirmation: 'password')
     FactoryBot.create(:task, title:"test_title1", description: "test_description1", start_time: Date.current, require_time: 60, progress: "開始", user: user)
-    FactoryBot.create(:task, title:"test_title2", description: "test_description2", start_time: Date.current-1, require_time: 60, progress: "開始", user: user)
-    FactoryBot.create(:task, title:"test_title3", description: "test_description3", start_time: Date.current-2, require_time: 60, progress: "開始", user: user)
+    FactoryBot.create(:task, title:"test_title2", description: "test_description2", start_time: Date.current-1, require_time: 60, progress: "途中", user: user)
+    FactoryBot.create(:task, title:"test_title3", description: "test_description3", start_time: Date.current-2, require_time: 60, progress: "完了", user: user)
     FactoryBot.create(:task, title:"test_title2-1", description: "test_description2-1", start_time: Date.current-2, require_time: 60, progress: "開始", user: user2)
     FactoryBot.create(:task, title:"test_title2-2", description: "test_description2-2", start_time: Date.current-3, require_time: 60, progress: "開始", user: user2)
 
@@ -46,6 +46,37 @@ describe 'Task', type: :system do
       visit list_tasks_path
       click_link '詳細', match: :first
       expect(page).to have_content 'test_description1'
+    end
+
+    scenario "タスク編集のテスト" do
+      visit list_tasks_path
+      click_link '編集', match: :first
+      fill_in "アクション内容", with: "test編集"
+      click_button '保存'
+      expect(page).to have_content 'アクション「test編集」を更新しました'
+    end
+  end
+
+  context '入力検索の絞り込みテスト' do
+    scenario "アクション内容の部分表示するかの絞り込みテスト" do
+      visit list_tasks_path
+      fill_in "アクション内容", with: "tle1"
+      click_button '検索する'
+      expect(page).to have_content 'test_title1'
+    end
+
+    scenario "アクション日の部分入力した場合の絞り込みテスト" do
+      visit list_tasks_path
+      fill_in "アクション日", with: "Date.current"
+      click_button '検索する'
+      expect(page).to have_content 'test_title1'
+    end
+
+    scenario "進捗状況入力した場合の絞り込みテスト" do
+      visit list_tasks_path
+      select "途中", from: "q_progress_eq"
+      click_button '検索する'
+      expect(page).to have_content 'test_title2'
     end
   end
 end
