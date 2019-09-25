@@ -90,5 +90,19 @@ require 'rails_helper'
         click_on 'ログアウト'
         expect(page).to have_content 'ログイン'
       end
+
+      it "プロフィール画面変更" do
+        visit new_user_session_path
+        fill_in "メールアドレス", with: "test1@gmail.com"
+        fill_in "パスワード", with: "password"
+        click_button 'ログイン'
+        visit edit_user_registration_path
+        fill_in "パスワード", with: "password2"
+        fill_in "確認用パスワード", with: "password2"
+        fill_in "現在のパスワード", with: "password"
+        click_button 'プロフィール更新'
+        expect(page).to have_content 'アカウントが更新されました。'
+
+      end
     end
   end

@@ -21,6 +21,9 @@ gem 'mini_magick'
 gem 'rails-i18n'
 gem 'font-awesome-sass'
 gem 'ransack'
+gem 'kaminari'
+gem 'faker'
+gem 'seed-fu'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -40,6 +43,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'letter_opener_web'
+  gem 'annotate'
 end
 
 group :test do

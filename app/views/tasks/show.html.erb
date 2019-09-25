@@ -10,32 +10,37 @@
       <% end %>
     </div>
     <div class="card-body">
-      <h5 class="card-title"><%= t('view.tag') %>：</h5>
+      <h5><%= t('view.tag') %>：
       <% if @task.tags.blank? %>
-        <h5>アクションタグなし</h5>
+        アクションタグなし</h5>
       <% else %>
       <% @task.tags.each do |tag| %>
-        <label class='badge badge-primary'><%= tag.name %></label>
+        <label class='badge badge-primary'><%= tag.name %></label></h5>
       <% end %>
 
       <% end %>
-      <h5 class="card-title"><%= t('view.title') %>:</h5>
-      <h5><%= @task.title %></h5>
-      <h5 class="card-text"><%= t('view.description') %>：</h5>
-      <h5><%= simple_format(@task.description) %></h5>
-      <h5 class="card-text"><%= t('view.notice') %>：</h5>
-      <h5><%= simple_format(@task.notice) %></h5>
-      <h5 class="card-text"><%= t('view.require_time') %>：</h5>
-      <h5><%= @task.require_time %>分</h5>
-      <h5 class="card-text"><%= t('view.progress') %>：</h5>
-      <h5><%= @task.progress %></h5>
+      <tr>
+        <h5><%= t('view.title') %>：<%= @task.title %></h5>
+      </tr>
+      <tr>
+        <h5><%= t('view.description') %>：<%= @task.description %></h5>
+      </tr>
+      <tr>
+        <h5><%= t('view.notice') %>：<%= @task.notice %></h5>
+      </tr>
+      <tr>
+        <h5><%= t('view.require_time') %>：<%= @task.require_time %>分</h5>
+      </tr>
+      <tr>
+        <h5><%= t('view.progress') %>：<%= @task.progress %></h5>
+      </tr>
 
       <% if @task.user_id == current_user.id %>
-        <%= link_to '編集', edit_task_path(@task), class: "btn btn-success ml-2" %>
-        <%= link_to '削除',task_path(@task), method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger ml-2" %>
+        <%= link_to '編集', edit_task_path(@task), class: "btn btn-success ml-2 mb-3" %>
+        <%= link_to '削除',task_path(@task), method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger ml-2 mb-3" %>
       <% end %>
-      <%= link_to '戻る', tasks_path, class:"btn btn-info ml-2" %>
-      <%= link_to 'あなたの過去の記事', list_tasks_path, class:"btn btn-info ml-2" %>
+      <%= link_to '戻る', tasks_path, class:"btn btn-info ml-2 mb-3" %>
+      <%= link_to 'あなたの過去の記事', list_tasks_path, class:"btn btn-info ml-2 mb-3" %>
 
       <div id="likes_buttons_<%= @task.id %>">
         <%= render partial: 'task_favorites/like', locals: { task: @task} %>
