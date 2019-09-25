@@ -22,6 +22,6 @@ FactoryBot.define do
     start_time { DateTime.now }
     require_time { 10 }
     progress { "開始" }
-    admin { false }
+    user
   end
 end

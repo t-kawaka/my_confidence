@@ -1,36 +1,43 @@
 require 'rails_helper'
 
-  describe 'Task', type: :system do
-    context "本日のアクションを投稿" do
-      before do
-        FactoryBot.create(:user)
-      end
+describe 'Task', type: :system do
+  before do
+    user = User.new(name: "user1", email: 'test1@gmail.com', password: 'password', password_confirmation: 'password')
+    user2 = User.new(name: "user2", email: 'test2@gmail.com', password: 'password', password_confirmation: 'password')
+    FactoryBot.create(:task, title:"test_title1", description: "test_description1", start_time: Date.current, require_time: 60, progress: "開始", user: user)
+    FactoryBot.create(:task, title:"test_title2", description: "test_description2", start_time: Date.current-1, require_time: 60, progress: "開始", user: user)
+    FactoryBot.create(:task, title:"test_title3", description: "test_description3", start_time: Date.current-2, require_time: 60, progress: "開始", user: user)
 
-      it "アクション投稿成功" do
-        visit new_user_session_path
-        fill_in "メールアドレス", with: "test1@gmail.com"
-        fill_in "パスワード", with: "password"
-        click_button 'ログイン'
+    visit new_user_session_path
+    fill_in "メールアドレス", with: "test1@gmail.com"
+    fill_in "パスワード", with: "password"
+    click_button 'ログイン'
+    expect(page).to have_content '自分のアクション'
+  end
 
-        visit new_task_path
-        fill_in "作成日時", with: Date.current
-        fill_in "アクション内容", with: "テスト内容"
-        fill_in "アクション詳細情報", with: "テスト詳細情報"
-        fill_in "本日学んだこと", with: "Rspecテスト"
-        fill_in "取り組み時間", with: 30
-        select "開始", from: 'task[progress]'
-        click_button '保存'
-        expect(page).to have_content 'アクション「テスト内容」を作成しました'
-      end
+  context '各タスクの動作確認テスト' do
+    scenario "タスク一覧のテスト" do
+      visit tasks_path
+      expect(page).to have_content 'test_title1'
+      expect(page).to have_content 'test_title2'
+    end
 
-      it "あなたの過去の取り組みを表示" do
-        visit new_user_session_path
-        fill_in "メールアドレス", with: "test1@gmail.com"
-        fill_in "パスワード", with: "password"
-        click_button 'ログイン'
+    scenario "タスク作成" do
+      visit new_task_path
+      fill_in "作成日時", with: Date.current
+      fill_in "アクション内容", with: "test_title4"
+      fill_in "アクション詳細情報", with: "test_description4"
+      fill_in "本日学んだこと", with: "Rspecテスト"
+      fill_in "取り組み時間", with: 30
+      select "途中", from: 'task[progress]'
+      click_button '保存'
+      expect(page).to have_content 'test_title4'
+    end
 
-        visit list_tasks_path
-        expect(page).to have_content 'あなたの過去の取り組み'
-      end
+    scenario "あなたの過去の取り組み" do
+      visit list_tasks_path
+      expect(page).to have_content 'test_title1'
+      expect(page).to have_content 'test_title2'
     end
   end
+end
