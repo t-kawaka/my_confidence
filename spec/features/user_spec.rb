@@ -102,7 +102,6 @@ require 'rails_helper'
         fill_in "現在のパスワード", with: "password"
         click_button 'プロフィール更新'
         expect(page).to have_content 'アカウントが更新されました。'
-
       end
     end
   end
