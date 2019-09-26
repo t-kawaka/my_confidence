@@ -24,6 +24,7 @@ gem 'ransack'
 gem 'kaminari'
 gem 'faker'
 gem 'seed-fu'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
