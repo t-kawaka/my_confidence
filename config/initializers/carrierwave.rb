@@ -23,8 +23,5 @@ CarrierWave.configure do |config|
     when 'development'
       config.fog_directory = 'myconfidence-development'
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/myconfidence-development'
-    when 'test'
-      config.fog_directory = 'myconfidence-development'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/myconfidence-development'
   end
 end
