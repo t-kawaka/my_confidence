@@ -26,6 +26,7 @@ ja:
       task: アクション
       user: ユーザー
       comment: コメント
+      contact: お問い合わせ
     attributes:
       task:
         title: アクション内容
@@ -49,6 +50,9 @@ ja:
         name: 最近重点的に取り組んでいる内容
       tag:
         name: アクションタグ
+      contact:
+        title: タイトル
+        content: 内容
   date:
     abbr_day_names:
     - 日曜日
