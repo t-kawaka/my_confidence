@@ -1,6 +1,6 @@
 class ContactMailer < ApplicationMailer
   default from: 'my_confidence@example.com'
-  
+
   def contact_mail(contact)
     @contact = contact
 
