@@ -1,16 +1,35 @@
 Rails.application.configure do
   config.cache_classes = true
+<<<<<<< HEAD
   config.eager_load = true
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+=======
+
+  config.eager_load = true
+
+  config.consider_all_requests_local       = false
+  config.action_controller.perform_caching = true
+
+  config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
+
+>>>>>>> 9a63224718aa721836418352c98a6b5842cb8fb5
   config.assets.js_compressor = :uglifier
   config.assets.compile = false
   config.active_storage.service = :local
   config.log_level = :debug
   config.log_tags = [ :request_id ]
+<<<<<<< HEAD
   config.action_mailer.perform_caching = false
   config.i18n.fallbacks = true
+=======
+
+  config.action_mailer.perform_caching = false
+
+  config.i18n.fallbacks = true
+
+>>>>>>> 9a63224718aa721836418352c98a6b5842cb8fb5
   config.active_support.deprecation = :notify
 
   config.log_formatter = ::Logger::Formatter.new
