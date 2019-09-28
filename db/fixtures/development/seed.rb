@@ -1,16 +1,16 @@
 
   User.seed(
     :id,
-    { id: 1, name: Faker::Games::Pokemon.name, email: Faker::Internet.email, password: 'password'},
-    { id: 2, name: Faker::Games::Pokemon.name, email: Faker::Internet.email, password: 'password'},
-    { id: 3,  name: Faker::Games::Pokemon.name, email: Faker::Internet.email, password: 'password'},
-    { id: 4,  name: Faker::Games::Pokemon.name, email: Faker::Internet.email, password: 'password'},
-    { id: 5,  name: Faker::Games::Pokemon.name, email: Faker::Internet.email, password: 'password'},
-    { id: 6,  name: Faker::Games::Pokemon.name, email: Faker::Internet.email, password: 'password'},
-    { id: 7,  name: Faker::Games::Pokemon.name, email: Faker::Internet.email, password: 'password'},
-    { id: 8,  name: Faker::Games::Pokemon.name, email: Faker::Internet.email, password: 'password'},
-    { id: 9,  name: Faker::Games::Pokemon.name, email: Faker::Internet.email, password: 'password'},
-    id: 10, name: Faker::Games::Pokemon.name, email: Faker::Internet.email, password: 'password')
+    { id: 1, name: Faker::Creature::Animal.name, email: Faker::Internet.email, password: 'password'},
+    { id: 2, name: Faker::Creature::Animal.name, email: Faker::Internet.email, password: 'password'},
+    { id: 3, name: Faker::Creature::Animal.name, email: Faker::Internet.email, password: 'password'},
+    { id: 4, name: Faker::Creature::Animal.name, email: Faker::Internet.email, password: 'password'},
+    { id: 5, name: Faker::Creature::Animal.name, email: Faker::Internet.email, password: 'password'},
+    { id: 6, name: Faker::Creature::Animal.name, email: Faker::Internet.email, password: 'password'},
+    { id: 7, name: Faker::Creature::Animal.name, email: Faker::Internet.email, password: 'password'},
+    { id: 8, name: Faker::Creature::Animal.name, email: Faker::Internet.email, password: 'password'},
+    { id: 9, name: Faker::Creature::Animal.name, email: Faker::Internet.email, password: 'password'},
+    id: 10, name: Faker::Creature::Animal.name, email: Faker::Internet.email, password: 'password')
 
     Task.seed(
     :id,

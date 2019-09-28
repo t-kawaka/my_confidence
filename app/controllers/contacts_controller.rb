@@ -8,9 +8,9 @@ class ContactsController < ApplicationController
   def create
     @contact = current_user.contacts.new(contact_params)
     if @contact.save
-      ContactMailer.contact_mail(@contact).deliver
+      ContactMailer.contact_mail(@contact).deliver_now
       flash[:notice] = "お問い合わせ「#{@contact.title}」を作成しました"
-      redirect_to @contact
+      redirect_to root_path
     else
       render 'new'
     end
@@ -19,6 +19,6 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:title, :content).merge(user_id: current_user.id)
+    params.require(:contact).permit(:title, :content)
   end
 end
