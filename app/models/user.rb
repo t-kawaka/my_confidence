@@ -24,6 +24,7 @@ class User < ApplicationRecord
   has_many :points, dependent: :destroy
   has_many :tags, dependent: :destroy
   has_many :task_favorites, dependent: :destroy
+  has_many :contacts, dependent: :destroy
   validates :name, presence: true, uniqueness: true
   mount_uploader :icon, IconUploader
   scope :recent, -> {order(start_time: :desc)}

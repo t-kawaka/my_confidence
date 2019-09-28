@@ -24,7 +24,7 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
   config.assets.debug = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :letter_opener_web
   config.assets.quiet = true
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
