@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :tags
   resources :points
   resources :task_favorites, only: [:create, :destroy]
-  resources :contacts, only:[:new, :create]
+  resources :contacts do
+    post :confirm, on: :new
+  end
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
