@@ -8,6 +8,7 @@ class ContactsController < ApplicationController
   def create
     @contact = current_user.contacts.new(contact_params)
     if @contact.save
+      ContactMailer.contact_mail(@contact).deliver
       flash[:notice] = "お問い合わせ「#{@contact.title}」を作成しました"
       redirect_to @contact
     else
