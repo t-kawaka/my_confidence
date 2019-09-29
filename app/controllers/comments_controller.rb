@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @comment = @task.comments.build(comment_params)
     @comment.user_id = current_user.id
     respond_to do |format|
-      if @comment.save!
+      if @comment.save
         format.js { render :index }
       else
         format.html { redirect_to task_path(@task), notice: '投稿できませんでした...' }
