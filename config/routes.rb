@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controller => {
+    :resigtrations  => "users/registrations"
+  }
   resources :users, :only => [:index, :show]
 
   root to: "tasks#index"
@@ -12,7 +14,9 @@ Rails.application.routes.draw do
   resources :tags
   resources :points
   resources :task_favorites, only: [:create, :destroy]
-  resources :contacts, only:[:new, :create]
+  resources :contacts do
+    post :confirm, on: :new
+  end
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

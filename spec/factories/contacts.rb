@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :contact do
-    title { "MyString" }
-    content { "MyText" }
-    user { nil }
+    title { "お問い合わせタイトル" }
+    content { "お問い合わせ中身" }
+    user
   end
 end
