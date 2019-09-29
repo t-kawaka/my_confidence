@@ -14,8 +14,9 @@
       <% if @task.tags.blank? %>
         アクションタグなし</h5>
       <% else %>
+      
       <% @task.tags.each do |tag| %>
-        <label class='badge badge-primary'><%= tag.name %></label></h5>
+        <label class='badge badge-primary'><%= tag.name %></label>
       <% end %>
 
       <% end %>
