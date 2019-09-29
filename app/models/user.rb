@@ -28,4 +28,11 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   mount_uploader :icon, IconUploader
   scope :recent, -> {order(start_time: :desc)}
+
+  after_create :send_welcome_mail
+
+  def send_welcome_mail
+    UserMailer.user_welcome_mail(self).deliver
+  end
+
 end

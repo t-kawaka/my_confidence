@@ -7,10 +7,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-　def create
-    ContactMailer.contact_mail(@contact).deliver_now
-  end
-
   private
 
   def user_params
