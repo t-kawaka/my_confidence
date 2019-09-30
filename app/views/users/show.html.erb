@@ -43,7 +43,7 @@
           </thead>
 
           <tbody>
-            <% @user.tasks.recent.each do |task| %>
+            <% @user.tasks.recent.first(50).each do |task| %>
               <tr>
                 <td><%= task.title %></td>
                 <td><%= l task.start_time, format: :short %></td>

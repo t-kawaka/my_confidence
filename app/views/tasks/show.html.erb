@@ -5,16 +5,12 @@
       <% if @task.user_id != current_user.id %>
        <h4 class="text-danger">他の登録ユーザーさんの画面です。</h4>
       <% end %>
-      <% if flash[:notice] %>
-        <div class="alert alert-primary"><%= flash[:notice] %></div>
-      <% end %>
     </div>
     <div class="card-body">
       <h5><%= t('view.tag') %>：
       <% if @task.tags.blank? %>
         アクションタグなし</h5>
       <% else %>
-
       <% @task.tags.each do |tag| %>
         <label class='badge badge-primary'><%= tag.name %></label>
       <% end %>
@@ -57,6 +53,8 @@
     </div>
 
     <p>コメント投稿 <i class="far fa-sticky-note"></i></p>
+    <div id= "comments_form">
       <%= render partial: 'comments/form', locals: { comment: @comment, task: @task } %>
+    </div>
   </div>
 </div>

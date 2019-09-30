@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.js { render :index }
       else
-        format.html { redirect_to task_path(@task), notice: '投稿できませんでした...' }
+        format.js { render :error }
       end
     end
   end

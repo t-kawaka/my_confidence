@@ -28,6 +28,7 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   mount_uploader :icon, IconUploader
   scope :recent, -> {order(start_time: :desc)}
+  accepts_nested_attributes_for :tasks, allow_destroy: true
 
   after_create :send_welcome_mail
 

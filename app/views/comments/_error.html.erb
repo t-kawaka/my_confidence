@@ -1,0 +1,27 @@
+<ul>
+  <% comments.each do |comment| %>
+    <% if comment.id.present? %>
+      <li>
+        <% if comment.user.try(:name) %>
+          <li class:"mr-2">投稿者：<%= comment.user.name %> &ensp;投稿日時：<%= l comment.updated_at, format: :default %></li>
+        <% else %>
+          Not User Data<br>
+        <% end %>
+        <p><%= comment.content %></p>
+
+        <% if comment.user == current_user %>
+          <p>
+            <%= link_to 'コメントを削除する', comment_path(comment), method: :delete, remote: true, data:{ confirm:"削除しますか？" } %>
+            / <%= link_to 'コメントを編集する', edit_comment_path(comment) %>
+          </p>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<ul>
+<% @comment.errors.full_messages.each do |message| %>
+  <h5><font color="red"><%= message %></font></h5>
+<% end %>
+</ul>
