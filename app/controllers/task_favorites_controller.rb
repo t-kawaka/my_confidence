@@ -6,6 +6,7 @@ class TaskFavoritesController < ApplicationController
   end
 
   def destroy
-    @task_favorite = current_user.task_favorites.find_by(id: params[:id]).destroy
+    @task = Task.find(params[:task_id])
+    current_user.task_favorites.find_by(id: params[:id]).destroy
   end
 end

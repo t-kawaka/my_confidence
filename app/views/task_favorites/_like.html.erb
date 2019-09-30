@@ -1,6 +1,6 @@
 <% unless @task.user_id == current_user.id %>
   <% if @task_favorite.present? %>
-    <%= link_to "いいね解除", task_favorite_path(id: @task_favorite.id), method: :delete,remote: true,  class: 'far fa-thumbs-up strong' %>
+    <%= link_to "いいね解除", task_favorite_path(id: @task_favorite.id, task_id: @task.id), method: :delete, remote: true,  class: 'far fa-thumbs-up strong' %>
   <% else %>
     <%= link_to "いいね！", task_favorites_path(task_id: @task.id), method: :post, remote: true, class: 'far fa-thumbs-up strong' %>
   <% end %>
