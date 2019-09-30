@@ -54,6 +54,8 @@
     </div>
 
     <p>コメント投稿 <i class="far fa-sticky-note"></i></p>
+    <div id= "comments_form">
       <%= render partial: 'comments/form', locals: { comment: @comment, task: @task } %>
+    </div>
   </div>
 </div>

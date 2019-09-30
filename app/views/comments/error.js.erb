@@ -1,0 +1,2 @@
+$("#comments_area").html("<%= j(render 'comments/error', { comments: @comment.task.comments, task: @comment.task }) %>")
+$("textarea").val('')
