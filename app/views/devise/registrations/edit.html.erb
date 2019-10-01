@@ -29,6 +29,11 @@
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
     </div>
 
+    <div class="form-group">
+      <%= f.label :current_password %> <br><i>(ユーザ名または画像を変更した場合は現在のパスワードを入力してください)</i><br />
+      <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control mt-2" %><br>
+    </div>
+
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
@@ -40,17 +45,11 @@
         <em>パスワード最低<%= @minimum_password_length %>文字以上</em>
       <% end %>
       <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
-
     </div>
 
     <div class="form-group">
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :current_password %> <br><i>(ユーザ名または画像を変更した場合は現在のパスワードを入力してください)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control" %>
     </div>
 
     <div class="actions">

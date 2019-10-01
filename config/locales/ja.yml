@@ -38,7 +38,7 @@ ja:
       user:
         name: ユーザー名
         email: メールアドレス
-        password: パスワード
+        password: パスワード変更
         admin: 管理者権限
         icon: アイコン画像
         current_password: "現在のパスワード"
