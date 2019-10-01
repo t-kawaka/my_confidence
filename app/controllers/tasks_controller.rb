@@ -28,6 +28,7 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @tag_ids = @task.task_tags.pluck(:tag_id)
   end
 
   def update
