@@ -6,6 +6,9 @@
        <h4 class="text-danger">他の登録ユーザーさんの画面です。</h4>
       <% end %>
     </div>
+    <% if flash[:notice] %>
+      <div class="alert alert-info"><%= flash[:notice] %></div>
+    <% end %>
     <div class="card-body">
       <h5><%= t('view.tag') %>：
       <% if @task.tags.blank? %>
