@@ -41,6 +41,7 @@ ja:
         password: パスワード変更
         admin: 管理者権限
         icon: アイコン画像
+        status: 公開権限設定
         current_password: "現在のパスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"

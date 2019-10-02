@@ -29,6 +29,7 @@ class User < ApplicationRecord
   mount_uploader :icon, IconUploader
   scope :recent, -> {order(start_time: :desc)}
   accepts_nested_attributes_for :tasks, allow_destroy: true
+  enum status: {ユーザー非公開: 0, ユーザー公開: 1}
 
   after_create :send_welcome_mail
 
