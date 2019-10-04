@@ -4,6 +4,7 @@
       <th><%= t('view.icon') %></th>
       <th><%= t('view.name') %></th>
       <th>詳細情報</th>
+      <th>ユーザーフォロー</th>
     </tr>
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
           <div class= "user_list">
             <td><h5><%= user.name %>さん（ユーザー自身）</h5></td>
             <td><h5><%= link_to 'ユーザー公開中', user_path(user), class: "btn btn-primary" %></h5></td>
+            <td><%= render 'follow_form', user: user %></td>
           </div>
 
         <% else %>
@@ -26,8 +28,10 @@
             <td><h5><%= user.name %>さん</h5></td>
             <% if user.status == "ユーザー公開" %>
               <td><h5><%= link_to '公開中', user_path(user), class: "btn btn-primary" %></h5></td>
+              <td><%= render 'follow_form', user: user %></td>
             <% else %>
               <td class="info">非公開</td>
+              <td></td>
             <% end %>
           </div>
         <% end %>
