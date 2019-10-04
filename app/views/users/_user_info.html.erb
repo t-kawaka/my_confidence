@@ -20,6 +20,7 @@
             <td><h5><%= user.name %>さん（ユーザー自身）</h5></td>
             <td><h5><%= link_to 'ユーザー公開中', user_path(user), class: "btn btn-primary" %></h5></td>
           </div>
+
         <% else %>
           <div class="user_list">
             <td><h5><%= user.name %>さん</h5></td>
