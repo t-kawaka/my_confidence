@@ -2,6 +2,28 @@
   <div class="col-md-8 offset-2">
     <div class="text-center">
       <h2>私のお気に入りユーザー</h2>
+      <h5><%=@user.active_relationships.count %>件</h5>
     </div>
+    <div id="panel3" class="panel">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th scope="col">ユーザー名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.following.each_with_index do |follow, index| %>
+        <tr>
+          <th scope="row"><%= index+1 %></th>
+          <td>
+            <%= link_to follow.name, follow %>
+          <% end %>
+
+            <%= paginate @users %>
+            </td>
+          </tr>
+        </tbody>
+    </table>
   </div>
 </div>
