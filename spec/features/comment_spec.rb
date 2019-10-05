@@ -24,4 +24,14 @@ describe 'Comment', type: :system do
       expect(page).to have_content 'ただいまコメントします'
     end
   end
+
+  context 'コメントエラーテスト' do
+    scenario "タスクの詳細のテスト" do
+      visit list_tasks_path
+      click_link '詳細', match: :first
+      fill_in "コメント入力画面", with: ""
+      click_button '登録する'
+      expect(page).to have_content 'コメント入力画面に入力してください'
+    end
+  end
 end

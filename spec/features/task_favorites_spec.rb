@@ -20,22 +20,22 @@ describe 'Task_favorites', type: :system do
   context 'いいね！入力テスト' do
     scenario "いいね！承認" do
       visit users_path
-      click_link '詳細情報', match: :first
+      click_link '公開中', match: :first
       click_link '詳細', match: :first
       click_link "いいね！"
-      expect(page).to have_content 'user2さんの投稿をお気に入り登録しました'
+      expect(page).to have_content 'いいね解除'
     end
 
     scenario "いいね！解除" do
       visit users_path
-      click_link '詳細情報', match: :first
+      click_link '公開中', match: :first
       click_link '詳細', match: :first
       click_link "いいね！"
       visit users_path
-      click_link '詳細情報', match: :first
+      click_link '公開中', match: :first
       click_link '詳細', match: :first
       click_link "いいね解除"
-      expect(page).to have_content 'user2さんの投稿のお気に入りを解除しました'
+      expect(page).to have_content 'いいね！'
     end
   end
 end
