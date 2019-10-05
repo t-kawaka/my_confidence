@@ -26,6 +26,7 @@ gem 'faker'
 gem 'seed-fu'
 gem 'fog-aws'
 gem 'enum_help'
+gem "rubyzip", ">= 1.3.0"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -37,6 +38,9 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'launchy'
   gem 'bullet'
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development do
