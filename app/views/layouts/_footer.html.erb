@@ -1,9 +1,13 @@
-<section class="copyright pt-2 pb-2 text-center text-white fixed-bottom">
+<section class="copyright text-center text-white fixed-bottom">
   <div class="container">
     <small class="footer">my_confidence</small>
     <div class="contact">
       <% if user_signed_in? %>
-        <%= link_to "お問い合わせはこちら", new_contact_path, class: "mr-2 mt-2 text-white" %>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <%= link_to "お問い合わせはこちら", new_contact_path, class: "nav-link js-scroll-trigger far fa-question-circle mr-2 text-white" %>
+          </li>
+        </ul>
       <% end %>
     </div>
   </div>

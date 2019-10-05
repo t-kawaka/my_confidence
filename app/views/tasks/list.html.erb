@@ -19,7 +19,7 @@
         <thead>
           <tr>
             <th><%= t('view.title') %></th>
-            <th><%= t('view.start_time') %></th>
+            <th><%= sort_link(@q, :start_time) %></th>
             <th><%= t('view.progress') %></th>
             <th>詳細</th>
             <th>編集</th>
@@ -44,7 +44,7 @@
       </table>
       <div class="col-md-4 offset-4">
         <div class="space">
-          <%= paginate @tasks %>
+          <%= paginate @tasks, window: 2 %>
         </div>
       </div>
     </div>
