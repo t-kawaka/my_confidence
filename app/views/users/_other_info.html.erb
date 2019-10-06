@@ -11,9 +11,9 @@
     <% users.each do |user| %>
       <tr>
         <% if user.icon.present? %>
-          <td><%= image_tag(user.icon_url, :height => "80px") if user.icon %></td>
+          <td><%= image_tag(user.icon_url, :height => "70px") if user.icon %></td>
         <% else %>
-          <td><%= image_tag 'default.jpg', :height => '80px' %></td>
+          <td><%= image_tag 'default.jpg', :height => '70px' %></td>
         <% end %>
 
         <% if current_user.id == user.id %>

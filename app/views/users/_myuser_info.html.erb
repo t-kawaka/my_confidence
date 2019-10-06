@@ -1,0 +1,14 @@
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th><%= t('view.icon') %></th>
+      <th><%= t('view.name') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= image_tag 'default.jpg', :height => '70px' %></td>
+      <td><h5><%= link_to current_user.name, current_user %></h5></td>
+    </tr>
+  </tbody>
+</table>
