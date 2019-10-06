@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'relationships/create'
-  get 'relationships/destroy'
+  get 'homes/index'
   devise_for :users, :controller => {
     :resigtrations  => 'users/registrations'
   }
