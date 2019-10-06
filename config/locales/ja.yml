@@ -38,7 +38,7 @@ ja:
       user:
         name: ユーザー名
         email: メールアドレス
-        password: パスワード変更
+        password: パスワード
         admin: 管理者権限
         icon: アイコン画像
         status: 公開権限設定
@@ -85,7 +85,7 @@ ja:
     format: "%{attribute}%{message}"
     messages:
       accepted: を受諾してください
-      blank: に入力してください
+      blank: を入力してください
       confirmation: と%{attribute}の入力が一致しません
       empty: を入力してください
       equal_to: は%{count}にしてください
