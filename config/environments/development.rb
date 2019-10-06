@@ -34,5 +34,8 @@ Rails.application.configure do
     Bullet.bullet_logger = true
     Bullet.console = true
     Bullet.rails_logger = true
+
+    Bullet.add_whitelist type: :unused_eager_loading, class_name: 'Task', association: :tags
+    Bullet.add_whitelist type: :unused_eager_loading, class_name: 'Task', association: :task_tags
   end
 end
