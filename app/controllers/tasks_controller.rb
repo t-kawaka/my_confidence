@@ -4,7 +4,7 @@ class TasksController < ApplicationController
 
   def index
     @points = current_user.points
-    @tasks = current_user.tasks.recent.includes(:tags, :task_tags)
+    @tasks = current_user.tasks.recent
   end
 
   def new
@@ -12,7 +12,7 @@ class TasksController < ApplicationController
   end
 
   def show
-    @comments = @task.comments
+    @comments = @task.comments.includes(:user)
     @comment = @task.comments.build
     @task_favorite = current_user.task_favorites.find_by(task_id: @task.id)
   end
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.new(task_params)
     if @task.save
-      flash[:notice] = "アクション「#{@task.title}」を作成しました"
+      flash[:notice] = 'アクション「#{@task.title}」を作成しました'
       redirect_to @task
     else
       render 'new'
@@ -35,7 +35,7 @@ class TasksController < ApplicationController
     if @task.user_id == current_user.id
       # タグ空の対策行う
       if @task.update(task_params)
-        flash[:notice] = "アクション「#{@task.title}」を更新しました"
+        flash[:notice] = 'アクション「#{@task.title}」を更新しました'
         redirect_to @task
       else
         render 'edit'
@@ -46,13 +46,13 @@ class TasksController < ApplicationController
   def destroy
     if @task.user_id == current_user.id
       @task.destroy
-      flash[:notice] = "アクション「#{@task.title}」を削除しました"
+      flash[:notice] = 'アクション「#{@task.title}」を削除しました'
       redirect_to tasks_path
     end
   end
 
   def list
-    @progress = { 開始: "開始", 途中: "途中", 完了: "完了" }
+    @progress = { 開始: '開始', 途中: '途中', 完了: '完了' }
     @q = current_user.tasks.ransack(params[:q])
     @tasks = @q.result.recent.page(params[:page])
 

@@ -12,6 +12,6 @@
 FactoryBot.define do
   factory :tag do
     user
-    name { "プログラミング" }
+    name { 'プログラミング' }
   end
 end

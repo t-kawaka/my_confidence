@@ -13,20 +13,20 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.3.1'
 gem 'turbolinks', '~> 5'
-gem 'devise'
 gem 'carrierwave'
-gem 'jquery-rails'
+gem 'devise'
 gem 'font-awesome-sass'
-gem 'simple_calendar'
+gem 'jquery-rails'
 gem 'kaminari'
-gem 'mini_magick'
+gem 'simple_calendar'
 gem 'faker'
-gem 'rails-i18n'
+gem 'mini_magick'
 gem 'enum_help'
+gem 'rails-i18n'
 gem 'fog-aws'
 gem 'ransack'
-gem 'seed-fu'
 gem 'rubyzip', '>= 1.3.0'
+gem 'seed-fu'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -39,8 +39,8 @@ group :development, :test do
   gem 'launchy'
   gem 'spring-commands-rspec'
   gem 'better_errors'
-  gem 'pry-rails'
   gem 'binding_of_caller'
+  gem 'pry-rails'
 end
 
 group :development do
