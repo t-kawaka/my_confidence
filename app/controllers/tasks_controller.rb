@@ -3,8 +3,8 @@ class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
-    @points = current_user.points.includes(:user)
-    @tasks = current_user.tasks.recent.includes(:user, :points)
+    @points = current_user.points
+    @tasks = current_user.tasks.recent.includes(:tags, :task_tags)
   end
 
   def new
@@ -54,14 +54,14 @@ class TasksController < ApplicationController
   def list
     @progress = { 開始: "開始", 途中: "途中", 完了: "完了" }
     @q = current_user.tasks.ransack(params[:q])
-    @tasks = @q.result.recent.includes(:user).page(params[:page])
+    @tasks = @q.result.recent.page(params[:page])
 
     if params[:start_time]
-      @tasks = current_user.tasks.start_time.includes(:user)
+      @tasks = current_user.tasks.start_time.page(params[:page])
     end
 
     if params[:progress]
-      @tasks = current_user.tasks.progress.includes(:user)
+      @tasks = current_user.tasks.progress.page(params[:page])
     end
   end
 
