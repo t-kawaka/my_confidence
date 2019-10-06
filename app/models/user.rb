@@ -27,9 +27,9 @@ class User < ApplicationRecord
   has_many :contacts, dependent: :destroy
   validates :name, presence: true, uniqueness: true
   mount_uploader :icon, IconUploader
-  scope :recent, -> {order(start_time: :desc)}
+  scope :recent, -> { order(start_time: :desc) }
   accepts_nested_attributes_for :tasks, allow_destroy: true
-  enum status: {ユーザー非公開: 0, ユーザー公開: 1}
+  enum status: { ユーザー非公開: 0, ユーザー公開: 1 }
   has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
   has_many :passive_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
 

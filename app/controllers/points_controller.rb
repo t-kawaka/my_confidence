@@ -9,7 +9,7 @@ class PointsController < ApplicationController
   def create
     @point = current_user.points.build(point_params)
     if @point.save
-      flash[:notice] = "重点的に取り組んでいること「#{@point.name}」を作成しました"
+      flash[:notice] = '重点的に取り組んでいること「#{@point.name}」を作成しました'
       redirect_to root_path
     else
       render 'new'
@@ -21,7 +21,7 @@ class PointsController < ApplicationController
 
   def update
     if @point.update(point_params)
-      flash[:notice] = "重点的に取り組んでいること「#{@point.name}」を編集しました"
+      flash[:notice] = '重点的に取り組んでいること「#{@point.name}」を編集しました'
       redirect_to root_path
     else
       render 'edit'

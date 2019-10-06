@@ -16,7 +16,7 @@ class TagsController < ApplicationController
   def create
     @tag = current_user.tags.build(tag_params)
     if @tag.save
-      redirect_to tags_path, notice: "アクションタグを保存しました"
+      redirect_to tags_path, notice: 'アクションタグを保存しました'
     else
       render 'new'
     end
