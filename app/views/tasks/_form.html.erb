@@ -20,7 +20,9 @@
           <% end %>
         </div>
      <% end %>
-    <%= link_to "アクションタグの内容変更はこちら", tags_path, class: "btn btn-sm btn-success" %>
+    <% if controller.action_name == "new" %>
+      <%= link_to "アクションタグの内容変更はこちら", tags_path, class: "btn btn-sm btn-success" %>
+    <% end %>
   </div>
 
   <div class="form-group">

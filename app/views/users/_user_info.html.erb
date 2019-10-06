@@ -18,7 +18,7 @@
 
         <% if current_user.id == user.id %>
           <div class= "user_list">
-            <td><h5><%= user.name %>さん（ユーザー本人）</h5></td>
+            <td><h5><%= user.name %>さん</h5></td>
             <td><h5><%= link_to 'ユーザー本人', user_path(user), class: "btn btn-primary" %></h5></td>
             <td></td>
           </div>
