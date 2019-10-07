@@ -26,7 +26,11 @@
             <% @user.following.each_with_index do |follow, index| %>
             <tr>
               <td scope="row"><%= index+1 %></td>
-              
+              <% if follow.icon.present? %>
+                <td><%= image_tag(follow.icon_url, :width => "70px") if follow.icon %></td>
+              <% else %>
+                <td><%= image_tag 'default.jpg', :width => '70px' %></td>
+              <% end %>
               <td><%= link_to follow.name, follow %></td>
               <% end %>
             </tr>
@@ -39,14 +43,20 @@
         <table class="table">
           <thead>
             <tr>
-              <th>#</th>
+              <th>No.</th>
+              <th>アイコン画像</th>
               <th scope="col">ユーザー名</th>
             </tr>
           </thead>
           <tbody>
             <% @user.followers.each_with_index do |follower, index| %>
             <tr>
-              <th scope="row"><%= index+1 %></th>
+              <td scope="row"><%= index+1 %></td>
+              <% if follower.icon.present? %>
+                <td><%= image_tag(follower.icon_url, :width => "70px") if follower.icon %></td>
+              <% else %>
+                <td><%= image_tag 'default.jpg', :width => '70px' %></td>
+              <% end %>
               <td><%= link_to follower.name, follower %></td>
               <% end %>
             </tr>
