@@ -14,6 +14,7 @@ ja:
     icon: アイコン画像
     list: あなたの過去の取り組み
     tag: アクションタグ
+    introduce: 何かひとこと
   views:
     pagination:
       first: 最初
@@ -45,6 +46,7 @@ ja:
         current_password: "現在のパスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+        introduce: 自己紹介
       comment:
         content: コメント入力画面
       point:
