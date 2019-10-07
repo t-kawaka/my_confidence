@@ -3,7 +3,7 @@
     <div class="text-center">
       <h2>ユーザー情報</h2>
     </div>
-    <%= render partial: "users/myuser_info" %>
+    <%= render partial: "users/myuser_info", locals: {users: @users} %>
   </div>
 
   <div class="col-md-8 mt-3">

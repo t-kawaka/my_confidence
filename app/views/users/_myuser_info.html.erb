@@ -7,7 +7,11 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= image_tag 'default.jpg', :height => '70px' %></td>
+      <% if current_user.icon.present? %>
+        <td><%= image_tag(current_user.icon_url, :height => "70px") if current_user.icon %></td>
+      <% else %>
+        <td><%= image_tag 'default.jpg', :height => '70px' %></td>
+      <% end %>
       <td><h5><%= link_to current_user.name, current_user %></h5></td>
     </tr>
   </tbody>
