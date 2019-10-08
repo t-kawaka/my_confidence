@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
 
   def edit
     if @comment.user_id != current_user.id
-      redirect_to root_path, notice: "コメントの編集許可がありません"
+      redirect_to tasks_path, notice: "コメントの編集許可がありません"
     end
   end
 
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
         redirect_to :back
       end
       else
-        redirect_to root_path, notice: "コメントの編集許可がありません"
+        redirect_to tasks_path, notice: "コメントの編集許可がありません"
       end
   end
 

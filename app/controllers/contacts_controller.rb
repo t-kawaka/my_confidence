@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = current_user.contacts.build(contact_params)
-    
+
     if params[:back].present?
       render :new
       return
@@ -15,7 +15,7 @@ class ContactsController < ApplicationController
       if @contact.save
         ContactMailer.contact_mail(@contact).deliver_now
         flash[:notice] = "お問い合わせ「#{@contact.title}」を作成しました"
-        redirect_to root_path
+        redirect_to tasks_path
       else
         render 'new'
       end

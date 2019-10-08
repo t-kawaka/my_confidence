@@ -10,7 +10,7 @@ class PointsController < ApplicationController
     @point = current_user.points.build(point_params)
     if @point.save
       flash[:notice] = "重点的に取り組んでいること「#{@point.name}」を作成しました"
-      redirect_to root_path
+      redirect_to tasks_path
     else
       render 'new'
     end
@@ -18,7 +18,7 @@ class PointsController < ApplicationController
 
   def edit
     if @point.user_id != current_user.id
-      redirect_to root_path, notice: "重点的に取り組んでいることの編集許可がありません."
+      redirect_to tasks_path, notice: "重点的に取り組んでいることの編集許可がありません."
     end
   end
 
@@ -26,12 +26,12 @@ class PointsController < ApplicationController
     if @point.user_id == current_user.id
       if @point.update(point_params)
         flash[:notice] = "重点的に取り組んでいること「#{@point.name}」を編集しました"
-        redirect_to root_path
+        redirect_to tasks_path
       else
         render 'edit'
       end
     else
-      redirect_to root_path, notice: "重点的に取り組んでいることの編集許可がありません."
+      redirect_to tasks_path, notice: "重点的に取り組んでいることの編集許可がありません."
     end
   end
 
@@ -41,7 +41,7 @@ class PointsController < ApplicationController
       flash[:notice] = "重点的に取り組んでいること「#{@point.name}」を削除しました"
       redirect_to tasks_path
     else
-      redirect_to root_path, notice: "削除許可がありません."
+      redirect_to tasks_path, notice: "削除許可がありません."
     end
   end
 
