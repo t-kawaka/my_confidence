@@ -4,7 +4,7 @@
     <p class="lead mt-3">日々の記録をつけて自分に自信をもとう！!</p>
     <hr class="my-4">
     <% if user_signed_in? %>
-      <%= link_to 'アクション画面に戻る', users_path, class:"btn btn-success" %>
+      <%= link_to 'アクション画面に戻る', tasks_path, class:"btn btn-success" %>
     <% else %>
       <p class="lead text-center">
         <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn-primary mr-5" %>

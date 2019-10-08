@@ -28,6 +28,7 @@ gem 'ransack'
 gem 'rubyzip', '>= 1.3.0'
 gem 'seed-fu'
 gem 'rails_admin'
+gem 'cancancan'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
