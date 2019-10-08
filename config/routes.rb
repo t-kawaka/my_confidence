@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   }
   resources :users, :only => [:index, :show]
 
-  root to: 'tasks#index'
+  root to: 'tops#index'
+  get 'tops/show'
   resources :tasks, shallow: true do
     collection do
       get 'list'
