@@ -10,8 +10,5 @@
         </ul>
       <% end %>
     </div>
-    <% if current_user.try(:admin?) %>
-      <%= link_to "管理者ページ", admin_users_path, class: "nav-link js-scroll-trigger far fa-question-circle mr-2 text-white" %>
-    <% end %>
   </div>
 </section>
