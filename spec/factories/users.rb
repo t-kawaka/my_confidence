@@ -22,6 +22,6 @@ FactoryBot.define do
     password { 'password' }
     password_confirmation { 'password' }
     icon { nil }
-    admin { false }
+    admin { true }
   end
 end
