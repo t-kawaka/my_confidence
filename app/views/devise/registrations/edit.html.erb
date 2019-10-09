@@ -30,6 +30,11 @@
     </div>
 
     <div class="form-group">
+      <%= f.label :introduce %><br />
+      <%= f.text_field :introduce, autofocus: true, autocomplete: "introduce", class:"form-control", placeholder: "自分のことを相手に紹介しましょう" %>
+    </div>
+
+    <div class="form-group">
       <div class="radio-inline">
         <%= f.label :status %><br>
         <%= f.select :status, User.statuses_i18n.keys.map {|k| [User.statuses_i18n[k], k]} %>

@@ -19,8 +19,16 @@
         <% else %>
           <td><%= image_tag 'default.jpg', :width => '100px' %></td>
         <% end %>
-        <td><h5><%= @user.name %></h5></td>
+        <td><h5><%= @user.name %>さん</h5></td>
         <td><h5><%= @user.email %></h5></td>
+      </tr>
+      <tr>
+        <th><%= t('view.introduce') %></th><br>
+        <% if @user.introduce.blank? %>
+          <td colspan="2">現在、まだ未記入です。</td>
+        <% else %>
+          <td colspan="2"><%= @user.introduce %></td>
+        <% end %>
       </tr>
      </tbody>
   </table>

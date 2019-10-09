@@ -14,6 +14,7 @@ ja:
     icon: アイコン画像
     list: あなたの過去の取り組み
     tag: アクションタグ
+    introduce: 何かひとこと
   views:
     pagination:
       first: 最初
@@ -27,6 +28,11 @@ ja:
       user: ユーザー
       comment: コメント
       contact: お問い合わせ
+      point: 重点的に取り組んでいること
+      tag: アクションタグ
+      relationship: ユーザーフォロー
+      task_favorite: 投稿内容のフォロー
+      task_tag: タグの中間テーブル
     attributes:
       task:
         title: アクション内容
@@ -45,6 +51,7 @@ ja:
         current_password: "現在のパスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+        introduce: 自己紹介
       comment:
         content: コメント入力画面
       point:

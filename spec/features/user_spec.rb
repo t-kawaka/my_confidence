@@ -104,4 +104,19 @@ require 'rails_helper'
         expect(page).to have_content 'アカウントが更新されました。'
       end
     end
+
+    context '管理者権限サイトへ入れるかどうかのテスト（userはadmin:"true"）' do
+      before do
+        FactoryBot.create(:user)
+      end
+
+      it 'ログイン成功' do
+        visit new_user_session_path
+        fill_in 'メールアドレス', with: 'test1@gmail.com'
+        fill_in 'パスワード', with: 'password'
+        click_button 'ログイン'
+        visit '/admin'
+        expect(page).to have_content 'サイト管理'
+      end
+    end
   end

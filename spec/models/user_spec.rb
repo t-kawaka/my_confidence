@@ -60,4 +60,9 @@ RSpec.describe User, type: :model do
     user = User.new(name: 'user02', email: 'user01@gmail.com', password: 'password')
     expect(user).not_to be_valid
   end
+
+  it '管理者権限設定の入力' do
+    user = User.new(name: 'test7', email: 'test7@gmail.com', password: 'password', admin: true)
+    expect(user).to be_valid
+  end
 end

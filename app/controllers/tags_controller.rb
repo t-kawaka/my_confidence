@@ -16,26 +16,39 @@ class TagsController < ApplicationController
   def create
     @tag = current_user.tags.build(tag_params)
     if @tag.save
-      redirect_to tags_path, notice: 'アクションタグを保存しました'
+      redirect_to tags_path, notice: "アクションタグを保存しました"
     else
       render 'new'
     end
   end
 
   def edit
+    if @tag.user_id != current_user.id
+      redirect_to tags_path, notice: "アクションタグ編集の許可がありません."
+    end
   end
 
   def update
-    if @tag.update(tag_params)
-      redirect_to tags_path, notice: "アクションタグを編集しました"
+    if @tag.user_id == current_user.id
+      if @tag.update(tag_params)
+        flash[:notice] = "重点的に取り組んでいること「#{@tag.name}」を編集しました"
+        redirect_to tags_path
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      redirect_to tags_path, notice: "アクションタグ編集の許可がありません."
     end
   end
 
   def destroy
-    @tag.destroy
-    redirect_to tags_path, notice: "アクションタグを削除しました"
+    if @tag.user_id == current_user.id
+       @tag.destroy
+       flash[:notice] = "重点的に取り組んでいること「#{@tag.name}」を削除しました"
+       redirect_to tags_path
+    else
+     redirect_to tags_path, notice: "削除許可がありません."
+   end
   end
 
 

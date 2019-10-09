@@ -36,14 +36,14 @@
 <https://docs.google.com/spreadsheets/d/1PWTXyaOHQNR8c3mVfnO9akgOYq46YU_Pztu1CDlhiRU/edit#gid=478804872>
 ## ER図
 
-![ER図](app/assets/images/ER図_7.jpg)
+![ER図](app/assets/images/ER図_8.jpg)
 <https://docs.google.com/spreadsheets/d/1PWTXyaOHQNR8c3mVfnO9akgOYq46YU_Pztu1CDlhiRU/edit#gid=1406161042>
 ## 画面遷移図
 
-<https://cacoo.com/diagrams/gUPkC2Yf8GAEMVl8/25FBB?reload_rt=1567599855582_0>
+<https://docs.google.com/spreadsheets/d/1PWTXyaOHQNR8c3mVfnO9akgOYq46YU_Pztu1CDlhiRU/edit#gid=1950864807>
 ## ワイヤーフレームワーク
 
-<https://cacoo.com/diagrams/gUPkC2Yf8GAEMVl8/51CCE?reload_rt=1567599855582_0>
+<https://docs.google.com/spreadsheets/d/1PWTXyaOHQNR8c3mVfnO9akgOYq46YU_Pztu1CDlhiRU/edit#gid=1985858776>
 ## 使用予定のGem
 
 
