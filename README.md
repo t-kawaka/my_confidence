@@ -43,7 +43,7 @@
 <https://docs.google.com/spreadsheets/d/1PWTXyaOHQNR8c3mVfnO9akgOYq46YU_Pztu1CDlhiRU/edit#gid=1950864807>
 ## ワイヤーフレームワーク
 
-<https://cacoo.com/diagrams/gUPkC2Yf8GAEMVl8/51CCE?reload_rt=1567599855582_0>
+<https://docs.google.com/spreadsheets/d/1PWTXyaOHQNR8c3mVfnO9akgOYq46YU_Pztu1CDlhiRU/edit#gid=1985858776>
 ## 使用予定のGem
 
 
