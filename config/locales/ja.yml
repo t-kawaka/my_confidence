@@ -28,6 +28,11 @@ ja:
       user: ユーザー
       comment: コメント
       contact: お問い合わせ
+      point: 重点的に取り組んでいること
+      tag: アクションタグ
+      relationship: ユーザーフォロー
+      task_favorite: 投稿内容のフォロー
+      task_tag: タグの中間テーブル
     attributes:
       task:
         title: アクション内容

@@ -148,6 +148,8 @@ GEM
     font-awesome-sass (5.9.0)
       sassc (>= 1.11)
     formatador (0.2.5)
+    gimei (0.3.0)
+      romaji
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     haml (5.1.2)
@@ -290,6 +292,8 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    romaji (0.2.4)
+      rake (>= 0.8.0)
     rspec-core (3.8.2)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.4)
@@ -413,6 +417,7 @@ DEPENDENCIES
   faker
   fog-aws
   font-awesome-sass
+  gimei
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
