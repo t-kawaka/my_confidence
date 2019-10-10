@@ -20,13 +20,16 @@
 
       <% end %>
       <tr>
-        <h5><%= t('view.title') %>：<%= @task.title %></h5>
+        <td><h5><%= t('view.title') %>：</h5></td>
+        <td><h5><%= @task.title %></h5></td>
       </tr>
       <tr>
-        <h5><%= t('view.description') %>：<%= @task.description %></h5>
+        <td><h5><%= t('view.description') %>（リンクの貼り付けも可能です）：</h5></td>
+        <td><h5><%= auto_link(simple_format(h(@task.description),{}, sanitize: false, wrapper_tag: "div")) %></h5></td>
       </tr>
       <tr>
-        <h5><%= t('view.notice') %>：<%= @task.notice %></h5>
+        <td><h5><%= t('view.notice') %>（リンクの貼り付けも可能です）：</h5></td>
+        <td><h5><%= auto_link(simple_format(h(@task.notice),{}, sanitize: false, wrapper_tag: "div")) %></h5></td>
       </tr>
       <tr>
         <h5><%= t('view.require_time') %>：<%= @task.require_time %>分</h5>
