@@ -65,6 +65,10 @@ class TasksController < ApplicationController
     end
   end
 
+  def record
+    @tasks = current_user.tasks.includes(:user)
+  end
+
   private
 
   def task_params

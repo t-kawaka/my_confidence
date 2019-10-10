@@ -2,6 +2,11 @@
   <div class="col-md-10 offset-1">
     <div class="text-center">
       <h2>あなたの過去の取り組み</h2>
+    </div>
+    <div class="nav.justify-content-end text-right">
+      <%= link_to "あなたのアクション記録", record_tasks_path, class: "nav-link" %>
+    </div>
+    <div class="text-center">
       <%= search_form_for @q, :url => list_tasks_path do |f| %>
         <%= f.label :title_cont, "アクション内容" %>
         <%= f.search_field :title_cont %>

@@ -9,14 +9,15 @@ Rails.application.routes.draw do
   resources :tasks, shallow: true do
     collection do
       get 'list'
+      get 'record'
     end
     resources :comments
   end
-  
+
   resources :tags
   resources :points
   resources :task_favorites, only: %i[create destroy]
-  resources :contacts do
+  resources :contacts, only: %i[new create] do
     post :confirm, on: :new
   end
   resources :relationships, only: %i[create destroy]

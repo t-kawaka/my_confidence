@@ -24,11 +24,11 @@
         <td><h5><%= @task.title %></h5></td>
       </tr>
       <tr>
-        <td><h5><%= t('view.description') %>（リンクの貼り付けも可能です）：</h5></td>
+        <td><h5><%= t('view.description') %>：</h5></td>
         <td><h5><%= auto_link(simple_format(h(@task.description),{}, sanitize: false, wrapper_tag: "div")) %></h5></td>
       </tr>
       <tr>
-        <td><h5><%= t('view.notice') %>（リンクの貼り付けも可能です）：</h5></td>
+        <td><h5><%= t('view.notice') %>：</h5></td>
         <td><h5><%= auto_link(simple_format(h(@task.notice),{}, sanitize: false, wrapper_tag: "div")) %></h5></td>
       </tr>
       <tr>
