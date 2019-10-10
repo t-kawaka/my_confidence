@@ -74,12 +74,12 @@
 
 ## 導入準備
 
-$ git clone git@github.com:t-kawaka/my_confidence.git
-$ cd my_confidence
-$ bundle install
-$ rails db:create db:migrate
-$ rails db:seed_fu
+* $ git clone git@github.com:t-kawaka/my_confidence.git
+* $ cd my_confidence
+* $ bundle install
+* $ rails db:create db:migrate
+* $ rails db:seed_fu
 
 * fakerを使用しているため、seed_fuを行う際は、application.rbにある下記２行のコメントアウトをお願いします。
-I18n.config.available_locales = :ja
-I18n.default_locale = :ja
+* I18n.config.available_locales = :ja
+* I18n.default_locale = :ja
