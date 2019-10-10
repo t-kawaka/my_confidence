@@ -17,10 +17,13 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-link js-scroll-trigger">ようこそ<%= current_user.name %>さん</li>
             <li class="nav-item">
-              <%= link_to "あなたのプロフィール", edit_user_registration_path, class: "nav-link js-scroll-trigger fas fa-user mt-1" %>
+              <%= link_to "アクションタグ", tags_path, class: "nav-link js-scroll-trigger fas fa-tag mt-1" %>
             </li>
             <li class="nav-item">
-              <%= link_to "あなたの過去の取り組み", list_tasks_path, class: "nav-link js-scroll-trigger fas fa-book-reader mt-1" %>
+              <%= link_to "プロフィール", edit_user_registration_path, class: "nav-link js-scroll-trigger fas fa-user mt-1" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "過去の取り組み", list_tasks_path, class: "nav-link js-scroll-trigger fas fa-book-reader mt-1" %>
             </li>
             <li class="nav-item">
               <%= link_to "登録ユーザー一覧", users_path, class: "nav-link js-scroll-trigger fas fa-user-friends mt-1" %>

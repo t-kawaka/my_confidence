@@ -11,6 +11,7 @@
 
 * ruby 2.6.3
 * rails 5.2.3
+* psql (PostgreSQL) 11.4
 
 ## 機能一覧
 - ログイン・ユーザー登録を搭載（deviseを導入 （就業Term 技術））
@@ -70,3 +71,15 @@
 * jquery-rails
 
 * ransack
+
+## 導入準備
+
+$ git clone git@github.com:t-kawaka/my_confidence.git
+$ cd my_confidence
+$ bundle install
+$ rails db:create db:migrate
+$ rails db:seed_fu
+
+* fakerを使用しているため、seed_fuを行う際は、application.rbにある下記２行のコメントアウトをお願いします。
+I18n.config.available_locales = :ja
+I18n.default_locale = :ja

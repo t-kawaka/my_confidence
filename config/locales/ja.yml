@@ -36,9 +36,9 @@ ja:
     attributes:
       task:
         title: アクション内容
-        description: アクション詳細情報
+        description: アクション詳細情報（リンクの貼りつけも可能です。）
         start_time: 作成日時
-        notice: 本日学んだこと（空欄でもOKです。）
+        notice: 本日学んだこと（空欄でもOKです。リンクの貼りつけも可能です。）
         require_time: 取り組み時間（半角入力、単位：分）
         progress: 進捗状況
       user:

@@ -1,7 +1,7 @@
 <%= form_with(model: [@task, @comment]) do |form| %>
 
   <div class="form-group">
-    <%= form.label :content %> <i class="fas fa-edit"></i>
+    <%= form.label :content %> <i class="fas fa-edit"></i>（リンクの貼り付けも可能です）
     <%= form.text_area :content, class:"form-control col-10" %>
   </div>
 

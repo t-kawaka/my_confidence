@@ -2,8 +2,8 @@
   <div class="col-md-8 offset-2">
     <div class="text-center">
       <h2>私のお気に入りユーザー</h2>
-      <h5>フォロー：<%= @user.active_relationships.count %>件</h5>
-      <h5>フォロワー：<%= @user.passive_relationships.count %>件</h5>
+      <h5>フォロー：<%= user.active_relationships.count %>件</h5>
+      <h5>フォロワー：<%= user.passive_relationships.count %>件</h5>
     </div>
     <ul class="nav nav-tabs">
       <li class="nav-item">
@@ -27,7 +27,7 @@
               </tr>
             </thead>
             <tbody>
-              <% @user.following.each_with_index do |follow, index| %>
+              <% user.following.each_with_index do |follow, index| %>
               <tr>
                 <td scope="row"><%= index+1 %></td>
                 <% if follow.icon.present? %>
@@ -52,7 +52,7 @@
               </tr>
             </thead>
             <tbody>
-              <% @user.followers.each_with_index do |follower, index| %>
+              <% user.followers.each_with_index do |follower, index| %>
               <tr>
                 <td scope="row"><%= index+1 %></td>
                 <% if follower.icon.present? %>

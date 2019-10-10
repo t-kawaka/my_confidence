@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @users = current_user.active_relationships.page(params[:page])
   end
 
   private
