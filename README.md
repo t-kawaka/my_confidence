@@ -9,7 +9,7 @@
 
 ## バージョン
 
-* ruby 2.6.3
+* ruby 2.6.4
 * rails 5.2.3
 * psql (PostgreSQL) 11.4
 
@@ -80,6 +80,6 @@
 * $ rails db:create db:migrate
 * $ rails db:seed_fu
 
-* fakerを使用しているため、seed_fuを行う際は、application.rbにある下記２行のコメントアウトをお願いします。
-* I18n.config.available_locales = :ja
-* I18n.default_locale = :ja
+- fakerを使用しているため、seed_fuを行う際は、application.rbにある下記２行のコメントアウトをお願いします。
+   - I18n.config.available_locales = :ja
+   - I18n.default_locale = :ja

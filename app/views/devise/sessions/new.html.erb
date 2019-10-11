@@ -1,11 +1,14 @@
 <div class="col-md-6 offset-3 mt-5">
   <div class="text-center">
     <h2>ログイン</h2>
-
-    <% if flash[:alert] %>
-      <%= flash[:alert] %>
-    <% end %>
   </div>
+
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">

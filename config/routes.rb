@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   }
   resources :users, :only => [:index, :show]
   get '/my_confidence', to: 'tops#index'
+  post '/my_confidence', to: 'tops#index'
 
   resources :tasks, shallow: true do
     collection do
