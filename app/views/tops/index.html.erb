@@ -1,14 +1,17 @@
 <% if flash[:notice] %>
   <div class="alert alert-info mt-3"><%= flash[:notice] %></div>
 <% end %>
-<div class="jumbotron">
-  <div class="text-center">
-    <div class="display-4">my_confidenceへようこそ</div>
-    <p class="lead mt-3">日々の記録をつけて自分に自信をもとう！!</p>
-    <hr class="my-4">
-    <p class="lead text-center">
-      <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn-primary mr-5" %>
-      <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-lg btn-success" %>
-    </p>
+  <div class="main-container">
+    <div class="text-center main-page">
+      <div class="display-4 pt-4">my_confidenceへようこそ</div>
+      <p class="lead mt-3">日々の記録をつけて自分に自信をもとう！!</p>
+      <p class="lead text-center">
+      <% if user_signed_in? %>
+       <%= link_to "アクション画面に戻る", tasks_path, class: "btn btn-lg btn-primary mr-5" %>
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn-primary mr-5" %>
+        <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-lg btn-success" %>
+      <% end %>
+      </p>
+    </div>
   </div>
-</div>

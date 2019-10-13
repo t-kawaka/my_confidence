@@ -9,12 +9,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag('penfavicon.png') %>
   </head>
-
   <body>
     <%= render "layouts/header" %>
-    <div class= "container">
-      <%= yield %>
-    </div>
+    <%= yield %>
     <%= render "layouts/footer" %>
   </body>
 </html>

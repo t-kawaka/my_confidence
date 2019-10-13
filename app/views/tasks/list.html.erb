@@ -1,56 +1,58 @@
-<div class="row">
-  <div class="col-md-10 offset-1">
-    <div class="text-center">
-      <h2>あなたの過去の取り組み</h2>
-    </div>
-    <div class="nav.justify-content-end text-right">
-      <%= link_to "あなたのアクション記録", record_tasks_path, class: "nav-link" %>
-    </div>
-    <div class="text-center">
-      <%= search_form_for @q, :url => list_tasks_path do |f| %>
-        <%= f.label :title_cont, "アクション内容" %>
-        <%= f.search_field :title_cont, include_blank: true %>
-        <%= f.label :start_time_eq, "アクション日" %>
-        <%= f.date_field :start_time_eq, include_blank: true %>
-        <%= f.label :progress_eq, "進捗状況" %>
-        <%= f.select :progress_eq, @progress, include_blank: true %>
-        <div class="actions">
-          <%= f.submit "検索する", class:"btn btn-success mt-1 mb-3" %>
-          <%= link_to '検索条件のクリア', request.path, class:"btn btn-light mt-1 mb-3 ml-3" %>
-          <%= link_to "本日のアクション", new_task_path, class:"btn btn-primary mt-1 mb-3 ml-3" %>
-        </div>
-      <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center">
+        <h2>あなたの過去の取り組み</h2>
+      </div>
+      <div class="nav.justify-content-end text-right">
+        <%= link_to "あなたのアクション記録", record_tasks_path, class: "nav-link" %>
+      </div>
+      <div class="text-center">
+        <%= search_form_for @q, :url => list_tasks_path do |f| %>
+          <%= f.label :title_cont, "アクション内容" %>
+          <%= f.search_field :title_cont, include_blank: true %>
+          <%= f.label :start_time_eq, "アクション日" %>
+          <%= f.date_field :start_time_eq, include_blank: true %>
+          <%= f.label :progress_eq, "進捗状況" %>
+          <%= f.select :progress_eq, @progress, include_blank: true %>
+          <div class="actions">
+            <%= f.submit "検索する", class:"btn btn-success mt-1 mb-3" %>
+            <%= link_to '検索条件のクリア', request.path, class:"btn btn-light mt-1 mb-3 ml-3" %>
+            <%= link_to "本日のアクション", new_task_path, class:"btn btn-primary mt-1 mb-3 ml-3" %>
+          </div>
+        <% end %>
 
-      <table class="table table-striped table-bordered table-hover">
-        <thead>
-          <tr>
-            <th><%= t('view.title') %></th>
-            <th><%= sort_link(@q, :start_time) %></th>
-            <th><%= sort_link(@q, :progress)%></th>
-            <th>詳細</th>
-            <th>編集</th>
-            <th>削除</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @tasks.each do |task| %>
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
             <tr>
-              <td><%= task.title %></td>
-              <td><%= l task.start_time, format: :short %></td>
-              <td><%= task.progress %></td>
-              <% if task.user_id == current_user.id %>
-                <td><%= link_to '詳細', task, class: "btn btn-primary ml-2 mb-2" %></td>
-                <td><%= link_to '編集', edit_task_path(task.id), class: "btn btn-success ml-2 mb-2" %></td>
-                <td><%= link_to '削除',task_path(task.id), method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger ml-2 mb-2" %></td>
-              <% end %>
+              <th class="w-50"><%= t('view.title') %></th>
+              <th class="w-30"><%= sort_link(@q, :start_time) %></th>
+              <th class="w-10"><%= sort_link(@q, :progress)%></th>
+              <th class="w-10">詳細</th>
+              <th class="w-10">編集</th>
+              <th class="w-10">削除</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <div class="col-md-4 offset-4">
-        <div class="space">
-          <%= paginate @tasks, window: 2 %>
+          </thead>
+
+          <tbody>
+            <% @tasks.each do |task| %>
+              <tr>
+                <td><%= task.title %></td>
+                <td><%= l task.start_time, format: :short %></td>
+                <td><%= task.progress %></td>
+                <% if task.user_id == current_user.id %>
+                  <td><%= link_to '詳細', task, class: "btn btn-primary ml-2 mb-2" %></td>
+                  <td><%= link_to '編集', edit_task_path(task.id), class: "btn btn-success ml-2 mb-2" %></td>
+                  <td><%= link_to '削除',task_path(task.id), method: :delete, data: { confirm: '削除しますか?' }, class: "btn btn-danger ml-2 mb-2" %></td>
+                <% end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div class="col-md-4 offset-4">
+          <div class="space">
+            <%= paginate @tasks, window: 2 %>
+          </div>
         </div>
       </div>
     </div>
