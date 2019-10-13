@@ -2,14 +2,6 @@
   <div class="alert alert-info mt-3"><%= flash[:notice] %></div>
 <% end %>
 <div class="jumbotron">
-  <% if user_signed_in? %>
-  <div class="text-center">
-    <div class="display-4">ご利用ありがとうございます。</div>
-    <p class="lead mt-3">引き続きご活用お願いします！！</p>
-    <hr class="my-4">
-    <%= link_to 'アクション画面に戻る', tasks_path, class:"btn btn-success" %>
-  </div>
-  <% else %>
   <div class="text-center">
     <div class="display-4">my_confidenceへようこそ</div>
     <p class="lead mt-3">日々の記録をつけて自分に自信をもとう！!</p>
@@ -19,5 +11,4 @@
       <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-lg btn-success" %>
     </p>
   </div>
-  <% end %>
 </div>

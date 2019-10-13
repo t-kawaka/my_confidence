@@ -1,18 +1,15 @@
 Rails.application.routes.draw do
-  root to: 'tasks#index'
-  devise_for :users, :controller => {
-    :resigtrations  => 'users/registrations'
-  }
+  root to: 'tops#index'
+  devise_for :users, controllers: { registrations: 'registrations' } 
   resources :users, :only => [:index, :show]
   get '/my_confidence', to: 'tops#index'
-  post '/my_confidence', to: 'tops#index'
 
   resources :tasks, shallow: true do
     collection do
       get 'list'
       get 'record'
     end
-    resources :comments
+    resources :comments, only: %i[edit create update destroy]
   end
 
   resources :tags
