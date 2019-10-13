@@ -36,6 +36,7 @@
      </tbody>
   </table>
     <%= link_to "登録ユーザー一覧に戻る", users_path, class:"btn btn-success" %>
+    <%= link_to "プロフィールを編集する", edit_user_registration_path, class:"btn btn-primary" %>
 </div>
 
 <% if current_user.id == @user.id %>
