@@ -1,16 +1,16 @@
 <div class="row">
-  <div class="col-md-8 offset-2">
+  <div class="col-md-10 offset-1">
     <div class="text-center">
       <h2>私のお気に入りユーザー</h2>
-      <h5>フォロー：<%= user.active_relationships.count %>件</h5>
-      <h5>フォロワー：<%= user.passive_relationships.count %>件</h5>
     </div>
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <a class="nav-link active" data-toggle="tab" href="#home">フォローユーザー</a>
+    <ul class="nav nav-tabs text-center">
+      <li class="nav-item w-50">
+        <a class="nav-link active" data-toggle="tab" href="#home">フォローユーザー<br>
+        <%= user.active_relationships.count %>件</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="tab" href="#profile">フォロワーユーザー</a>
+      <li class="nav-item w-50">
+        <a class="nav-link" data-toggle="tab" href="#profile">フォロワーユーザー<br>
+        <%= user.passive_relationships.count %>件</a>
       </li>
     </ul>
 
@@ -22,8 +22,7 @@
               <tr>
                 <th>No.</th>
                 <th>アイコン画像</th>
-                <th scope="col">ユーザー名</th>
-                <th>
+                <th>ユーザー名</th>
               </tr>
             </thead>
             <tbody>
@@ -48,7 +47,7 @@
               <tr>
                 <th>No.</th>
                 <th>アイコン画像</th>
-                <th scope="col">ユーザー名</th>
+                <th>ユーザー名</th>
               </tr>
             </thead>
             <tbody>
@@ -56,11 +55,11 @@
               <tr>
                 <td scope="row"><%= index+1 %></td>
                 <% if follower.icon.present? %>
-                  <td><%= image_tag(follower.icon_url, :width => "70px") if follower.icon %></td>
+                  <td><%= image_tag(follower.icon_url, :width => "60px") if follower.icon %></td>
                 <% else %>
-                  <td><%= image_tag 'default.jpg', :width => '70px' %></td>
+                  <td><%= image_tag 'default.jpg', :width => '60px' %></td>
                 <% end %>
-                <td><%= link_to follower.name, follower %></td>
+                <td><%= link_to follower.name, follower %>さん</td>
                 <% end %>
               </tr>
             </tbody>
