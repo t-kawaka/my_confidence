@@ -1,7 +1,11 @@
 <h2>コメント編集画面</h2>
 <%= form_with(model: @comment, local: true) do |form| %>
-  <% if flash[:notice] %>
-    <div class="alert alert-info"><%= flash[:notice] %></div>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <% @comment.errors.full_messages.each do |msg| %>
+        <%= msg %>
+      <% end %>
+    </div>
   <% end %>
 
   <div class="field">
