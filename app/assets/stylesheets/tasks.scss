@@ -59,3 +59,21 @@ h4{
 　background-size: auto;
 　opacity: 0.7;
 }
+
+.task_top_border{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    color: black;/*文字色*/
+    background: #f0f8ff;
+    border: solid 2px #6091d3;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+
+.button{
+  width: 10%;
+}
+
+table tbody tr th h4{
+  margin-left: -20% !important;
+}
