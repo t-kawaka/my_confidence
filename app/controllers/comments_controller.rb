@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_task, only: %i[edit update destroy]
-  before_action :set_comment, only: %i[edit update destroy]
+  before_action :set_task, only: %i[destroy]
+  before_action :set_comment, only: %i[destroy]
 
   def create
     @task = Task.find(params[:task_id])
@@ -16,24 +16,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit
-    if @comment.user_id != current_user.id
-      redirect_to tasks_path, notice: "コメントの編集許可がありません"
-    end
-  end
-
-  def update
-    if @comment.user_id == current_user.id
-      if @task = @comment.task
-        redirect_to task_path(@task) if @comment.update(comment_params)
-      else
-        redirect_to :back
-      end
-      else
-        redirect_to tasks_path, notice: "コメントの編集許可がありません"
-      end
-    end
-
   def destroy
     @comment = Comment.find(params[:id])
     if @comment.destroy
@@ -46,7 +28,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:task_id, :content)
+    params.require(:comment).permit(:task_id, :content, :user_id)
   end
 
   def set_task

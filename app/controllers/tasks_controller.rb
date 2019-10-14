@@ -36,7 +36,6 @@ class TasksController < ApplicationController
 
   def update
     if @task.user_id == current_user.id
-      # タグ空の対策行う
       if @task.update(task_params)
         flash[:notice] = "アクション「#{@task.title}」を更新しました"
         redirect_to @task
