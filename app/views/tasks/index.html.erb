@@ -15,31 +15,28 @@
 </div>
 <div class="container">
   <div class= "task_top_border">
-  <table class="col-md-8 offset-2">
-      <% if @points.present? %>
-          <tr>
-           <th colspan="3"><h4><現在、重点的に取り組んでいること></h4></th>
-          </tr>
-          <tr>
-          <% @points.each do |point| %>
-            <td class="w-80"><h4><%= point.name %></h4></td>
-            <td class="button"><%= link_to "修正", edit_point_path(point.id), class: "btn btn-success mb-1" %></td>
-            <td class="button"><%= link_to "削除", point_path(point.id),method: :delete, data: {confirm: '重点的に取り組んでいること削除する？'}, class: "btn btn-danger mb-1" %></td>
-          </tr>
+    <table class="col-md-8 offset-2">
+        <% if @points.present? %>
+            <tr>
+              <span class="box-title"><現在、重点的に取り組んでいること></span>
+            </tr>
+            <tr>
+              <% @points.each do |point| %>
+                <td class="w-80"><h4><%= point.name %></h4></td>
+                <td class="button"><%= link_to "修正", edit_point_path(point.id), class: "btn btn-success mb-1" %></td>
+                <td class="button"><%= link_to "削除", point_path(point.id),method: :delete, data: {confirm: '重点的に取り組んでいること削除する？'}, class: "btn btn-danger mb-1" %></td>
+              <% end %>
+            </tr>
+          <% else %>
+            <tr>
+              <span class="box-title"><現在、重点的に取り組んでいること></span>
+            </tr>
+            <tr>
+              <td><h4>特にありません</h4></td>
+              <td class="focus"><%= link_to '重点的に取り組んでいることがあればこちらに入力', new_point_path, class:"btn btn-primary" %></td>
+            </tr>
           <% end %>
-
-        <% else %>
-
-          <tr>
-           <th colspan="2"><h4><現在、重点的に取り組んでいること></h4></th>
-          </tr>
-          <tr>
-            <td><h4>特にありません</h4></td>
-            <td><%= link_to '重点的に取り組んでいることがあればこちらに入力', new_point_path, class:"btn btn-primary" %></td>
-          </tr>
-
-        <% end %>
-    </table>
+      </table>
     </div>
 
   <table class="table table-striped table-bordered table-hover col-md-10 offset-1 navbar-expand-sm">
