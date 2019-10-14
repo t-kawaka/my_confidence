@@ -28,6 +28,9 @@ class TasksController < ApplicationController
   end
 
   def edit
+    if @task.user_id != current_user.id
+      redirect_to tasks_path, notice: "アクション編集の許可がありません."
+    end
     @tag_ids = @task.task_tags.pluck(:tag_id)
   end
 

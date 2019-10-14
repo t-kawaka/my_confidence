@@ -1,14 +1,5 @@
 <div class="col-md-6 offset-3 mt-3">
   <h2>プロフィール・パスワード変更画面</h2>
-  <ul class="nav nav-tabs">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="tab" href="#home">プロフィールを変更</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="tab" href="#profile">パスワードを変更</a>
-    </li>
-  </ul>
-  <div id="myTabContent" class="tab-content">
     <div class="tab-pane fade active show" id="home">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
@@ -50,44 +41,20 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :current_password %> <br><i>(ユーザ名・パスワード・画像・自己紹介を変更した場合は現在のパスワードを入力してください)</i><br />
-          <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control mt-1" %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "プロフィール更新", class:"btn btn-primary" %>
-          <%= link_to "戻る", tasks_path, class:"btn btn-success ml-2" %>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="tab-pane fade" id="profile">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <div class="form-group mt-3">
-          <%= f.label :current_password %> <br>
-          <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control mt-1" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :new_password %>
-          <% if @minimum_password_length %>
-            <br />
-            <em>新しいパスワード最低は<%= @minimum_password_length %>文字以上</em>
-          <% end %>
-          <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+          <%= f.label :password %>(パスワード変更しない場合は空欄のまま) 6文字以上<br>
+          <%= f.password_field :password, autocomplete: "off", class:"form-control mt-1" %>
         </div>
 
         <div class="form-group">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+          <%= f.label :password_confirmation %> <br>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class:"form-control mt-1" %>
         </div>
 
         <div class="actions">
-          <%= f.submit "プロフィール更新", class:"btn btn-primary" %>
-          <%= link_to "戻る", tasks_path, class:"btn btn-success ml-2" %>
+          <%= f.submit "プロフィール更新", class: "btn btn-primary mt-2" %>
         </div>
       <% end %>
     </div>
-  </div>
 
   <h3>my_confidence 退会</h3>
   <div class="space">

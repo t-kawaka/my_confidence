@@ -26,7 +26,7 @@ class User < ApplicationRecord
   has_many :task_favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :contacts, dependent: :destroy
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true, length: { maximum: 20 }
   mount_uploader :icon, IconUploader
   scope :recent, -> { order(start_time: :desc) }
   accepts_nested_attributes_for :tasks, allow_destroy: true
@@ -56,10 +56,23 @@ class User < ApplicationRecord
    active_relationships.find_by(followed_id: other_user.id).destroy
  end
 
+# Edit/Password不要
+ def update_without_current_password(params, *options)
+
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
+  end
+
+
   after_create :send_welcome_mail
 
   def send_welcome_mail
     UserMailer.user_welcome_mail(self).deliver
   end
-
 end

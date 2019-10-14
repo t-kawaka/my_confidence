@@ -15,21 +15,28 @@
       <% if user_signed_in? %>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-link js-scroll-trigger">ようこそ<%= current_user.name %>さん</li>
             <li class="nav-item">
-              <%= link_to "アクションタグ", tags_path, class: "nav-link js-scroll-trigger fas fa-tag mt-1" %>
+              <%= link_to "アクションタグ", tags_path, class: "nav-link js-scroll-trigger fas fa-tag mt-2 mb-1" %>
             </li>
             <li class="nav-item">
-              <%= link_to "プロフィール", edit_user_registration_path, class: "nav-link js-scroll-trigger fas fa-user mt-1" %>
+              <%= link_to "マイページ", user_path(current_user), class: "nav-link js-scroll-trigger fas fa-user mt-2 mb-1" %>
             </li>
             <li class="nav-item">
-              <%= link_to "過去の取り組み", list_tasks_path, class: "nav-link js-scroll-trigger fas fa-book-reader mt-1" %>
+              <%= link_to "過去の取り組み", list_tasks_path, class: "nav-link js-scroll-trigger fas fa-book-reader mt-2 mb-1" %>
             </li>
             <li class="nav-item">
-              <%= link_to "登録ユーザー一覧", users_path, class: "nav-link js-scroll-trigger fas fa-user-friends mt-1" %>
+              <%= link_to "登録ユーザー一覧", users_path, class: "nav-link js-scroll-trigger fas fa-user-friends mt-2 mb-1" %>
             </li>
-            <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link js-scroll-trigger fas fa-sign-out-alt mt-1" %>
+            <li class="dropdown nav-item ml-2 mt-2 mb-1">
+              <a href="#" class="dropdown-toggle nav-link js-scroll-trigger fas fa-asterisk" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">アカウント<span class="caret"></span></a>
+          　  <ul class="dropdown-menu p-1">
+                <li class="nav-item">
+                  <%= link_to "プロフィール編集", edit_user_registration_path, class: "fas fa-address-card mt-1 text-info" %>
+                </li>
+                <li class="nav-item mt-1">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "fas fa-sign-out-alt mt-1 text-info" %>
+                </li>
+              </ul>
             </li>
           </ul>
         </div>

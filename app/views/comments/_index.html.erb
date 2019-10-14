@@ -1,21 +1,29 @@
 <ul>
-  <% comments.each do |comment| %>
-    <% if comment.id.present? %>
-      <li>
-        <% if comment.user.try(:name) %>
-          <li class:"mr-2">投稿者：<%= comment.user.name %> &ensp;投稿日時：<%= l comment.updated_at, format: :default %></li>
-        <% else %>
-          Not User Data<br>
-        <% end %>
-        <p><%= auto_link(simple_format(h(comment.content),{}, sanitize: false, wrapper_tag: "div")) %></p>
+  <div class="each_other_comment row" data-comment="<%= @comment.id %>">
+    <% comments.each do |comment| %>
+      <% if comment.id.present? %>
+        <li>
+          <% if comment.user.try(:name) %>
+            <li class:"mr-2">投稿者：<%= comment.user.name %> &ensp;投稿日時：<%= l comment.updated_at, format: :default %></li>
+          <% else %>
+            Not User Data<br>
+          <% end %>
+          <div class="row">
+            <li class= "ml-3"><%= auto_link(simple_format(h(comment.content),{}, sanitize: false, wrapper_tag: "div")) %></li>
 
-        <% if comment.user == current_user %>
-          <p>
-            <%= link_to 'コメントを削除する', comment_path(comment), method: :delete, remote: true, data:{ confirm:"削除しますか？" } %>
-            / <%= link_to 'コメントを編集する', edit_comment_path(comment) %>
-          </p>
-        <% end %>
-      </li>
+            <% if comment.user == current_user %>
+              <div class= "dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><%= link_to 'コメントを編集する', edit_comment_path(comment.id), remote: true %></li>
+                  <li><%= link_to 'コメントを削除する', comment_path(comment.id), method: :delete, remote: true, data:{ confirm:"削除しますか？" } %></li>
+                </ul>
+              </div>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
 </ul>

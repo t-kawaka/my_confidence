@@ -52,3 +52,45 @@ h4{
 .navbar,navbar-expand-lg navbar-dark bg-dark{
   padding: 0rem;
 }
+
+.task-container{
+  background: image-url('/task-bg.jpg');
+  height: 400px;
+　background-size: auto;
+　opacity: 0.7;
+}
+
+// task index(重点的に取り組んでいること)//
+.task_top_border{
+  position: relative;
+  margin: 2em 0;
+  padding: 1em 1em;
+  border: solid 3px #95ccff;
+  border-radius: 10px;
+}
+
+.task_top_border .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 20px;
+  background: #FFF;
+  color: skyblue;
+  font-weight: bold;
+}
+
+.button{
+  width: 10%;
+}
+
+table tbody tr th h4{
+  margin-left: -20% !important;
+}
+
+
+.focus{
+  padding-left: 120px;
+}

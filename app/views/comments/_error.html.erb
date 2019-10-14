@@ -7,7 +7,7 @@
         <% else %>
           Not User Data<br>
         <% end %>
-        <p><%= comment.content %></p>
+        <p><%= auto_link(simple_format(h(comment.content),{}, sanitize: false, wrapper_tag: "div")) %></p>
 
         <% if comment.user == current_user %>
           <p>

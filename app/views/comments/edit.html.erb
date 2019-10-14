@@ -1,13 +1,9 @@
 <h2>コメント編集画面</h2>
 <%= form_with(model: @comment, local: true) do |form| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <% @comment.errors.full_messages.each do |msg| %>
-        <%= msg %>
-      <% end %>
-    </div>
+  <% if flash[:notice] %>
+    <div class="alert alert-info"><%= flash[:notice] %></div>
   <% end %>
-  
+
   <div class="field">
     <%= form.text_area :content, class: "form-control" %>
   </div>

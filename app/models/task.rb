@@ -33,6 +33,14 @@ class Task < ApplicationRecord
   has_many :task_favorites, dependent: :destroy
   has_many :favorite_users, through: :task_favorites, source: :user
 
+  def self.ransackable_attributes(auth_object = nil)
+    %w[title start_time progress]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
+
 
   def start_cannnot_be_in_the_future
     if start_time.present? && start_time > Date.today

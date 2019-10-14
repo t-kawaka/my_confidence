@@ -17,21 +17,16 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    if @comment.user_id != current_user.id
-      redirect_to tasks_path, notice: "コメントの編集許可がありません"
-    end
+    @id_comment = Comment.find(params[:id]).id
   end
 
   def update
-    if @comment.user_id == current_user.id
-      if @task = @comment.task
-        redirect_to task_path(@task) if @comment.update(comment_params)
-      else
-        redirect_to :back
-      end
-      else
-        redirect_to tasks_path, notice: "コメントの編集許可がありません"
-      end
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment: params[:comment][:comment])
+      @id_comment = @comment.id
+    else
+      @status = 'fail'
+    end
   end
 
   def destroy

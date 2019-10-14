@@ -1,11 +1,13 @@
 <%= form_with(model: [@task, @comment]) do |form| %>
-
+  <% @comment.errors.full_messages.each do |message| %>
+    <h5><font color="red"><%= message %></font></h5>
+  <% end %>
   <div class="form-group">
     <%= form.label :content %> <i class="fas fa-edit"></i>（リンクの貼り付けも可能です）
     <%= form.text_area :content, class:"form-control col-10" %>
   </div>
 
   <div class="actions">
-    <%= form.submit "登録する", class:"btn btn-primary" %>
+    <%= form.submit "コメントを投稿する", class:"btn btn-primary" %>
   </div>
 <% end %>
