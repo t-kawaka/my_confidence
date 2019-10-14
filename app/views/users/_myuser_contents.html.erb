@@ -4,11 +4,11 @@
       <h2>私のお気に入りユーザー</h2>
     </div>
     <ul class="nav nav-tabs text-center">
-      <li class="nav-item w-50">
+      <li class="nav-item w-40 ml-1">
         <a class="nav-link active" data-toggle="tab" href="#home">フォローユーザー<br>
         <%= user.active_relationships.count %>件</a>
       </li>
-      <li class="nav-item w-50">
+      <li class="nav-item w-40 ml-1 mr-3">
         <a class="nav-link" data-toggle="tab" href="#profile">フォロワーユーザー<br>
         <%= user.passive_relationships.count %>件</a>
       </li>

@@ -52,16 +52,13 @@
   </div>
 
   <div class="space">
-    <h5 class="mt-3">コメント一覧</h5>
-      <div class="for_edit_comment">
-        <div id= "comments_area" class="comments_area_form">
-          <%= render partial: 'comments/index', locals: { comments: @comments, task: @task } %>
-        </div>
+    <div id= "comments_area" class="comments_area_form">
+      <%= render partial: 'comments/index', locals: { comments: @comments, task: @task } %>
+    </div>
 
-        <p>コメント投稿 <i class="far fa-sticky-note"></i></p>
-        <div id= "comments_form">
-          <%= render partial: 'comments/form', locals: { comment: @comment, task: @task } %>
-        </div>
-      </div>
+    <p>コメント投稿 <i class="far fa-sticky-note"></i></p>
+    <div id= "comments_form">
+      <%= render partial: 'comments/form', locals: { comment: @comment, task: @task } %>
+    </div>
   </div>
 </div>

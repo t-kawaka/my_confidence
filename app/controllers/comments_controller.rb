@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_task, only: %i[edit update destroy]
-  before_action :set_comment, only: %i[edit update destroy]
+  before_action :set_task, only: %i[destroy]
+  before_action :set_comment, only: %i[destroy]
 
   def create
     @task = Task.find(params[:task_id])
@@ -13,19 +13,6 @@ class CommentsController < ApplicationController
       else
         format.js { render :error }
       end
-    end
-  end
-
-  def edit
-    @id_comment = Comment.find(params[:id]).id
-  end
-
-  def update
-    @comment = Comment.find(params[:id])
-    if @comment.update(comment: params[:comment][:comment])
-      @id_comment = @comment.id
-    else
-      @status = 'fail'
     end
   end
 
@@ -41,7 +28,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:task_id, :content)
+    params.require(:comment).permit(:task_id, :content, :user_id)
   end
 
   def set_task

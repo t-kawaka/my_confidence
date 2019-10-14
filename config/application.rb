@@ -13,8 +13,8 @@ module MyConfidence
     config.active_record.default_timezone = :local
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     # rails db:seed_fuを行う場合は、下記２行をコメントアウトしてください。
-    I18n.config.available_locales = :ja
-    I18n.default_locale = :ja
+    #I18n.config.available_locales = :ja
+    #I18n.default_locale = :ja
 
     config.generators do |g|
       g.test_framework :rspec,

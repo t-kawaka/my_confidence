@@ -11,14 +11,14 @@ describe 'Comment', type: :system do
     fill_in 'メールアドレス', with: 'test1@gmail.com'
     fill_in 'パスワード', with: 'password'
     click_button 'ログイン'
-    expect(page).to have_content '自分のアクション'
+    expect(page).to have_content '本日のアクション'
   end
 
   scenario 'コメント入力のテスト' do
     visit list_tasks_path
     click_link '詳細', match: :first
     fill_in 'コメント入力画面', with: 'ただいまコメントします'
-    click_button '登録する'
+    click_button 'コメントを投稿する'
     expect(page).to have_content 'ただいまコメントします'
   end
 
@@ -26,7 +26,7 @@ describe 'Comment', type: :system do
     visit list_tasks_path
     click_link '詳細', match: :first
     fill_in 'コメント入力画面', with: ''
-    click_button '登録する'
+    click_button 'コメントを投稿する'
     expect(page).to have_content 'コメント入力画面を入力してください'
   end
 end

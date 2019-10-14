@@ -12,11 +12,11 @@
         <tbody>
           <tr>
             <th>アクション数</th>
-            <td><%= @tasks.all.count(:id) %></td>
+            <td><%= @tasks.all.count(:id) %>回</td>
           </tr>
           <tr>
             <th>活動合計時間</th>
-            <td><%= @tasks.all.sum(:require_time) %></td>
+            <td><%= @tasks.all.sum(:require_time) %>分</td>
           </tr>
         </tbody>
       </table>

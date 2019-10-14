@@ -12,7 +12,7 @@ describe 'Relationship', type: :system do
     fill_in 'メールアドレス', with: 'test1@gmail.com'
     fill_in 'パスワード', with: 'password'
     click_button 'ログイン'
-    expect(page).to have_content '自分のアクション'
+    expect(page).to have_content '本日のアクション'
   end
 
   context 'ユーザーフォローのテスト' do
