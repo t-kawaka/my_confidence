@@ -12,13 +12,10 @@
         <h2>登録されたユーザーさん</h2>
       </div>
       <%= render partial: "users/other_info", locals: {users: @users} %>
-
-      <div class="space">
-        <div class="col-md-10">
-          <%= paginate @users, window: 2 %>
-        </div>
-        <%= link_to "戻る", tasks_path, class:"btn btn-success ml-3" %>
-      </div>
+      <%= link_to "戻る", tasks_path, class:"btn btn-success ml-3 mb-3" %>
     </div>
   </div>
+</div>
+<div class="space">
+  <%= paginate @users, window: 3 %>
 </div>
