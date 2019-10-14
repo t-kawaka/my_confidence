@@ -9,7 +9,7 @@ require 'rails_helper'
         fill_in 'パスワード', with: 'password'
         fill_in '確認用パスワード', with: 'password'
         click_button 'サインアップ'
-        expect(page).to have_content '自分のアクション'
+        expect(page).to have_content '本日のアクション'
       end
 
       it 'ユーザー登録失敗（ユーザー名未入力）' do
@@ -63,7 +63,7 @@ require 'rails_helper'
         fill_in 'メールアドレス', with: 'test1@gmail.com'
         fill_in 'パスワード', with: 'password'
         click_button 'ログイン'
-        expect(page).to have_content '自分のアクション'
+        expect(page).to have_content '本日のアクション'
       end
 
       it 'ログイン失敗（メールアドレス違う）' do
@@ -87,8 +87,9 @@ require 'rails_helper'
         fill_in 'メールアドレス', with: 'test1@gmail.com'
         fill_in 'パスワード', with: 'password'
         click_button 'ログイン'
+        click_on 'アカウント'
         click_on 'ログアウト'
-        expect(page).to have_content 'ログイン'
+        expect(page).to have_content 'ログアウトしました'
       end
 
       it 'プロフィール設定変更（パスワード入力なし）' do
@@ -96,6 +97,7 @@ require 'rails_helper'
         fill_in 'メールアドレス', with: 'test1@gmail.com'
         fill_in 'パスワード', with: 'password'
         click_button 'ログイン'
+        click_on 'アカウント'
         visit edit_user_registration_path
         fill_in 'ユーザー名', with: 'test99'
         fill_in 'メールアドレス', with: 'test99@gmail.com'
@@ -108,6 +110,7 @@ require 'rails_helper'
         fill_in 'メールアドレス', with: 'test1@gmail.com'
         fill_in 'パスワード', with: 'password'
         click_button 'ログイン'
+        click_on 'アカウント'
         visit edit_user_registration_path
         fill_in 'パスワード', with: 'passpass'
         fill_in '確認用パスワード', with: 'passpass'

@@ -1,6 +1,31 @@
 .comments_area_form {
-    border: 2px solid;
-    border-radius: 30px;
-    width: 85%;
-    margin: 10px;
+  position: relative;
+   margin: 2em 0;
+   padding: 1em 0.5em 1em 1em;
+   color: #555555; /* 文章色 */
+   background-color: #fff; /* 背景色 */
+   border: 1px solid #555555; /* 枠線の太さ・色 */
+   width: 100%;
+  }
+  .comments_title_form {
+   position: absolute;
+   padding: 0 .5em;
+   left: 20px;
+   top: -15px;
+   font-size: 1.2rem;
+   font-weight: bold;
+   background-color: #fff; /* タイトル背景色 */
+   color: #555555; /* タイトル文字色 */
+  }
+
+.text_comment{
+  display: flex;
+}
+
+.text_comment li{
+  margin-right: 70px;
+}
+
+.row li{
+  margin-left: -50px;
 }

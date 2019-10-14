@@ -13,7 +13,7 @@ require 'rails_helper'
         click_button 'ログイン'
 
         visit new_point_path
-        fill_in '最近重点的に取り組んでいる内容', with: '成果物作成する'
+        fill_in 'アクションタグ', with: '成果物作成する'
         click_button '保存'
         expect(page).to have_content '重点的に取り組んでいること「成果物作成する」を作成しました'
       end
