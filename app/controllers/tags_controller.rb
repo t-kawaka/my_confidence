@@ -18,6 +18,7 @@ class TagsController < ApplicationController
     if @tag.save
       redirect_to tags_path, notice: "アクションタグを保存しました"
     else
+      flash[:alert] = "アクションタグを入力してください"
       render 'new'
     end
   end
@@ -34,6 +35,7 @@ class TagsController < ApplicationController
         flash[:notice] = "重点的に取り組んでいること「#{@tag.name}」を編集しました"
         redirect_to tags_path
       else
+        flash[:alert] = "アクションタグを入力してください"
         render 'edit'
       end
     else
