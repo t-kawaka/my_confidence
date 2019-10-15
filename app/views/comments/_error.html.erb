@@ -1,27 +1,28 @@
 <ul>
+  <span class="comments_title_form">コメント一覧</span>
   <% comments.each do |comment| %>
     <% if comment.id.present? %>
-      <li>
-        <% if comment.user.try(:name) %>
-          <li class:"mr-2">投稿者：<%= comment.user.name %> &ensp;投稿日時：<%= l comment.updated_at, format: :default %></li>
-        <% else %>
-          Not User Data<br>
-        <% end %>
-        <p><%= auto_link(simple_format(h(comment.content),{}, sanitize: false, wrapper_tag: "div")) %></p>
-
-        <% if comment.user == current_user %>
-          <p>
-            <%= link_to 'コメントを削除する', comment_path(comment), method: :delete, remote: true, data:{ confirm:"削除しますか？" } %>
-            / <%= link_to 'コメントを編集する', edit_comment_path(comment) %>
-          </p>
-        <% end %>
-      </li>
+      <div class="row">
+        <ul>
+          <% if comment.user.try(:name) %>
+            <li>投稿者：<%= comment.user.name %> &ensp;投稿日時：<%= l comment.updated_at, format: :default %></li>
+          <% else %>
+            Not User Data<br>
+          <% end %>
+          <div class="text_comment">
+            <li class="text_comment">内容：<%= auto_link(simple_format(h(comment.content),{}, sanitize: false, wrapper_tag: "div")) %></li>
+            <% if comment.user == current_user %>
+            　<li><%= link_to 'コメントを編集する', edit_task_comment_path(comment.task_id, comment.id) %></li>
+              <li><%= link_to 'コメントを削除する', task_comment_path(comment.task_id, comment.id), method: :delete, remote: true, data:{ confirm:"削除しますか？" } %></li>
+            <% end %>
+          </div>
+        </div>
     <% end %>
   <% end %>
 </ul>
 
 <ul>
-<% @comment.errors.full_messages.each do |message| %>
-  <h5><font color="red"><%= message %></font></h5>
-<% end %>
+  <% @comment.errors.full_messages.each do |message| %>
+    <h5><font color="red"><%= message %></font></h5>
+  <% end %>
 </ul>
