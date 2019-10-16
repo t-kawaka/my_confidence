@@ -1,17 +1,42 @@
 <% if flash[:notice] %>
   <div class="alert alert-info mt-3"><%= flash[:notice] %></div>
 <% end %>
-  <div class="main-container">
-    <div class="text-center main-page">
-      <div class="display-4 pt-3">my_confidenceへようこそ</div>
-      <p class="lead mt-2 text-dark">日々の記録をつけて自分に自信をもとう！!</p>
-      <p class="lead text-center">
+<div class="main-container">
+  <div class="text-center main-page">
+    <div class="display-4 pt-3">my_confidenceへようこそ</div>
+    <p class="lead mt-2 text-dark">日々の記録をつけて自分に自信をもとう！!</p>
+    <p class="lead text-center">
       <% if user_signed_in? %>
-       <%= link_to "アクション画面に戻る", tasks_path, class: "btn btn-lg btn-primary mr-5" %>
+       <%= link_to 'アクション画面に戻る', tasks_path, class: "btn btn-lg btn-primary mr-5" %>
       <% else %>
         <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn-primary mr-5" %>
         <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-lg btn-success" %>
       <% end %>
-      </p>
+    </p>
+  </div>
+</div>
+<div class="space mt-4">
+  <div class="container">
+    <div class= "p-4 bg-light">
+      <h1 class="text-center pb-3">my_confidenceとは？</h1>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <%= image_tag "/action.png", class:"top_picture" %>
+        <h3 font>日々の記録</h3>
+        <p>あなたの日々のアクションを記入することができます。<br>日頃のアクション振り返り、記入し続けることで自分自身の成長を感じましょう。</p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <%= image_tag "/user.png", class:"top_picture" %>
+        <h3>他のユーザーさんと共有</h3>
+        <p>自分だけでなく、登録している他のユーザーのアクションを見ることができます。<br>他のユーザーさんのアクションを見て自分自身の成長に役立ててください。</p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <%= image_tag "/follow.png", class:"top_picture" %>
+        <h3>フォロー機能</h3>
+        <p>気に入ったユーザーさんがいれば、そのユーザーさんのお気にいり登録や投稿に対してコメントをすることができます。</p>
+      </div><!-- /.col-lg-4 -->
     </div>
   </div>
+  </div>
+</div>
