@@ -11,8 +11,20 @@
         </thead>
         <tbody>
           <tr>
-            <th>アクション数</th>
+            <th>アクション数(合計数)</th>
             <td><%= @tasks.all.count(:id) %>回</td>
+          </tr>
+          <tr>
+            <th>開始数</th>
+            <td><%= @task_start.all.count(:id) %>回</td>
+          </tr>
+          <tr>
+            <th>途中数</th>
+            <td><%= @task_halfway.all.count(:id) %>回</td>
+          </tr>
+          <tr>
+            <th>完了数</th>
+            <td><%= @task_finish.all.count(:id) %>回</td>
           </tr>
           <tr>
             <th>活動合計時間</th>

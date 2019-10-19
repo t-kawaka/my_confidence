@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(version: 2019_10_07_174054) do
     t.datetime "start_time", default: -> { "now()" }, null: false
     t.text "notice"
     t.integer "require_time", null: false
-    t.string "progress", default: "開始", null: false
+    t.integer "progress", limit: 2, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"

@@ -69,6 +69,9 @@ class TasksController < ApplicationController
 
   def record
     @tasks = current_user.tasks.includes(:user)
+    @task_start = current_user.tasks.where(progress: "開始")
+    @task_halfway = current_user.tasks.where(progress: "途中")
+    @task_finish = current_user.tasks.where(progress: "完了")
   end
 
   private
