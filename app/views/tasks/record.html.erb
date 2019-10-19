@@ -4,23 +4,58 @@
       <h2>あなたのアクション記録</h2>
     </div>
     <div class="text-center">
-      <table class="table table-striped table-bordered table-hover">
+      <table class="table table-bordered table-hover">
         <thead>
           <th>タイトル</th>
           <th>実績</th>
         </thead>
         <tbody>
           <tr>
-            <th>アクション数</th>
-            <td><%= @tasks.all.count(:id) %>回</td>
+            <th><a data-toggle="collapse" href="#action">アクション数(合計数)<span class="caret"></span></a></th>
+            <td><a data-toggle="collapse" href="#action"><%= @tasks.all.count(:id) %>回</a></td>
+          </tr>
+          <tr class="collapse" id="action">
+            <th>開始数</th>
+            <td><%= @task_start.all.count(:id) %>回</td>
+          </tr>
+          <tr class="collapse" id="action">
+            <th>途中数</th>
+            <td><%= @task_halfway.all.count(:id) %>回</td>
+          </tr>
+          <tr class="collapse" id="action">
+            <th>完了数</th>
+            <td><%= @task_finish.all.count(:id) %>回</td>
+          </tr>
+
+          <tr>
+            <th><a data-toggle= "collapse" href= "#action2">アクション合計時間<span class="caret"></span></a></th>
+            <td><a data-toggle= "collapse" href= "#action2"><%= @tasks.all.sum(:require_time) %>分</a></td>
+          </tr>
+          <tr class="collapse" id="action2">
+            <th>開始合計時間</th>
+            <td><%= @task_start.all.sum(:require_time) %>分</td>
+          </tr>
+          <tr class="collapse" id="action2">
+            <th>途中合計時間</th>
+            <td><%= @task_halfway.all.sum(:require_time) %>分</td>
+          </tr>
+          <tr class="collapse" id="action2">
+            <th>完了合計時間</th>
+            <td><%= @task_finish.all.sum(:require_time) %>分</td>
           </tr>
           <tr>
-            <th>活動合計時間</th>
-            <td><%= @tasks.all.sum(:require_time) %>分</td>
+            <th>ユーザー活用レベル</th>
+            <% num = @task_halfway.all.count(:id) * @task_finish.all.sum(:require_time) / 50.ceil %>
+            <td>レベル：<%= num + 1 %></td>
           </tr>
         </tbody>
       </table>
     </div>
     <%= link_to '過去の取り組みに戻る', list_tasks_path, class:"btn btn-info ml-2 mb-3" %>
+
+    <div class="title-box2">
+    <div class="title-box2-title">ユーザー活用レベルとは？</div>
+      <p>あなたの完了数と完了したアクション合計時間に応じてユーザー活用レベルが上がります。<br>完了を重ねることでレベルアップを行い、ひいてはあなたの自信につなげてください。</p>
+    </div>
   </div>
 </div>

@@ -6,7 +6,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.datetime :start_time, default: -> { "now()" }, null: false
       t.text :notice
       t.integer :require_time, null: false
-      t.string :progress, default: "開始", null: false
+      t.integer :progress, default: 0, null: false, limit: 2
 
       t.timestamps
     end

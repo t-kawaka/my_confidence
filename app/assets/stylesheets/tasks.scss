@@ -98,3 +98,29 @@ table tbody tr th h4{
 .dropdown-menu{
   width: 180px;
 }
+
+.title-box2{
+  margin: 1em 0;
+  padding: 1.5em 1em 1em;
+  position: relative;
+  border: 1px solid #81d4fa;
+  background-color: #e1f5fe;
+  border-radius: 10px;
+}
+
+.title-box2-title{
+  position: absolute;
+  top: -0.8em;
+  left: 10px;
+  font-weight: bold;
+  font-size: 1.1em;
+  background-color: #81d4fa;
+  color: #fff;
+  padding: 0 0.5em;
+  border-radius: 10px;
+}
+
+.title-box2 p{
+  margin: 0;
+  padding: 0;
+}
