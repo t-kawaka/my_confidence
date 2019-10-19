@@ -1,5 +1,7 @@
 # アプリ名：my_confidence
 
+![top](public/top_README.png)
+
 ## アプリ概要
 
 自分自身の日々の活動記録を記述することができるサイトです。
@@ -9,9 +11,7 @@
 
 ## バージョン
 
-* ruby 2.6.4
-* rails 5.2.3
-* psql (PostgreSQL) 11.4
+![ruby version](https://img.shields.io/badge/ruby-ver.2.6.4-blue.svg) ![rails version](https://img.shields.io/badge/rails-ver.5.2.3-brightgreen.svg) ![PostgreSQL version](https://img.shields.io/badge/PostgreSQL-ver.11.4-orange.svg)
 
 ## 機能一覧
 - ログイン・ユーザー登録を搭載（deviseを導入 （就業Term 技術））
@@ -45,7 +45,7 @@
 ## ワイヤーフレームワーク
 
 <https://docs.google.com/spreadsheets/d/1PWTXyaOHQNR8c3mVfnO9akgOYq46YU_Pztu1CDlhiRU/edit#gid=1985858776>
-## 使用予定のGem
+## 使用Gem
 
 
 * devise
