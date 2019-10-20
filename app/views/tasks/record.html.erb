@@ -4,6 +4,20 @@
       <h2>あなたのアクション記録</h2>
     </div>
     <div class="text-center">
+      <div class="col-md-6 offset-3 mb-4">
+       <div class="card">
+         <div class="card-header pt-1">
+           <h4>ユーザー活用レベル</h4>
+         </div>
+         <div class="card-body">
+           <h2 class="card-title">
+             <% level = @tasks.all.count(:id) * @tasks.all.sum(:require_time) / 100.ceil %>
+             <td>Lv.<%= level + 1 %></td>
+           </h2>
+         </div>
+       </div>
+     </div>
+
       <table class="table table-bordered table-hover">
         <thead>
           <th>タイトル</th>
@@ -43,19 +57,16 @@
             <th>完了合計時間</th>
             <td><%= @task_finish.all.sum(:require_time) %>分</td>
           </tr>
-          <tr>
-            <th>ユーザー活用レベル</th>
-            <% num = @task_halfway.all.count(:id) * @task_finish.all.sum(:require_time) / 50.ceil %>
-            <td>レベル：<%= num + 1 %></td>
-          </tr>
         </tbody>
       </table>
     </div>
     <%= link_to '過去の取り組みに戻る', list_tasks_path, class:"btn btn-info ml-2 mb-3" %>
 
-    <div class="title-box2">
-    <div class="title-box2-title">ユーザー活用レベルとは？</div>
-      <p>あなたの完了数と完了したアクション合計時間に応じてユーザー活用レベルが上がります。<br>完了を重ねることでレベルアップを行い、ひいてはあなたの自信につなげてください。</p>
+    <div class="space">
+      <div class="title-box2">
+      <div class="title-box2-title">ユーザー活用レベルとは？</div>
+        <p>あなたのアクション数とアクション合計時間に応じてユーザー活用レベルが上がります。<br>アクションを重ねることでレベルアップを行い、ひいてはあなたの自信につなげてください。<i class="far fa-thumbs-up"></i></p>
+      </div>
     </div>
   </div>
 </div>
