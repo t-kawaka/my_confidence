@@ -3,9 +3,10 @@
     <div class="col-md-12">
       <div class="text-center">
         <h2>あなたの過去の取り組み</h2>
-      </div>
-      <div class="nav.justify-content-end text-right">
-        <%= link_to "あなたのアクション記録", record_tasks_path, class: "nav-link" %>
+        <div class="justify-content-end text-right mb-3">
+          <%= link_to "あなたのアクション記録", record_tasks_path %>
+          <%= link_to "あなたのアクション記録", record_tasks_path %>
+        </div>
       </div>
       <div class="text-center">
         <%= search_form_for @q, :url => list_tasks_path do |f| %>

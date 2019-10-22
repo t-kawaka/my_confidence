@@ -11,8 +11,8 @@
          </div>
          <div class="card-body">
            <h2 class="card-title">
-             <% level = @tasks.all.count(:id) * @tasks.all.sum(:require_time) / 100.ceil %>
-             <td>Lv.<%= level + 1 %></td>
+             <% level = @tasks.sum(:require_time) / 100.ceil %>
+             <td>Lv.<%= level+1 %></td>
            </h2>
          </div>
        </div>
@@ -65,7 +65,7 @@
     <div class="space">
       <div class="title-box2">
       <div class="title-box2-title">ユーザー活用レベルとは？</div>
-        <p>あなたのアクション数とアクション合計時間に応じてユーザー活用レベルが上がります。<br>アクションを重ねることでレベルアップを行い、ひいてはあなたの自信につなげてください。<i class="far fa-thumbs-up"></i></p>
+        <p>あなたのアクション合計時間に応じてユーザー活用レベルが上がります。<br>アクションを重ねることでレベルアップを行い、ひいてはあなたの自信につなげてください。<i class="far fa-thumbs-up"></i></p>
       </div>
     </div>
   </div>

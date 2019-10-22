@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   def index
     @points = current_user.points
     @tasks = current_user.tasks.recent.includes([:task_tags, :tags])
+    @task = current_user.tasks.includes(:user)
   end
 
   def new
