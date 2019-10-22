@@ -6,11 +6,13 @@
 <% end %>
 
 <div class="task-container">
-  <div class="main-page col-md-7 offset-1">
-    <div class="display-4 pt-4">my_confidence</div>
+  <div class="main-page col-lg-7 offset-1">
+    <% level = @task.sum(:require_time) / 100.ceil %>
+    <p class="lead">ユーザー活用レベル：<%= level+1 %></p>
+    <div class="display-4">my_confidence</div>
     <p class="lead mt-3">このサイトは、日々のアクションを記入するサイトです。</p>
-    <p class="lead mt-3">日々のアクションを記入して、自分はこれだけのことをやったと自分に自信を持ちましょう。<i class="fas fa-running"></i></p>
-    <p><h5><%= link_to "本日のアクション", new_task_path, class: "btn btn-lg btn-outline-light mt-4 w-75 p-3" %></h5></p>
+    <p class="lead mt-3">日々のアクションを記入して、自分はこれだけのことをやったと自分に自信を持ちましょう。
+    <p><h5><%= link_to "本日のアクション", new_task_path, class: "btn btn-lg btn-outline-light mt-2 w-75 p-3" %></h5></p>
   </div>
 </div>
 <div class="container">

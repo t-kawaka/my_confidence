@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   def index
     @points = current_user.points
     @tasks = current_user.tasks.recent.includes([:task_tags, :tags])
+    @task = current_user.tasks.includes(:user)
   end
 
   def new
@@ -72,6 +73,10 @@ class TasksController < ApplicationController
     @task_start = current_user.tasks.where(progress: "開始")
     @task_halfway = current_user.tasks.where(progress: "途中")
     @task_finish = current_user.tasks.where(progress: "完了")
+  end
+
+  def ranking
+    @tasks = user.tasks.includes(:user)
   end
 
   private

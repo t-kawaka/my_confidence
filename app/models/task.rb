@@ -41,7 +41,6 @@ class Task < ApplicationRecord
     []
   end
 
-
   def start_cannnot_be_in_the_future
     if start_time.present? && start_time > Date.today
       errors.add(:start_time, 'は明日以降の日付を設定できません！')
