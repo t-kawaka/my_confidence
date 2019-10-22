@@ -75,6 +75,10 @@ class TasksController < ApplicationController
     @task_finish = current_user.tasks.where(progress: "完了")
   end
 
+  def ranking
+    @tasks = user.tasks.includes(:user)
+  end
+
   private
 
   def task_params
