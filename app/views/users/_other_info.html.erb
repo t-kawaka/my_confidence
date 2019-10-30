@@ -5,6 +5,7 @@
       <th><%= t('view.name') %></th>
       <th>詳細情報</th>
       <th>ユーザーフォロー</th>
+      <th>メッセージ</th>
     </tr>
   </thead>
   <tbody>
@@ -22,13 +23,13 @@
             <td><h5><%= link_to 'ユーザー本人', user_path(user), class: "btn btn-primary" %></h5></td>
             <td></td>
           </div>
-
         <% else %>
           <div class="user_list">
             <td><h5><%= user.name %>さん</h5></td>
             <% if user.status == "ユーザー公開" %>
               <td><h5><%= link_to '公開中', user_path(user), class: "btn btn-primary" %></h5></td>
               <td><h5><%= render 'follow_form', user: user %></h5></td>
+              <td><h5><%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post, class: 'btn btn-primary mt-2' %></h5></td>
             <% else %>
               <td class="info">非公開</td>
               <td></td>

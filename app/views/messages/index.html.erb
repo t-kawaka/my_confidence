@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>メッセージ</h2>
+  <% if @over_ten %>
+    <%= link_to '以前のメッセージ', '?m=all' %>
+  <% end %>
+
+  <div class="ui segment">
+    <% @messages.each do |message| %>
+      <% if message.body.present? %>
+        <%= render 'message', message: message %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= form_with(model: [@conversation, @message]) do |f| %>
+    <div class="field">
+      <%= f.text_area :body, class: "form-control", placeholder: 'メッセージを入力' %>
+    </div>
+      <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+    <div>
+      <%= f.submit "メッセージを送る" %>
+    </div>
+  <% end %>
+</div>

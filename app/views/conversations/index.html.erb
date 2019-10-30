@@ -1,0 +1,12 @@
+<div class="conversation-index">
+  <div class="conversation-index__title">メッセージ一覧</div>
+    <div class="conversation-index__items">
+      <% @conversations.each do |conversation| %>
+          <% if conversation.target_user(current_user).present? %>
+            <div class="conversation-item__username">
+              <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
+</div>

@@ -21,7 +21,8 @@
           <% end %>
           <% if current_user.id == @user.id %>
             <%= link_to 'プロフィールを編集する', edit_user_registration_path, class: 'btn btn-primary mb-4' %>
-            <%= link_to '登録ユーザー一覧に戻る', users_path, class: 'btn btn-link mb-3' %>
+            <%= link_to '登録ユーザー一覧に戻る', users_path, class: 'btn btn-link mb-2' %>
+            <%= link_to 'メッセージ一覧', conversations_path, class: 'btn btn-link mb-2' %>
           <% else %>
             <%= render 'follow_form', user: @user %>
             <%= link_to 'マイページに戻る', user_path(current_user), class: 'btn btn-link mb-3 mt-4' %>
