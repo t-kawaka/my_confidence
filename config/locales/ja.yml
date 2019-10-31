@@ -62,6 +62,8 @@ ja:
       contact:
         title: タイトル
         content: 内容
+      message:
+        body: メッセージ
   date:
     abbr_day_names:
     - 日曜日

@@ -21,20 +21,18 @@ class MessagesController < ApplicationController
         @messages.last.read = true
       end
     end
-    @messages = @messages.order(:created_at)
+
     @message = @conversation.messages.build
   end
 
   def create
     @message = @conversation.messages.build(message_params)
-    if @message.save
-      redirect_to conversation_messages_path(@conversation)
-    else
-      @conversation = Conversation.find(params[:conversation_id])
-      @messages = @conversation.messages
-      # flash[:notice] = "メッセージが入力されていません"
-      redirect_to conversation_messages_path(@conversation), notice: "メッセージが入力されていません"
-      # render 'index'
+    respond_to do |format|
+      if @message.save
+        format.js
+      else
+        format.js { render partial: 'messages/error' }
+      end
     end
   end
 
