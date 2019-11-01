@@ -3,17 +3,19 @@
 <% end %>
 <div class="main-container">
   <div class="text-center main-page">
-    <div class="display-4 pt-3">my_confidenceへようこそ</div>
-    <p class="lead mt-2 text-dark">日々の記録をつけて自分に自信をもとう！!</p>
-    <p class="lead text-center">
-      <% if user_signed_in? %>
-       <%= link_to 'アクション画面に戻る', tasks_path, class: "btn btn-lg btn-primary mr-5" %>
-      <% else %>
-        <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn-primary mr-5" %>
-        <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-lg btn-success" %>
-      <% end %>
-    </p>
-  </div>
+    <div class="text_opacity">
+      <div class="display-4 pt-3">my_confidenceへようこそ</div>
+      <p class="lead mt-2">日々の記録をつけて自分に自信をもとう！!</p>
+    </div>
+      <p class="text-center">
+        <% if user_signed_in? %>
+         <%= link_to 'アクション画面に戻る', tasks_path, class: "btn btn-lg btn-primary mr-5" %>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: "btn btn-lg btn-primary mr-5" %>
+          <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-lg btn-success" %>
+        <% end %>
+      </p>
+    </div>
 </div>
 <div class="space mt-4">
   <div class="container">

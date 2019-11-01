@@ -1,12 +1,22 @@
-<div class="conversation-index">
-  <div class="conversation-index__title">メッセージ一覧</div>
-    <div class="conversation-index__items">
+<div class="container col-6 offset-3">
+  <div class="text-center">
+    <h2 class="top_heading mt-4">メッセージ一覧</h2>
+  </div>
+  <div class="nav.justify-content-end text-right">
+    <%= link_to "#{current_user.name}さんのユーザー情報", current_user, class: "nav-link" %>
+  </div>
+  <div class="table mt-2">
+    <div class="user_message_link">
       <% @conversations.each do |conversation| %>
-          <% if conversation.target_user(current_user).present? %>
-            <div class="conversation-item__username">
-              <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
-            </div>
-          <% end %>
+        <% if conversation.target_user(current_user).present? %>
+          <div class="conversation-item__username">
+            <%= link_to(conversation_messages_path(conversation), class: 'd-block message-link') do %>
+              <%= conversation.target_user(current_user).name %>
+            <% end %>
+          </div>
+          <hr>
+        <% end %>
       <% end %>
     </div>
+  </div>
 </div>

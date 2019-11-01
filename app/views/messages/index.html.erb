@@ -1,5 +1,10 @@
-<div class="container">
-  <h2>メッセージ</h2>
+<div class="container col-6 offset-3">
+  <div class="text-center">
+    <h2 class="top_heading mt-4">メッセージ</h2>
+  </div>
+  <div class="nav.justify-content-end text-right">
+    <%= link_to "メッセージ一覧に戻る", conversations_path, class: "nav-link" %>
+  </div>
   <% if @over_ten %>
     <%= link_to '以前のメッセージ', '?m=all' %>
   <% end %>
@@ -12,7 +17,6 @@
     <% end %>
   </div>
 
-  <hr>
   <div class= 'message_area'>
     <div id ='error_message'></div>
     <%= form_with(model: [@conversation, @message]) do |f| %>
