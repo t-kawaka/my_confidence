@@ -4,6 +4,22 @@
 // index
 
 // エラーメッセージ
-#error_explanation .error_message{
+#error_explanation .error_message {
   margin-left :-40px;
+}
+
+.table .user_message_column {
+  padding: 1rem;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 8px;
+  display: flex;
+}
+
+.body .message-content {
+  font-size: 1.1rem;
+}
+
+.body .text-right {
+  font-size: 0.9rem;
 }

@@ -12,7 +12,9 @@
       <% else %>
         <td><%= image_tag 'default.jpg', :height => '70px' %></td>
       <% end %>
-      <td><h5><%= link_to "#{current_user.name}さん", current_user %></h5></td>
+      <td><%= link_to current_user, class: 'd-block message-link, p-4' do %>
+        <%= "#{current_user.name}さん" %></td>
+      <% end %>
     </tr>
   </tbody>
 </table>

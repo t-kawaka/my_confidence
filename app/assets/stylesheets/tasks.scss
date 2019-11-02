@@ -124,3 +124,13 @@ table tbody tr th h4{
   margin: 0;
   padding: 0;
 }
+
+/* 本日のアクション ボタン*/
+.main-page .btn_lead{
+  color: white;
+  text-shadow: 1px 1px 1px black;
+}
+
+.main-page .btn_lead:hover{
+  color: black;
+}

@@ -5,10 +5,7 @@
   font-size: 4rem;
 }
 
-.text-center .text_opacity{
-  opacity: 1.0;
-}
-
+/* トップページ 画像*/
 .main-container {
   background: image-url('/main_picture.jpg');
   height: 280px;
@@ -16,13 +13,13 @@
   opacity: 0.7;
 }
 
-.main-page{
+.main-page {
   padding-top:30px;
 }
 
 .display-4, .lead{
   color: white;
-  text-shadow: 2px 2px 0 black;
+  text-shadow: 2px 2px 3px black;
 }
 
 .col-lg-4 .top_picture{
