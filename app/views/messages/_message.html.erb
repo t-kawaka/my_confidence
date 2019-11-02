@@ -1,15 +1,10 @@
 <div class="table">
   <div class="user_message_link">
-    <div class="item">
-      <div class="content">
-        <div class="header"><strong><%= message.user.name %></strong> <%= message.message_time %></div>
-        <div class="list">
-          <div class="item">
-            <i class="right triangle icon"></i>
-            <%= message.body %>
-          </div>
-        </div>
-      </div>
+    <div class="header">
+      <strong><%= message.user.name %></strong><%= l message.created_at %>
+    </div>
+    <div class="body">
+      <%= message.body %>
     </div>
   </div>
 </div>

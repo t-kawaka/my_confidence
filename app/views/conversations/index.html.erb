@@ -2,6 +2,9 @@
   <div class="text-center">
     <h2 class="top_heading mt-4">メッセージ一覧</h2>
   </div>
+  <% if flash[:notice] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+  <% end %>
   <div class="nav.justify-content-end text-right">
     <%= link_to "#{current_user.name}さんのユーザー情報", current_user, class: "nav-link" %>
   </div>
