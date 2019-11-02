@@ -32,7 +32,7 @@ class TagsController < ApplicationController
   def update
     if @tag.user_id == current_user.id
       if @tag.update(tag_params)
-        flash[:notice] = "重点的に取り組んでいること「#{@tag.name}」を編集しました"
+        flash[:notice] = "重点的に取り組んでいること「#{@tag.name}」を更新しました"
         redirect_to tags_path
       else
         flash[:alert] = "アクションタグを入力してください"

@@ -1,0 +1,34 @@
+<div class="container col-8 offset-2">
+  <div class="text-center">
+    <h2 class="top_heading mt-4">メッセージ</h2>
+  </div>
+  <div class="nav.justify-content-end text-right">
+    <%= link_to "メッセージ一覧に戻る", conversations_path, class: "nav-link" %>
+  </div>
+  <% if @over_ten %>
+    <%= link_to '以前のメッセージ', '?m=all' %>
+  <% end %>
+
+  <div id='message' class="ui segment">
+    <% @messages.each do |message| %>
+      <% if message.body.present? %>
+        <%= render 'message', message: message %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class= 'message_area'>
+    <div id ='error_message'></div>
+    <%= form_with(model: [@conversation, @message]) do |f| %>
+      <div class="form-group">
+        <%= f.text_area :body, id: 'message_field', class: "form-control", placeholder: 'メッセージを入力' %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+      </div>
+      <div class="space">
+        <%= f.submit "メッセージを送る", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

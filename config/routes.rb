@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :users, :only => [:index, :show]
   get '/my_confidence', to: 'tops#index'
+  resources :conversations do
+   resources :messages
+  end
 
   resources :tasks do
     collection do
