@@ -1,6 +1,6 @@
 # アプリ名：my_confidence
 
-![top](public/top_README.png)
+![top](public/top_README1.png)
 
 ## アプリ概要
 
