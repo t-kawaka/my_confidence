@@ -15,6 +15,7 @@ ja:
     list: あなたの過去の取り組み
     tag: アクションタグ
     introduce: 何かひとこと
+    rate: 本日のアクションの評価
   views:
     pagination:
       first: 最初
@@ -41,6 +42,7 @@ ja:
         notice: 本日学んだこと（空欄でもOKです。リンクの貼りつけも可能です。）
         require_time: 取り組み時間（半角入力、単位：分）
         progress: 進捗状況
+        rate: 本日のアクションの評価
       user:
         name: ユーザー名
         email: メールアドレス

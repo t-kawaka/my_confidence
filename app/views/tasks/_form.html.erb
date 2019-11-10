@@ -49,6 +49,10 @@
     <%= form.label :progress %>
     <%= form.select :progress, Task.progresses_i18n.keys.map {|k| [Task.progresses_i18n[k], k]} %>
   </div>
+  <div class="form-group" id="star">
+    <%= form.label :rate, class: 'mr-3' %>
+    <%= form.hidden_field :rate, id: :review_star %>
+  </div>
 
   <div class="space">
     <div class="submit">
@@ -58,3 +62,15 @@
     </div>
   </div>
 <% end %>
+
+<script>
+  $('#star').raty({
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    scoreName: 'task[rate]',
+    score: '<%= @task.rate %>',
+    half: true
+  });
+</script>

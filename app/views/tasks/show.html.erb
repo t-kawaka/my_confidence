@@ -37,6 +37,12 @@
       <tr>
         <h5><%= t('view.progress') %>：<%= @task.progress %></h5>
       </tr>
+      <tr>
+        <div class="star_space">
+          <h5 class='mb-1'><%= t('view.rate') %>：<%= @task.rate %>点</h5>
+          <div id="star-rate-<%= @task.id %>"></div>
+        </div>
+      </tr>
 
       <% if @task.user_id == current_user.id %>
         <%= link_to '編集', edit_task_path(@task), class: "btn btn-success ml-2 mb-3" %>
@@ -62,3 +68,15 @@
     </div>
   </div>
 </div>
+
+<script>
+  $('#star-rate-<%= @task.id %>').raty({
+    size: 35,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: '<%= @task.rate %>'
+  });
+</script>
