@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 2019_11_10_152526) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.float "rate", null: false
+    t.float "rate"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
