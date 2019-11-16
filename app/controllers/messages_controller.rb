@@ -5,9 +5,6 @@ class MessagesController < ApplicationController
   end
 
   def index
-    if @conversation.sender_id != current_user.id
-      redirect_to conversations_path, notice: "そのユーザーのメッセージページに入ることはできません"
-    end
     @messages = @conversation.messages
     if @messages.length > 10
       @over_ten = true
