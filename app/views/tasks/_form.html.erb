@@ -11,7 +11,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :title %><br>
+    <%= form.label :アクションタグ %><br>
       <%= form.collection_check_boxes(:tag_ids, current_user.tags.all, :id, :name) do |tag| %>
         <div class="form-check form-check-inline">
           <%= tag.label class: "form-check form-check-inline" do %>
