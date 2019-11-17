@@ -18,26 +18,26 @@
 <div class="container">
   <div class= "task_top_border">
     <table class="col-md-8 offset-2">
-        <% if @points.present? %>
-            <tr>
-              <span class="box-title"><現在、重点的に取り組んでいること></span>
-            </tr>
-            <tr>
-              <% @points.each do |point| %>
-                <td class="w-80"><h4><%= point.name %></h4></td>
-                <td class="button"><%= link_to "修正", edit_point_path(point.id), class: "btn btn-success mb-1" %></td>
-                <td class="button"><%= link_to "削除", point_path(point.id),method: :delete, data: {confirm: '重点的に取り組んでいること削除する？'}, class: "btn btn-danger mb-1" %></td>
-              <% end %>
-            </tr>
-          <% else %>
-            <tr>
-              <span class="box-title"><現在、重点的に取り組んでいること></span>
-            </tr>
-            <tr>
-              <td><h4>特にありません</h4></td>
-              <td class="focus"><%= link_to '重点的に取り組んでいることがあればこちらに入力', new_point_path, class:"btn btn-primary" %></td>
-            </tr>
-          <% end %>
+      <% if @points.present? %>
+          <tr>
+            <span class="box-title"><現在、重点的に取り組んでいること></span>
+          </tr>
+          <tr>
+            <% @points.each do |point| %>
+              <td class="w-80"><h4><%= point.name %></h4></td>
+              <td class="button"><%= link_to "修正", edit_point_path(point.id), class: "btn btn-success mb-1" %></td>
+              <td class="button"><%= link_to "削除", point_path(point.id),method: :delete, data: {confirm: '重点的に取り組んでいること削除する？'}, class: "btn btn-danger mb-1" %></td>
+            <% end %>
+          </tr>
+        <% else %>
+          <tr>
+            <span class="box-title"><現在、重点的に取り組んでいること></span>
+          </tr>
+          <tr>
+            <td><h4>特にありません</h4></td>
+            <td class="focus"><%= link_to '重点的に取り組んでいることがあればこちらに入力', new_point_path, class:"btn btn-primary" %></td>
+          </tr>
+        <% end %>
       </table>
     </div>
 
@@ -69,19 +69,19 @@
   </table>
 
   <div class="space">
-  <%= month_calendar events: @tasks do |date, tasks| %>
-    <%= date.day %>
+    <%= month_calendar events: @tasks do |date, tasks| %>
+      <%= date.day %>
 
-    <% tasks.each do |task| %>
-      <div>
-        <% if task.tags.present? %>
-          <% task.tags.each do |tag| %>
-            <label class='badge badge-primary'><%=tag.name %></label><br>
+      <% tasks.each do |task| %>
+        <div>
+          <% if task.tags.present? %>
+            <% task.tags.each do |tag| %>
+              <label class='badge badge-primary'><%=tag.name %></label><br>
+            <% end %>
           <% end %>
-        <% end %>
-        <%= link_to task.title, task %>
-      </div>
+          <%= link_to task.title, task %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
   </div>
 </div>

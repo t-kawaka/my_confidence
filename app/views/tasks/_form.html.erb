@@ -1,14 +1,14 @@
 <%= form_with(model: @task, local: true) do |form| %>
-<% if @task.errors.any? %>
-  <div id="error_explanation">
-    <h3><%= @task.errors.count %>件のエラーがあります。</h3>
-    <ul>
-    <% @task.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= @task.errors.count %>件のエラーがあります。</h3>
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= form.label :title %><br>
@@ -19,7 +19,7 @@
             <%= tag.text %>
           <% end %>
         </div>
-     <% end %>
+      <% end %>
     <% if controller.action_name == "new" %>
       <%= link_to "アクションタグの内容変更はこちら", tags_path, class: "btn btn-sm btn-success" %>
     <% end %>
@@ -57,7 +57,7 @@
   <div class="space">
     <div class="submit">
       <%= form.submit "保存", class:"btn btn-primary" %>
-      <%= link_to "トップページに戻る", root_path, class: 'btn btn-info ml-2' %>
+      <%= link_to "トップページに戻る", tasks_path, class: 'btn btn-info ml-2' %>
       <%= link_to "あなたの過去の取り組み", list_tasks_path, class:"btn btn-info ml-2" %>
     </div>
   </div>

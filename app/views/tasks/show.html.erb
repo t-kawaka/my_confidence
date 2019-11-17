@@ -3,7 +3,7 @@
     <div class="card-header">
       <h2><%= l @task.start_time, format: :short %>の成果</h2>
       <% if @task.user_id != current_user.id %>
-       <h4 class="text-danger">他の登録ユーザーさんの画面です。</h4>
+        <h4 class="text-danger">他の登録ユーザーさんの画面です。</h4>
       <% end %>
     </div>
     <% if flash[:notice] %>
@@ -14,10 +14,9 @@
       <% if @task.tags.blank? %>
         アクションタグなし</h5>
       <% else %>
-      <% @task.tags.each do |tag| %>
-        <label class='badge badge-primary'><%= tag.name %></label>
-      <% end %>
-
+        <% @task.tags.each do |tag| %>
+          <label class='badge badge-primary'><%= tag.name %></label>
+        <% end %>
       <% end %>
       <tr>
         <td><h5><%= t('view.title') %>：</h5></td>
