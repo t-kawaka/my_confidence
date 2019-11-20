@@ -21,14 +21,27 @@
       <tr>
         <td><h5><%= t('view.title') %>：<%= @task.title %></h5></td>
       </tr>
-      <tr>
-        <td><h5><%= t('view.description') %>：
-        <%= auto_link(simple_format(h(@task.description),{}, sanitize: false, wrapper_tag: "div")) %></h5></td>
-      </tr>
-      <tr>
-        <td><h5><%= t('view.notice') %>：
-        <%= auto_link(simple_format(h(@task.notice),{}, sanitize: false, wrapper_tag: "div")) %></h5></td>
-      </tr>
+      <p>
+        <tr>
+          <div class="box">
+            <th><h5><%= t('view.description') %>：</h5></th>
+          </div>
+          <div class="box">
+            <td><h5><%= auto_link(simple_format(@task.description), html:{target: '_blank'}) %></h5></td>
+          </div>
+        </tr>
+      </p>
+      
+      <p>
+        <tr>
+          <div class="box">
+            <th><h5><%= t('view.notice') %>：</h5></th>
+          </div>
+          <div class="box">
+            <td><h5><%= auto_link(simple_format(@task.notice), html:{target: '_blank'}) %></h5></td>
+          </div>
+        </tr>
+      </p>
       <tr>
         <h5><%= t('view.require_time') %>：<%= @task.require_time %>分</h5>
       </tr>
