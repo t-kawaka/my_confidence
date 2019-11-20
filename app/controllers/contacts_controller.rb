@@ -7,7 +7,6 @@ class ContactsController < ApplicationController
 
   def create
     @contact = current_user.contacts.build(contact_params)
-
     if params[:back].present?
       render :new
       return

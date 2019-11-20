@@ -26,38 +26,43 @@ class User < ApplicationRecord
   has_many :task_favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :contacts, dependent: :destroy
-  validates :name, presence: true, uniqueness: true, length: { maximum: 20 }
-  mount_uploader :icon, IconUploader
-  scope :recent, -> { order(start_time: :desc) }
-  accepts_nested_attributes_for :tasks, allow_destroy: true
-  enum status: { ユーザー非公開: 0, ユーザー公開: 1 }
   has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
-  has_many :passive_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
-
   has_many :following, through: :active_relationships, source: :followed, dependent: :destroy
+  has_many :passive_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower, dependent: :destroy
 
+
+  validates :name, presence: true, uniqueness: true, length: { maximum: 20 }
+
+  mount_uploader :icon, IconUploader
+
+  scope :recent, -> { order(start_time: :desc) }
+
+  accepts_nested_attributes_for :tasks, allow_destroy: true
+  
+  enum status: { ユーザー非公開: 0, ユーザー公開: 1 }
+
   #指定のユーザをフォローする
- def follow!(other_user)
-   active_relationships.create!(followed_id: other_user.id)
- end
+  def follow!(other_user)
+    active_relationships.create!(followed_id: other_user.id)
+  end
 
  #フォローしているかどうかを確認する
- def following?(other_user)
-   active_relationships.find_by(followed_id: other_user.id)
- end
+  def following?(other_user)
+    active_relationships.find_by(followed_id: other_user.id)
+   end
 
- def followed?(other_user)
-   passive_relationships.find_by(follower_id: other_user.id)
- end
+  def followed?(other_user)
+    passive_relationships.find_by(follower_id: other_user.id)
+  end
 
 #指定のユーザのフォローを解除する
- def unfollow!(other_user)
-   active_relationships.find_by(followed_id: other_user.id).destroy
- end
+  def unfollow!(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
 
 # Edit/Password不要
- def update_without_current_password(params, *options)
+  def update_without_current_password(params, *options)
 
     if params[:password].blank? && params[:password_confirmation].blank?
       params.delete(:password)
@@ -69,10 +74,9 @@ class User < ApplicationRecord
     result
   end
 
-
-  after_create :send_welcome_mail
-
   def send_welcome_mail
     UserMailer.user_welcome_mail(self).deliver
   end
+
+  after_create :send_welcome_mail
 end

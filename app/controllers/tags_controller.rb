@@ -50,7 +50,7 @@ class TagsController < ApplicationController
        redirect_to tags_path
     else
      redirect_to tags_path, notice: "削除許可がありません."
-   end
+    end
   end
 
 
