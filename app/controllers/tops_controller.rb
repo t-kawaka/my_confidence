@@ -4,7 +4,7 @@ class TopsController < ApplicationController
       redirect_to tasks_path
     else
       @users = User.where(status: 1).order(created_at: :desc).limit(3)
-      @tasks = Task.all.order(created_at: :asc).limit(1)
+      @tasks = Task.all.order(start_time: :desc)
     end
   end
 
