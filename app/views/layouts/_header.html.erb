@@ -51,6 +51,9 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
+            <%= link_to "登録ユーザー一覧", users_path, class: "nav-link js-scroll-trigger fas fa-user-friends mt-1 mb-1" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "ログイン", new_user_session_path, class: "nav-link js-scroll-trigger" %>
           </li>
           <li class="nav-item">
