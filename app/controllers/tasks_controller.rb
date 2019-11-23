@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[index new create edit update destroy list record ranking]
   before_action :set_task, only: %i[show edit update destroy]
 
   def index
@@ -15,7 +15,9 @@ class TasksController < ApplicationController
   def show
     @comments = @task.comments.includes(:user)
     @comment = @task.comments.build
-    @task_favorite = current_user.task_favorites.find_by(task_id: @task.id)
+    if user_signed_in?
+      @task_favorite = current_user.task_favorites.find_by(task_id: @task.id)
+    end
   end
 
   def create
