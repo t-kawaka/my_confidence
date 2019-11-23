@@ -1,0 +1,78 @@
+<div class="container col-8 offset-2">
+  <div class="card">
+    <div class="card-header">
+      <h2><%= l @task.start_time, format: :short %>の成果</h2>
+      <h4 class="text-danger"><%= @task.user.name %>さんの画面です。</h4>
+    </div>
+    <div class="card-body">
+      <h5><%= t('view.tag') %>：
+      <% if @task.tags.blank? %>
+        アクションタグなし</h5>
+      <% else %>
+        <% @task.tags.each do |tag| %>
+          <label class='badge badge-primary'><%= tag.name %></label>
+        <% end %>
+      <% end %>
+      <tr>
+        <td><h5><%= t('view.title') %>：<%= @task.title %></h5></td>
+      </tr>
+      <p>
+        <tr>
+          <div class="box">
+            <th><h5><%= t('view.description') %>：</h5></th>
+          </div>
+          <div class="box">
+            <td><h5><%= auto_link(simple_format(@task.description), html:{target: '_blank'}) %></h5></td>
+          </div>
+        </tr>
+      </p>
+
+      <p>
+        <tr>
+          <div class="box">
+            <th><h5><%= t('view.notice') %>：</h5></th>
+          </div>
+          <div class="box">
+            <td><h5><%= auto_link(simple_format(@task.notice), html:{target: '_blank'}) %></h5></td>
+          </div>
+        </tr>
+      </p>
+      <tr>
+        <h5><%= t('view.require_time') %>：<%= @task.require_time %>分</h5>
+      </tr>
+      <tr>
+        <h5><%= t('view.progress') %>：<%= @task.progress %></h5>
+      </tr>
+      <tr>
+        <div class="star_space">
+          <h5 class='mb-1'><%= t('view.rate') %>：<%= @task.rate %>点</h5>
+          <div id="star-rate-<%= @task.id %>"></div>
+        </div>
+      </tr>
+      <%= link_to '戻る', root_path, class:"btn btn-info ml-2 mb-3" %>
+      <%= link_to '登録ユーザー一覧', users_path, class:"btn btn-info ml-2 mb-3" %>
+
+      <div id="likes_buttons_<%= @task.id %>">
+        <%= render partial: 'task_favorites/like', locals: { task: @task} %>
+      </div>
+    </div>
+  </div>
+
+  <div class="space">
+    <div id= "comments_area" class="comments_area_form">
+      <%= render partial: 'comments/index', locals: { comments: @comments, task: @task } %>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('#star-rate-<%= @task.id %>').raty({
+    size: 35,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: '<%= @task.rate %>'
+  });
+</script>
