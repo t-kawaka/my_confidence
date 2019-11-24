@@ -34,6 +34,8 @@ ja:
       relationship: ユーザーフォロー
       task_favorite: 投稿内容のフォロー
       task_tag: タグの中間テーブル
+      conversation: メッセージ一覧
+      message: メッセージ
     attributes:
       task:
         title: アクション内容
