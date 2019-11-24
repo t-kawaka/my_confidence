@@ -3,7 +3,7 @@ class TopsController < ApplicationController
     if user_signed_in?
       redirect_to tasks_path
     else
-      @users = User.where(status: 1).limit(3)
+      @users = User.where(status: 1).order(created_at: :asc).limit(3)
       @tasks = Task.all.order(start_time: :desc)
     end
   end
